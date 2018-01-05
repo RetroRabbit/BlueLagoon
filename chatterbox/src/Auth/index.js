@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
+import Login from './Login';
 import './Auth.css';
 
 class Auth extends Component {
   render() {
     return (
       <div className="Auth">
-        <p className="auth-box">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      	<div className="auth-box">
+	        <Login/>
+	    </div>
       </div>
     );
   }
