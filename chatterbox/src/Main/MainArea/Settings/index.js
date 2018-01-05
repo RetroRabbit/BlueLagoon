@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import FlatButton from 'material-ui/FlatButton';
+import Button from 'material-ui/Button';
 import './settings.css';
 
 class Settings extends React.Component {
@@ -21,7 +21,7 @@ class Settings extends React.Component {
                   </div>
                 </div>
 
-                <button className="rectangle-2">Done</button>
+                <Button className="rectangle-2">Done</Button>
               </div>;
     }
   }
