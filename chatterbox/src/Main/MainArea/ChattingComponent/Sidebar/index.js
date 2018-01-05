@@ -1,6 +1,7 @@
 import React from 'react';
 import './index.css';
-import logo from '../../../../assets/img_avatar.png';
+import logo from '../../../../assets/male1.png';
+
 
 class Sidebar extends React.Component {
 
