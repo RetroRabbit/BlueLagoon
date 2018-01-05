@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import Login from './Login';
+import Register from './Register';
 import './Auth.css';
 
 class Auth extends Component {
@@ -8,7 +9,7 @@ class Auth extends Component {
     return (
       <div className="Auth">
       	<div className="auth-box">
-	        <Login/>
+	        <Register/>
 	    </div>
       </div>
     );
