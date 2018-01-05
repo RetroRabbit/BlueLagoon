@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {Button} from "material-ui";
 import './Register.css';
 
 class Register extends Component {
@@ -16,6 +17,9 @@ class Register extends Component {
         <div className="input-line">
 	        <input className="register-input" placeholder="Password"/>
         </div>
+	    <Button raised color="#0DABAF">
+	      NEXT
+	    </Button>
       </div>
     );
   }
