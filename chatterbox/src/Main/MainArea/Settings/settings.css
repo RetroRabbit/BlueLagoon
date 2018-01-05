@@ -1,0 +1,35 @@
+.group {
+    height: 431px;	
+    width: 282px;
+}
+
+.profile-picture {
+    width: 269px;
+    height: 269px;
+    background-color: burlywood;
+}
+
+.user-details{
+    width: 224px;
+    height: 108px;
+}
+
+.oval {
+    height: 269px;	
+    width: 269px;	
+    background-color: #FFFFFF;	
+    box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+}
+
+.oval-4 {
+    height: 236px;	
+    width: 236px;
+}
+
+.rectangle-2 {
+	height: 54px;
+	width: 143px;
+	border-radius: 5px;
+	background-color: #FB6902;
+	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+}
