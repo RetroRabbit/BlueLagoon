@@ -21,7 +21,7 @@ class Settings extends React.Component {
                   </div>
                 </div>
 
-                <Button className="rectangle-2">Done</Button>
+                <Button className="rectangle-2" label="Done">Done</Button>
               </div>;
     }
   }

@@ -19,11 +19,13 @@
     width: 269px;	
     background-color: #FFFFFF;	
     box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+    border-radius: 50%;
 }
 
 .oval-4 {
     height: 236px;	
     width: 236px;
+    border-radius: 50%;
 }
 
 .rectangle-2 {
