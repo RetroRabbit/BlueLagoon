@@ -5,10 +5,6 @@ import './settings.css';
 class Settings extends React.Component {
     render() {
       return <div className="settings">
-                <div>
-                  header comes here
-                </div>
-
                 <div className="group">
                   <div className="oval">
                     <div className="oval-4">
@@ -16,8 +12,8 @@ class Settings extends React.Component {
                   </div>
 
                   <div className="user-details">
-                    <h1>Name</h1> <span><i className="fa fa-pencil"></i></span>
-                    <h3>Email</h3> <span><i className="fa fa-pencil"></i></span>
+                    <h1>Addie Hogan</h1> <span><i className="fa fa-pencil"></i></span>
+                    <h3>addiehogan@gmail.com</h3> <span><i className="fa fa-pencil"></i></span>
                   </div>
                 </div>
 

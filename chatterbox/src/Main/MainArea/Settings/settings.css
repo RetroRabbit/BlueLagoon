@@ -12,6 +12,7 @@
 .user-details{
     width: 224px;
     height: 108px;
+    text-align: center;
 }
 
 .oval {
@@ -33,5 +34,13 @@
 	width: 143px;
 	border-radius: 5px;
 	background-color: #FB6902;
-	box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+    box-shadow: 0 2px 6px 0 rgba(0,0,0,0.25);
+    position: absolute;
+    left: 50px;
+}
+
+.settings {
+    position: relative;
+    left: 550px;
+    top: 150px;
 }
