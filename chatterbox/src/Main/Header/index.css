@@ -1,0 +1,28 @@
+.rectangle-3 {
+	height: 103px;
+	width: 1440px;
+	background-color: #01B9BD;
+}
+
+.basic-button {
+	height: 5.27%;
+	width: 9.93%;
+}
+
+.login {
+	height: 2.44%;
+	width: 8.75%;
+	color: #FFFFFF;
+	font-family: "Avenir Next";
+	font-size: 18px;
+	font-weight: 500;
+	line-height: 25px;
+	text-align: center;
+}
+
+button.basic-button {
+    font-family: Consolas;
+    height: 35px;
+    margin-top: 22px;
+    margin-left: 19px;
+}
