@@ -1,0 +1,42 @@
+.Auth {
+  text-align: center;
+  background-color: #004853;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+}
+
+.Auth .auth-box{  
+  height: 644px;  
+  width: 533px; 
+  border-radius: 12px;  
+  background-color: #FDFDFD;
+  margin: auto;
+  /*position: absolute;*/
+}
+
+.App-logo {
+  animation: App-logo-spin infinite 20s linear;
+  height: 80px;
+}
+
+.App-header {
+  background-color: #222;
+  height: 150px;
+  padding: 20px;
+  color: white;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+.App-intro {
+  font-size: large;
+  background-color: #004853;
+}
+
+@keyframes App-logo-spin {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
