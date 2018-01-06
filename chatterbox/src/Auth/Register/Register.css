@@ -61,8 +61,7 @@
 .Register .error-display{ 
   color: red;
   font-family: 'Montserrat', sans-serif; 
-  position: absolute;
-  bottom: 50px;
+  margin-top: 20px;
   text-align: center;
   width: 533px;
 }

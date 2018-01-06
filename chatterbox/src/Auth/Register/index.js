@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button,TextField} from "material-ui";
+import {Button} from "material-ui";
 import StepOne from './stepone';
 import StepTwo from './steptwo';
 import StepThree from './stepthree';
@@ -48,6 +48,7 @@ class Register extends Component {
   			console.log("TO-DO: send image to backend")
   		}else if(this.state.stage==3){
   			console.log("TO-DO: search for friend, redirect to main")
+        this.props.history.push("/")
   		}
   		if(this.state.stage!=3)
 	  		this.setState({stage:curr+1,error:false,canNext:false})
@@ -58,6 +59,7 @@ class Register extends Component {
 
   }
   handleSkip(){
+    this.props.history.push("/")
   	alert("TO-DO: redirect to main page")
   }
   render() {

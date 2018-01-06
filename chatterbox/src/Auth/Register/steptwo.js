@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button,TextField} from "material-ui";
+import {TextField} from "material-ui";
 
 class StepOne extends Component {
 	constructor(pr){

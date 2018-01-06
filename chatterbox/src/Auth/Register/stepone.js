@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Button,TextField} from "material-ui";
+import {TextField} from "material-ui";
 
 class StepOne extends Component {
 	constructor(e){
@@ -37,7 +37,7 @@ class StepOne extends Component {
 	}
 	render() {
 	    return (
-	      <div>
+	      <div className="stage-one">
 		        
 	        <div className="input-line">
 		        <TextField
