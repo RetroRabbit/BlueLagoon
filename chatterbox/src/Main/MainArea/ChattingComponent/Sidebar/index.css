@@ -1,7 +1,73 @@
 
-.rectangle-4 {	height: 939px;	width: 411px;	background-color: #FFFFFF;	box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);}
-.rectangle-7 {	height: 43px;	width: 345px;	border: 1px solid #979797;	border-radius: 21.5px; margin-left: 34px}
-.rectangle-8 {	height: 139px;	width: 414px;	background-color: #F5F5F5; }
-.rectangle-5 {	height: 43px;	width: 345px;	border-radius: 21.5px;	background-color: #EAEAEA; margin-left: 34px; margin-top: 20px}
-.the-practice-of-ciga {	height: 43px;	width: 348px;	color: #706F6F;	font-family: "Avenir Next";	font-size: 16px;	line-height: 22px; margin-left: 34px; text-overflow: clip}
-.oval-3-copy {	height: 35px;	width: 35px; margin: 5px; margin-left: 15px}
+.rectangle-4 
+{
+    height: 939px;
+    width: 411px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+    margin-top: 90px;
+    padding-top: 30px;
+    
+}
+.rectangle-7 
+{	
+    height: 43px;	
+    width: 310px;	
+    border: 1px solid #979797;	
+    border-radius: 21.5px; 
+    margin-left: 34px;
+    margin-bottom: 30px;
+}
+.rectangle-8 
+{	
+    height: 139px;	
+    width: 411px;	
+    background-color: #F5F5F5; 
+    padding-top: 10px; 
+}
+.rectangle-5 
+{	
+    height: 43px;	
+    width: 345px;	
+    border-radius: 21.5px;	
+    background-color: #EAEAEA; 
+    margin-left: 34px; 
+    margin-top: 20px
+}
+.the-practice-of-ciga 
+{	
+    height: 43px;	
+    width: 348px;	
+    color: #706F6F;	
+    font-family: "Avenir Next";	
+    font-size: 16px;	
+    line-height: 22px; 
+    margin-left: 34px; 
+    text-overflow: clip
+}
+.oval-3-copy 
+{	
+    height: 35px;	
+    width: 35px; 
+    margin: 5px; 
+    margin-left: 15px
+}
+.search 
+{ 
+    margin-left: 15px; 
+    margin-top: 7px
+}
+.fa-search 
+{
+	height: 20px;
+    width: 20px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+.line {
+	box-sizing: border-box;
+	height: 2px;
+	width: 414px;
+	border: 2px solid #EAEAEA;
+}
