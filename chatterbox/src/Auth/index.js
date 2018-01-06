@@ -12,7 +12,6 @@ class Auth extends Component {
 	}
 
   render() {
-  	console.log("match:",this.props.match.path)
     return (
       <div className="Auth">
       	<div className="auth-box">
