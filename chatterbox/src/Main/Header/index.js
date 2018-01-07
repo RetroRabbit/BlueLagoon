@@ -1,101 +1,134 @@
-import React, { Component } from 'react';
-import { Manager, Target, Popper } from 'react-popper';
-import './index.css';
-import AppBar from 'material-ui/AppBar';
-import IconButton from 'material-ui/IconButton';
-import NavigationClose from 'material-ui/svg-icons/navigation/close';
-import FlatButton from 'material-ui/FlatButton';
-import RaisedButton from 'material-ui/RaisedButton';
+import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from 'classnames';
-import Button from 'material-ui/Button';
-import { MenuItem, MenuList } from 'material-ui/Menu';
-import Grow from 'material-ui/transitions/Grow';
-import Paper from 'material-ui/Paper';
 import { withStyles } from 'material-ui/styles';
-import ClickAwayListener from 'material-ui/utils/ClickAwayListener';
-
-function handleClick() {
-  alert('onClick triggered on the title component');
-}
-
-const style = {
-  margin: 12,
+import  './index.css'; 
+import AppBar from 'material-ui/AppBar';
+import Toolbar from 'material-ui/Toolbar';
+import Typography from 'material-ui/Typography';
+import IconButton from 'material-ui/IconButton';
+import MenuIcon from 'material-ui-icons/Menu';
+import AccountCircle from 'material-ui-icons/AccountCircle';
+import Switch from 'material-ui/Switch';
+import { FormControlLabel, FormGroup } from 'material-ui/Form';
+import Menu, { MenuItem } from 'material-ui/Menu'; 
+import Button from 'material-ui/Button'; 
+ 
+const styles = theme => ({
   root: {
-    display: 'flex',
+    
+	height:" 103px",
+	width: "1440px",
+	background: "#01B9BD", 
   },
-  popperClose: {
-    pointerEvents: 'none',
+
+  flex: {
+    flex: 1,
   },
-};
+  menuButton: {
+    marginLeft: -12,
+    marginRight: 20,
+  },
+ 
+  // Raised button styles
+  button: {
+    margin: theme.spacing.unit,
+    
+  }, 
+});
 
-class Header extends Component {
-  constructor(props) {
-    super(props);
+ class MenuAppBar extends React.Component {
+  state = {
+    auth: true,
+    anchorEl: null,
+  };
 
-    this.state = {
-      open: false,
-    };
-  }
+  handleChange = (event, checked) => {
+    this.setState({ auth: checked });
+  };
 
-  handleClick = () => {
-    if(this.state.open) {
-      this.setState({ open: false });
-    }
-    this.setState({ open: true });
+  handleMenu = event => {
+    this.setState({ anchorEl: event.currentTarget });
   };
 
   handleClose = () => {
-    this.setState({ open: false });
+    this.setState({ anchorEl: null });
   };
+
   render() {
+    const { classes } = this.props;
+    const { auth, anchorEl } = this.state;
+    const open = Boolean(anchorEl);
+
     return (
-      <div  > 
-      <AppBar  
-      iconElementLeft={
-        <div>
-        <RaisedButton label="New Chat" primary={true} style={style} />
-        <RaisedButton label="New Group" primary={true} style={style} />
-      </div>
-    }
-      iconElementRight={
-      <div> 
-      <Manager>
-          <Target>
-            <Button
-              aria-owns={this.state.open ? 'menu-list' : null}
+      <div className={classes.root}>
+        <AppBar position="static" className="AppBarymai">
+        <Toolbar>
+           <div className={classes.flex}>
+        <Button raised color="primary" className={classes.button}>
+          New Chat
+        </Button>
+        
+        <Button raised color="primary" className={classes.button}>
+          New Group
+        </Button>
+       </div>
+         
+          {auth && (
+            <div >
+                 <Button
+                aria-owns={open ? 'menu-appbar' : null}
               aria-haspopup="true"
-              onClick={this.handleClick}
+              onClick={this.handleMenu}
             >
-          Addie Hogan
+          <h6 id="Addie_div">Addie Hogan </h6>
             </Button>
-          </Target>
-          <Popper
-            placement="bottom-start"
-            eventsEnabled={"open"}
             
-          >
-          {(this.state.open) ?
-            <ClickAwayListener onClickAway={this.handleClose}>
-              <Grow in={"open"} id="menu-list" style={{ transformOrigin: '0 0 0' }}>
-                <Paper>
-                  <MenuList role="menu">
-                    <MenuItem onClick={this.handleClose}>Profile</MenuItem>
-                    <MenuItem onClick={this.handleClose}>My account</MenuItem>
-                    <MenuItem onClick={this.handleClose}>Logout</MenuItem>
-                  </MenuList>
-                </Paper>
-              </Grow>
-            </ClickAwayListener> : null}
-          </Popper>
-        </Manager>
-        </div>
-        }
-    />
-      </div>
-      
-    );
-  }
+            <IconButton
+              
+              aria-owns={open ? 'menu-appbar' : null}
+              aria-haspopup="true" 
+              color="contrast"
+              
+            >   
+              <AccountCircle />
+            </IconButton>  
+            <IconButton
+              
+              aria-owns={open ? 'menu-appbar' : null}
+              aria-haspopup="true" 
+              color="contrast"
+              
+            >   
+              <AccountCircle />
+            </IconButton> 
+              <Menu
+                id="menu-appbar"
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'right',
+                }}
+                open={open}
+                onClose={this.handleClose}
+              >
+                <MenuItem onClick={this.handleClose}>Settings</MenuItem>
+                <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
+              </Menu>
+            </div>
+          )}
+        </Toolbar>
+      </AppBar>
+    </div>
+  );
+}
 }
 
-export default Header;  
+MenuAppBar.propTypes = {
+classes: PropTypes.object.isRequired,
+};
+
+export default withStyles(styles)(MenuAppBar);

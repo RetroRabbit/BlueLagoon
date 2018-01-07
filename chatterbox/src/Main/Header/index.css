@@ -1,28 +1,13 @@
-.rectangle-3 {
+.MuiToolbar-root-39, .MuiToolbar-gutters-40 {
+
 	height: 103px;
-	width: 1440px;
-	background-color: #01B9BD;
+	width:  1440px; 
+    background-color: #01B9BD;
 }
 
-.basic-button {
+button.MuiButtonBase-root-56.MuiButton-root-41.MuiButton-raised-48.MuiButton-raisedPrimary-50.MenuAppBar-button-4 {
+	font-family: "Avenir Next";
 	height: 5.27%;
 	width: 9.93%;
-}
-
-.login {
-	height: 2.44%;
-	width: 8.75%;
-	color: #FFFFFF;
-	font-family: "Avenir Next";
-	font-size: 18px;
-	font-weight: 500;
-	line-height: 25px;
-	text-align: center;
-}
-
-button.basic-button {
-    font-family: Consolas;
-    height: 35px;
-    margin-top: 22px;
-    margin-left: 19px;
+    background-color: #01B9BD;
 }
