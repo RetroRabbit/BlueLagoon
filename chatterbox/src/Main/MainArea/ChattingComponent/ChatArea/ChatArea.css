@@ -1,0 +1,78 @@
+.ChatArea{
+	width: 100%;
+	height: 100%;
+	background-color: white;
+	position: relative;
+}
+
+.ChatArea .writer-container{
+	width: 100%;
+	height: 230px;
+	position: absolute;
+	bottom: 0;
+}
+
+.ChatArea .writer-container .add-attachment{
+	color: #D8D8D8;
+	font-size: 54px;
+	cursor: pointer;
+	margin-bottom: 5px;
+}
+.ChatArea .writer-container .input-message{
+	background-color: #EFF2F3;
+	width: 95%;
+	resize: none;
+	border-radius: 50px;
+	border:0;
+	padding: 15px 25px;
+	outline: none;
+	font-size: 17px;
+}
+.ChatArea .messages-container{
+	width: 100%;
+	position: absolute;
+	overflow-y: auto;
+	top: 0;
+	bottom: 230px;
+}
+.ChatArea .messages-container .messages-holder{
+	width: 100%;
+	position: absolute;
+	bottom: 0;
+}
+.ChatArea .messages-container .messages-holder .MessageLine{
+	width: 100%;
+	margin-bottom: 20px;
+}
+.ChatArea .messages-container .messages-holder .MessageLine .message{
+	padding: 10px;
+	max-width: 46.03%;
+	font-family: 'Montserrat', sans-serif;
+	font-size: 16px;
+	color: white;
+	border-radius: 50px;
+}
+.ChatArea .messages-container .messages-holder .MessageLine .message.message-sent{	
+	background-color: #007D80;
+	float: right;
+}
+.ChatArea .messages-container .messages-holder .MessageLine .message.message-received{	
+	background-color: #01B9BD;
+	float: left;
+}
+.ChatArea .messages-container .messages-holder .MessageLine .message-time{
+	color: #75BECA;
+	font-size:13px;
+	margin: 7px 20px;
+	margin-bottom: 0;
+}
+.ChatArea .messages-container .messages-holder .MessageLine .message-time.message-time-received{	
+	float: left;
+}
+
+.ChatArea .messages-container .messages-holder .MessageLine .message-time.message-time-sent{	
+	float: right;
+}
+.ChatArea .messages-container .messages-holder .MessageLine .message-line-clear{	
+	clear: both;
+}
