@@ -5,7 +5,7 @@ import logo1 from '../../../../assets/male2.png';
 import logo2 from '../../../../assets/female1.png';
 import logo3 from '../../../../assets/Male3.png';
 import slogo from '../../../../assets/search.png';
-import userchat from './userchat';
+import UserChat from './UserChat';
 
 
 class Sidebar extends React.Component {
@@ -57,7 +57,7 @@ class Sidebar extends React.Component {
                 <div className="line"></div>
 
                 <div className="sidebar2 scrollbar">
-                 { this.state.users.map((user) => <userchat username={user.name} msg={user.msg} img={user.img}/>) }
+                 { this.state.users.map((user) => <UserChat username={user.name} msg={user.msg} img={user.img}/>) }
                  </div>
             </div>
         </div>

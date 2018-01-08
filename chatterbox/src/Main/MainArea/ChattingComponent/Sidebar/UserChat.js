@@ -1,6 +1,6 @@
 import React from 'react'
 
-  class userchat extends React.Component {
+  class UserChat extends React.Component {
     render() {
       return (
         <div>
@@ -21,4 +21,4 @@ import React from 'react'
   }
 
 
-export default userchat;
+export default UserChat;
