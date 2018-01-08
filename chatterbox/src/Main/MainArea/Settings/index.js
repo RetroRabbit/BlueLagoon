@@ -1,25 +1,84 @@
-import React, { Component } from 'react';
-import Button from 'material-ui/Button';
-import './settings.css';
+import React, {Component} from 'react';
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import Pencil from 'react-icons/lib/fa/pencil';
+import { FlatButton } from 'material-ui';
+import './index.css'
+import {
+    editUserNameRequest,
+    editUserEmailRequest,
+    editUserProfilePictureRequest,
+    saveChangesRequest
+} from '../../reducers/settings/edit-user-reducer'
 
-class Settings extends React.Component {
+
+class UserSettings extends Component {
+
     render() {
-      return <div className="settings">
-                <div className="group">
-                  <div className="oval">
-                    <div className="oval-4">
+        return (
+            <div className="user-details">
+                <div className="profile-picture">
+                    <div className="oval">
+                        <div className="oval-4">
+                            <img 
+                                src={this.props.user.profilePic} 
+                                alt="none"
+                                onClick={() => this.props.editUserProfilePictureRequest(this.props.user)}
+                            />
+                        </div>
                     </div>
-                  </div>
-
-                  <div className="user-details">
-                    <h1>Addie Hogan</h1> <span><i className="fa fa-pencil"></i></span>
-                    <h3>addiehogan@gmail.com</h3> <span><i className="fa fa-pencil"></i></span>
-                  </div>
                 </div>
 
-                <Button className="rectangle-2" label="Done">Done</Button>
-              </div>;
-    }
-  }
+                <div className="user-name">
+                    <h2 className="user-detail">{this.props.user.firstname} {this.props.user.lastname}</h2>
+                    <Pencil
+                        onClick={() => this.props.editUserNameRequest(this.props.user)} 
+                        className="edit"
+                    />
+                </div>
+                
+                <div className="user-email">
+                    <h3 className="user-detail">{this.props.user.email}</h3>
+                    <Pencil
+                        onClick={() => this.props.editUserEmailRequest(this.props.user)} 
+                        className="edit"
+                    />
+                </div>
 
- export default Settings;
+                <FlatButton 
+                    onClick={() => this.props.saveChangesRequest(this.props.user)} 
+                    label="DONE"
+                    style={{
+                        backgroundColor: "#FB6902",
+                        height:' 54px',	
+                        width: '143px',	
+                        borderRadius: '5px',		
+                        boxShadow: '0 2px 6px 0 rgba(0,0,0,0.25)',
+                        color: '#FFFFFF'
+                    }}
+                />
+            </div>
+        );
+    }
+}
+
+function mapStateToProps(state) {
+    return {
+        user: state.user,
+        saveChanges: state.saveChanges,
+        editUserNameRequest: state.editUserNameRequest,
+        editUserEmailRequest: state.editUserEmailRequest,
+        editUserProfilePictureRequest: state.editUserProfilePictureRequest
+    }
+}
+
+function matchDispatchToProps(dispatch) {
+    return bindActionCreators({
+                editUserProfilePictureRequest,
+                editUserNameRequest,
+                editUserEmailRequest,
+                saveChangesRequest
+            }, dispatch)
+}
+
+export default connect(mapStateToProps, matchDispatchToProps)(UserSettings);
