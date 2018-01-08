@@ -11,7 +11,7 @@ class Login extends Component {
         this.props.history.push('/auth/register');
     }
     render() {
-        const { expanded } = this.state;
+
         return (
             <div className="Login">
                 <h1 className="welcome-to-the">Welcome to the</h1>
