@@ -14,7 +14,8 @@ import Button from 'material-ui/Button';
 const styles = theme => ({
     root: {
         height: ' 103px',
-        width: '1440px'
+        width: '1440px',
+        color: '#01B9BD'
     },
 
     flex: {
@@ -34,6 +35,10 @@ class MenuAppBar extends React.Component {
     state = {
         auth: true,
         anchorEl: null
+    };
+
+    static propTypes = {
+        classes: PropTypes.object.isRequired
     };
 
     handleChange = (event, checked) => {
@@ -58,7 +63,7 @@ class MenuAppBar extends React.Component {
         const open = Boolean(anchorEl);
 
         return (
-            <div className={classes.root} color="#01B9BD">
+            <div className={classes.root}>
                 <AppBar position="static" className="AppBarymai">
                     <Toolbar>
                         <div className={classes.flex}>
@@ -76,7 +81,7 @@ class MenuAppBar extends React.Component {
                         {auth && (
                             <div className="appbar-buttons-right">
                                 <Button
-                                    aria-owns={open ? 'menu-appbar' : null}
+                                    aria-owns={open && 'menu-appbar'}
                                     aria-haspopup="true"
                                     onClick={this.handleMenu}
                                 >
@@ -89,7 +94,7 @@ class MenuAppBar extends React.Component {
                                     />
                                 </Button>
 
-                                <Button aria-owns={open ? 'menu-appbar' : null} color="contrast">
+                                <Button>
                                     <img
                                         src={img2}
                                         height="60"
@@ -113,7 +118,6 @@ class MenuAppBar extends React.Component {
                                     onClose={this.handleClose}
                                 >
                                     <MenuItem onClick={this.handleClose}>Settings</MenuItem>{' '}
-                                    {/*redirect to seetings */}
                                     <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
                                 </Menu>
                             </div>
@@ -124,9 +128,5 @@ class MenuAppBar extends React.Component {
         );
     }
 }
-
-MenuAppBar.propTypes = {
-    classes: PropTypes.object.isRequired
-};
 
 export default withStyles(styles)(MenuAppBar);
