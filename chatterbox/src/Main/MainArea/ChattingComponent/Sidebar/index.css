@@ -94,4 +94,11 @@
 }
 
 .userChatBox:hover { background-color: #e2e2e2; }
-.userChatBox::selection { background-color: #e2e2e2; }
+
+.searchInput
+{
+    border-color: #FFFFFF;
+    border-left: #FFFFFF;
+    border-top: #FFFFFF;
+}
+

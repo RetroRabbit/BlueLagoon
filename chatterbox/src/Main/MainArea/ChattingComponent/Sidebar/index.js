@@ -32,7 +32,7 @@ class Sidebar extends React.Component {
                     img: logo2
                 },
                 {
-                    name: 'Terry Gordon',
+                    name: 'Siyabonga Gift Ndovela',
                     msg:
                         'Here, I focus on a range of items and features that we use in life without giving them a second',
                     img: logo3
@@ -65,14 +65,19 @@ class Sidebar extends React.Component {
         };
     }
 
+    startSearch = (event) =>
+    {
+        
+    }
+
     render() {
         return (
             <div className="sidebar">
                 <div className="outerBox">
                     <div className="searchBox">
-                        <div className="search">
+                        <div className="search" onClick={this.startSearch}>
+                            <input class="searchInput" placeholder="Search Chats" />
                             <img src={slogo} alt="slogo" className="fa-search" />
-                            <p>Search Chats</p>
                         </div>
                     </div>
                     <div className="line" />
