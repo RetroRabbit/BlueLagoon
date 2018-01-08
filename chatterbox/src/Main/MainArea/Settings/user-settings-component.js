@@ -2,14 +2,14 @@ import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
-import { FlatButton } from 'material-ui';
-import './index.css'
+import { Button } from 'material-ui';
+import './user-settings-component.css'
 import {
     editUserNameRequest,
     editUserEmailRequest,
     editUserProfilePictureRequest,
     saveChangesRequest
-} from '../../reducers/settings/edit-user-reducer'
+} from '../../../modules/settings/edit-user-reducer.js'
 
 
 class UserSettings extends Component {
@@ -45,7 +45,7 @@ class UserSettings extends Component {
                     />
                 </div>
 
-                <FlatButton 
+                <Button 
                     onClick={() => this.props.saveChangesRequest(this.props.user)} 
                     label="DONE"
                     style={{
