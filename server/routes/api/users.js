@@ -53,7 +53,7 @@ router.post('/user/login', function(req, res, next){
             }else{
                   let jsonRet={
                     status:"error",
-                    statusMessage:"incorrect password",
+                    statusMessage:"incorrect password ",
                     data:rows
                   }
                   res.json(jsonRet).status(200);
