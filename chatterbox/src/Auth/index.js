@@ -4,15 +4,15 @@ import Login from './Login';
 import './Auth.css';
 
 class Auth extends Component {
-  render() {
-    return (
-      <div className="Auth">
-      	<div className="auth-box">
-	        <Login/>
-	    </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="Auth">
+                <div className="auth-box">
+                    <Login />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Auth;
