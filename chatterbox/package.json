@@ -6,6 +6,7 @@
     "bootstrap": "^4.0.0-beta.3",
     "history": "^4.7.2",
     "material-ui": "^1.0.0-beta.26",
+    "prettier": "^1.9.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-overflow-scrolling": "^0.1.5",
@@ -22,6 +23,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "node_modules/.bin/prettier --write --tab-width=4 --single-quote=true --print-width=100 \"{src,test,utilities}/**/*.js\""
   }
 }
