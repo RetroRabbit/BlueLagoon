@@ -21,7 +21,7 @@ class App extends Component {
     this.funcVar=setInterval(this.splash,2000);
   }
   splash(){
-  	 history.push("/auth/login");  	 
+  	 //history.push("/auth/login");  	 
   	 this.setState({loading:false})
      clearInterval(this.funcVar)
   }
