@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { push } from 'react-router-redux';
 import { history } from './store';
+import ListExampleChat from './Main/MainArea/ChattingComponent/Sidebar';
+import { Route } from 'react-router-dom'
+import { push } from 'react-router-redux'
+import { history } from './store'
 import Auth from './Auth';
 import Main from './Main';
 import Loader from './assets/Loader';
@@ -20,10 +23,11 @@ class App extends Component {
         console.log('TO-DO: Check if user online');
         this.funcVar = setInterval(this.splash, 2000);
     }
-    splash() {
-        this.setState({ loading: false });
-        clearInterval(this.funcVar);
-    }
+  splash(){
+  	 history.push("/auth/login");  	 
+  	 this.setState({loading:false})
+     clearInterval(this.funcVar)
+  }
     render() {
         return (
             <div>
@@ -33,6 +37,7 @@ class App extends Component {
             </div>
         );
     }
+
 }
 
 export default App;
