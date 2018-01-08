@@ -1,9 +1,6 @@
 var router = require('express').Router();
 
-router.use('/', function(req, res, next){
-
-    return res.json({user: "api"});
-});
+router.use('/',require("./users"));
 
 
 router.use(function(err, req, res, next){

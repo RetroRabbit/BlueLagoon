@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <link rel="stylesheet" href="materialize/css/materialize.min.css" />
+  </head>
+  <body>
+  <nav>
+      <div class="nav-wrapper">
+          <a href="#" class="brand-logo center">Simple Create User Post</a>
+      </div>
+  </nav>
+
+    <div class="container" style="margin-top: 100px;">
+         <form action="http://localhost:8088/api/user/register" method="POST">
+          <input placeholder="First Name" name="name"><br/>
+          <input type="email" placeholder="email" name="email"><br/>
+          <input type="password" placeholder="Password" name="password"><br/>
+
+          <button class="waves-effect waves-light btn-large">Submit</button>
+         </form>
+         <h5>LOGIN</h5>
+         <form action="http://localhost:8088/api/user/login" method="POST">
+          <input placeholder="Email" name="email"><br/>
+          <input placeholder="Password" name="password"><br/>
+
+          <button class="waves-effect waves-light btn-large">Login</button>
+         </form>
+         <h5>MESSAGING</h5>
+          <input placeholder="Message" oninput="inputchange();" id="textMessage" name="search"><br/>
+
+          <button onclick="btnsend();" class="waves-effect waves-light btn-large">Send</button>
+         <h5>GET CHATS</h5>
+         <form action="http://localhost:8088/api/chats/getchatsbyname" method="POST">
+          <input placeholder="Get by id" name="userid"><br/>
+
+          <button class="waves-effect waves-light btn-large">Search</button>
+         </form>
+         <h5>CHECK NEW MESSAGE</h5>
+         <form action="http://localhost:8088/api/chats/checknewmessage" method="POST">
+          <input placeholder="Get by id" name="avoid"><br/>
+
+          <button class="waves-effect waves-light btn-large">Search</button>
+         </form>
+    </div>
+
+  <script src="materialize/js/jquery.min.js"></script>
+  <script src="materialize/js/materialize.min.js"></script>
+  <!--<script src="http://localhost:8088/socket.io/socket.io.js"></script>-->
+  <script type="text/javascript">
+    /*var socket=io.connect("http://localhost:8088");
+    var id=-1;
+
+    socket.emit("userinit")
+    socket.on("init",function(argument) {
+      id=argument.id;
+      console.log("my id is",id)
+    })
+    socket.on("istyping",function() {
+      console.log("somene is typing")
+    })
+    socket.on("newMessage",function(data) {
+      console.log("message:",data)
+    })
+    function btnsend(){
+      console.log("send");
+      // getElementById('textMessage').a
+      socket.emit("userSendMessage",id,"message")
+    }
+    function inputchange(){
+      socket.emit("userTyping",id)
+    }*/
+  </script>
+  </body>
+</html>
