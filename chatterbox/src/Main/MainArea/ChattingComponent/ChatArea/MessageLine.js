@@ -11,7 +11,6 @@ class MessageLine extends Component {
 		} else if(chr=='r'){
 			type="received";
 		}
-		console.log("TYPE:",type)
 		this.state={
 			type:type
 		}
@@ -24,8 +23,8 @@ class MessageLine extends Component {
 	};
 
 	static propTypes = {
-	    message: PropTypes.string,    
-	    time: PropTypes.string,    
+	    message: PropTypes.string,
+	    time: PropTypes.string,
 	    type: PropTypes.string,
 	};
 	static defaultProps = {
@@ -36,9 +35,9 @@ class MessageLine extends Component {
 	    return (
 	      <div className="MessageLine">
 	      	<div className={`message message-${this.state.type}`}> {this.props.message}</div>
-	      	<div className="message-line-clear"/>      	
-	      	<div className={`message-time message-time-${this.state.type}`}>7:45</div> 
-	      	<div className="message-line-clear"/>     
+	      	<div className="message-line-clear"/>
+	      	<div className={`message-time message-time-${this.state.type}`}>7:45</div>
+	      	<div className="message-line-clear"/>
 	      </div>
 	    );
 	}

@@ -20,8 +20,7 @@ class App extends Component {
     console.log("TO-DO: Check if user online");
     this.funcVar=setInterval(this.splash,2000);
   }
-  splash(){
-  	 //history.push("/auth/login");  	 
+  splash(){	 
   	 this.setState({loading:false})
      clearInterval(this.funcVar)
   }
