@@ -3,15 +3,15 @@ import Register from './Register';
 import './Auth.css';
 
 class Auth extends Component {
-  render() {
-    return (
-      <div className="Auth">
-      	<div className="auth-box">
-	        <Register/>
-	    </div>
-      </div>
-    );
-  }
+    render() {
+        return (
+            <div className="Auth">
+                <div className="auth-box">
+                    <Register />
+                </div>
+            </div>
+        );
+    }
 }
 
 export default Auth;
