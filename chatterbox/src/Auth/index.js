@@ -9,7 +9,7 @@ class Auth extends Component {
     return (
       <div className="Auth">
       	<div className="auth-box">
-	        <Register/>
+	        <Login/>
 	    </div>
       </div>
     );

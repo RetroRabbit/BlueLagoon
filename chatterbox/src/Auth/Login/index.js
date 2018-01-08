@@ -1,12 +1,61 @@
 import React, { Component } from 'react';
+import logo from '../../assets/Full\ Logo.png';
 import './login.css';
+import { withStyles } from 'material-ui/styles';
+import MenuItem from 'material-ui/Menu/MenuItem';
+import TextField from 'material-ui/TextField';
+import Button from 'material-ui/Button';
+
+
+
 
 class Login extends Component {
+  state = {
+    expanded: null,
+  };
+
+  handleChange = panel => (event, expanded) => {
+    this.setState({
+      expanded: expanded ? panel : false,
+    });
+  };
   render() {
+      const { expanded } = this.state;
     return (
       <div className="Login">
-      <h1 className="welcome-to-the">Welcome to the</h1>
-        Login stuff here gggddfdfxcsf
+        <h1 className="welcome-to-the">Welcome to the</h1>
+        <div className="logo">
+          <img src={logo}  />
+        </div>
+          <TextField
+            Email
+            id="Email"
+            label="Email"
+
+            className="text-field"
+            margin="normal"
+          />
+
+          <TextField
+            Password
+            id="Password"
+            label="Password"
+
+            className="text-field"
+            margin="normal"
+          />
+          <br></br>
+          <Button raised className="button">
+            LOGIN
+          </Button>
+
+          <p className="bottom-text">No account yet? Get setup now <i class="fa fa-chevron-down" aria-hidden="true"></i></p>
+
+
+
+
+
+
       </div>
     );
   }
