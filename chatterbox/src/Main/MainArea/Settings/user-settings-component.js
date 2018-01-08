@@ -19,6 +19,7 @@ const SubmitChanges =  {
     boxShadow: '0 2px 6px 0 rgba(0,0,0,0.25)',
     color: '#FFFFFF'
 }
+
 class UserSettings extends Component {
 
     render() {
