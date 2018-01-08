@@ -1,24 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
-import  './index.css'; 
+import  './index.css';  
+import Oval from '../../assets/Oval.png'
+import Oval_2 from '../../assets/Oval_2.png'
 import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import Typography from 'material-ui/Typography';
+import Toolbar from 'material-ui/Toolbar'; 
 import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
-import AccountCircle from 'material-ui-icons/AccountCircle';
-import Switch from 'material-ui/Switch';
-import { FormControlLabel, FormGroup } from 'material-ui/Form';
+import MenuIcon from 'material-ui-icons/Menu'; 
 import Menu, { MenuItem } from 'material-ui/Menu'; 
-import Button from 'material-ui/Button'; 
+import Button from 'material-ui/Button';  
  
 const styles = theme => ({
   root: {
     
 	height:" 103px",
 	width: "1440px",
-	background: "#01B9BD", 
   },
 
   flex: {
@@ -26,14 +23,18 @@ const styles = theme => ({
   },
   menuButton: {
     marginLeft: -12,
-    marginRight: 20,
+    marginRight: 20, 
   },
  
-  // Raised button styles
-  button: {
-    margin: theme.spacing.unit,
-    
-  }, 
+  // // Raised button styles
+  // button: {
+  //   margin: theme.spacing.unit,  
+  // }, 
+
+  images: {
+    borderRadius: 50,
+  }
+ 
 });
 
  class MenuAppBar extends React.Component {
@@ -63,12 +64,15 @@ const styles = theme => ({
       <div className={classes.root}>
         <AppBar position="static" className="AppBarymai">
         <Toolbar>
-           <div className={classes.flex}>
-        <Button raised color="primary" className={classes.button}>
+          
+           <div className={classes.flex} color="#01B9BD" >
+           
+        <Button  raised  className={classes.button}
+               >
           New Chat
         </Button>
-        
-        <Button raised color="primary" className={classes.button}>
+        &nbsp;&nbsp;
+        <Button raised  className={classes.button}>
           New Group
         </Button>
        </div>
@@ -80,27 +84,18 @@ const styles = theme => ({
               aria-haspopup="true"
               onClick={this.handleMenu}
             >
-          <h6 id="Addie_div">Addie Hogan </h6>
+          <h6 id="Addie_div">Addie Hogan </h6>&nbsp;&nbsp; 
+           <img className={classes.images}  height="60" src={Oval}  alt=" "  />
             </Button>
-            
-            <IconButton
+               
+            <Button
               
-              aria-owns={open ? 'menu-appbar' : null}
-              aria-haspopup="true" 
+              aria-owns={open ? 'menu-appbar' : null} 
               color="contrast"
               
             >   
-              <AccountCircle />
-            </IconButton>  
-            <IconButton
-              
-              aria-owns={open ? 'menu-appbar' : null}
-              aria-haspopup="true" 
-              color="contrast"
-              
-            >   
-              <AccountCircle />
-            </IconButton> 
+             <img src={Oval_2}  height="60"  alt=" " className={classes.images}  />
+            </Button > 
               <Menu
                 id="menu-appbar"
                 anchorEl={anchorEl}

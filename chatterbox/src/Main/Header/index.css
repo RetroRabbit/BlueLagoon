@@ -4,10 +4,33 @@
 	width:  1440px; 
     background-color: #01B9BD;
 }
-
-button.MuiButtonBase-root-56.MuiButton-root-41.MuiButton-raised-48.MuiButton-raisedPrimary-50.MenuAppBar-button-4 {
-	font-family: "Avenir Next";
-	height: 5.27%;
-	width: 9.93%;
+ 
+div.MuiToolbar-root-40.MuiToolbar-gutters-41 {
     background-color: #01B9BD;
+
+} 
+button.MuiButtonBase-root-56.MuiButton-root-41.MuiButton-raised-48 {
+	background-color: #01B9BD; 
+		height: 2.44%;
+		color: #FFFFFF;
+		font-family: "Avenir Next";
+		font-weight: 500;
+		line-height: 25px;
+		text-align: center; 
 }
+span.MuiButton-label-43 {
+    color: #ffffff;
+}
+
+#Addie_div {
+    font-family: Lato;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-size: 20px;
+    font-weight: normal;
+    line-height: 27px;
+    width: 201px;
+    height: 30px;
+}
+
+
