@@ -65,7 +65,8 @@
     margin-right: 10px;
     margin-top: 5px;
 }
-.line {
+.line 
+{
 	box-sizing: border-box;
 	height: 2px;
 	width: 414px;
@@ -73,11 +74,13 @@
 }
 
 
-.sidebar2 {
+.sidebar2 
+{
     height: 600px;
     width: 411px;
     background-color: #FFFFFF;
 }
+
 .scrollbar
 {
 	width: 411px;
