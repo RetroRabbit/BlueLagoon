@@ -6,6 +6,7 @@ import logo2 from '../../../../assets/female1.png';
 import logo3 from '../../../../assets/Male3.png';
 import slogo from '../../../../assets/search.png';
 import OverflowScrolling from 'react-overflow-scrolling';
+import UserChat from './UserChat';
 
 
 class Sidebar extends React.Component {
@@ -65,24 +66,4 @@ class Sidebar extends React.Component {
   }
 
 }
-
-function UserChat(props) {
-    return (
-        <div>
-      <div className="userChatBox">
-        <div className="userNameBox">
-            <img src ={props.img} alt ="logo" className="imageStyling"/>
-            {props.username}  
-        </div>
-        <div className="chatTextBox ">
-                <p>{props.msg}</p>  
-        </div>
-    </div>
-    
-    <div className="line"></div> 
-    </div>
-    
-    );
-  }
-
 export default Sidebar;
