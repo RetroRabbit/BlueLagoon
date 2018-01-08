@@ -12,6 +12,7 @@ class Sidebar extends React.Component {
 
   constructor(props){
       super(props);
+      //Users are placeholders
       this.state ={
           users:[
               {name:"Lloyd Jimenez",
@@ -46,8 +47,8 @@ class Sidebar extends React.Component {
   render() {
     return (
         <div className="sidebar">
-            <div className="rectangle-4">
-                <div className="rectangle-7">
+            <div className="outerBox">
+                <div className="searchBox">
                     <div className="search">
                         <img src={slogo} alt = "slogo" className="fa-search"/>
                         <p>Search Chats</p>
@@ -68,12 +69,12 @@ class Sidebar extends React.Component {
 function UserChat(props) {
     return (
         <div>
-      <div className="rectangle-8">
-        <div className="rectangle-5">
-            <img src ={props.img} alt ="logo" className="oval-3-copy"/>
+      <div className="userChatBox">
+        <div className="userNameBox">
+            <img src ={props.img} alt ="logo" className="imageStyling"/>
             {props.username}  
         </div>
-        <div className="the-practice-of-ciga">
+        <div className="chatTextBox ">
                 <p>{props.msg}</p>  
         </div>
     </div>

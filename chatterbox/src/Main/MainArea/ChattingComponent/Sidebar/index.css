@@ -1,5 +1,5 @@
 
-.rectangle-4 
+.outerBox 
 {
     height: 939px;
     width: 411px;
@@ -9,7 +9,7 @@
     padding-top: 30px;
     
 }
-.rectangle-7 
+.searchBox
 {	
     height: 43px;	
     width: 310px;	
@@ -18,14 +18,14 @@
     margin-left: 34px;
     margin-bottom: 30px;
 }
-.rectangle-8 
+.userChatBox
 {	
     height: 139px;	
     width: 411px;	
     background-color: rgb(255, 255, 255); 
     padding-top: 10px; 
 }
-.rectangle-5 
+.userNameBox 
 {	
     height: 43px;	
     width: 345px;	
@@ -34,7 +34,7 @@
     margin-left: 34px; 
     margin-top: 20px
 }
-.the-practice-of-ciga 
+.chatTextBox 
 {	
     height: 43px;	
     width: 348px;	
@@ -45,7 +45,7 @@
     margin-left: 34px; 
     text-overflow: clip
 }
-.oval-3-copy 
+.imageStyling 
 {	
     height: 35px;	
     width: 35px; 
