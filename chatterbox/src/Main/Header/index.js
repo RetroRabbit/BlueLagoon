@@ -2,8 +2,8 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import './index.css';
-import Oval from '../../assets/Oval.png';
-import Oval_2 from '../../assets/Oval_2.png';
+import img1 from '../../assets/img1.png';
+import img2 from '../../assets/img2.png';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import IconButton from 'material-ui/IconButton';
@@ -84,14 +84,14 @@ class MenuAppBar extends React.Component {
                                     <img
                                         className={classes.images}
                                         height="60"
-                                        src={Oval}
+                                        src={img1}
                                         alt=" "
                                     />
                                 </Button>
 
                                 <Button aria-owns={open ? 'menu-appbar' : null} color="contrast">
                                     <img
-                                        src={Oval_2}
+                                        src={img2}
                                         height="60"
                                         alt=" "
                                         className={classes.images}
