@@ -56,6 +56,7 @@ class UserSettings extends Component {
                         boxShadow: '0 2px 6px 0 rgba(0,0,0,0.25)',
                         color: '#FFFFFF'
                     }}
+                    children="DONE"
                 />
             </div>
         );
