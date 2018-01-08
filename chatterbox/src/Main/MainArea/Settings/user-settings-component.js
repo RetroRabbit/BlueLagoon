@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
 import { Button } from 'material-ui';
-import './user-settings-component.css'
+import styles from './user-settings-component.css'
 import {
     editUserNameRequest,
     editUserEmailRequest,
@@ -11,7 +11,14 @@ import {
     saveChangesRequest
 } from '../../../modules/settings/edit-user-reducer.js'
 
-
+const SubmitChanges =  {
+    backgroundColor: "#FB6902",
+    height: '54px',
+    width: '143px',	
+    borderRadius: '5px',		
+    boxShadow: '0 2px 6px 0 rgba(0,0,0,0.25)',
+    color: '#FFFFFF'
+}
 class UserSettings extends Component {
 
     render() {
@@ -45,18 +52,11 @@ class UserSettings extends Component {
                     />
                 </div>
 
-                <Button 
-                    onClick={() => this.props.saveChangesRequest(this.props.user)} 
-                    label="DONE"
-                    style={{
-                        backgroundColor: "#FB6902",
-                        height:' 54px',	
-                        width: '143px',	
-                        borderRadius: '5px',		
-                        boxShadow: '0 2px 6px 0 rgba(0,0,0,0.25)',
-                        color: '#FFFFFF'
-                    }}
-                    children="DONE"
+                <Button  
+                     onClick={() => this.props.saveChangesRequest(this.props.user)} 
+                     label="DONE"
+                     children="DONE"
+                     style={SubmitChanges}            
                 />
             </div>
         );
