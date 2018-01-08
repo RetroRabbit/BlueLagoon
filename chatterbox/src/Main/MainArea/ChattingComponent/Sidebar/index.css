@@ -102,3 +102,8 @@
     border-top: #FFFFFF;
 }
 
+.status{
+    height: 43px;	
+    width: 348px;
+    overflow: hidden;
+}

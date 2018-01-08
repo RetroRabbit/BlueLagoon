@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
                 {
                     name: 'Lloyd Jimenez',
                     msg:
-                        'The practice of cigar smoking has been on the rise in the U.S. since the early 90’s. In part due',
+                        'The practice of cigar smoking has been on the rise in the U.S. since the early 90’s. In part due The practice of cigar smoking has been on the rise in the U.S. since the early 90’s. In part due',
                     img: logo
                 },
                 {
@@ -65,17 +65,12 @@ class Sidebar extends React.Component {
         };
     }
 
-    startSearch = (event) =>
-    {
-        
-    }
-
     render() {
         return (
             <div className="sidebar">
                 <div className="outerBox">
                     <div className="searchBox">
-                        <div className="search" onClick={this.startSearch}>
+                        <div className="search">
                             <input class="searchInput" placeholder="Search Chats" />
                             <img src={slogo} alt="slogo" className="fa-search" />
                         </div>

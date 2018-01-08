@@ -10,7 +10,7 @@ class UserChat extends React.Component {
                         {this.props.username}
                     </div>
                     <div className="chatTextBox">
-                        <p>{this.props.msg}</p>
+                        <p className="status">{this.props.msg}</p>
                     </div>
                 </div>
 
