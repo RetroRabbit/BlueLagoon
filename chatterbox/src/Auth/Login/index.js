@@ -18,7 +18,13 @@ class Login extends Component {
                 <div className="logo">
                     <img src={logo} />
                 </div>
-                <TextField Email id="Email" label="Email" className="text-field" margin="normal" />
+                <TextField
+                    Email
+                    Email id="Email"
+                    label="Email"
+                    className="text-field"
+                    margin="normal"
+                />
                 <TextField
                     Password
                     id="Password"
