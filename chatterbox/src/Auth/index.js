@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Register from './Register';
 import { Route } from 'react-router-dom';
-
+import Login from './Login';
 import './Auth.css';
 
-class Auth extends Component {
+class Auth extends Component {s
     constructor(e) {
         super(e);
     }
