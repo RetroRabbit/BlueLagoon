@@ -19,6 +19,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "node_modules/.bin/prettier --write --tab-width=4 --single-quote=true --print-width=100 \"{src,test,utilities}/**/*.js\""
   }
 }
