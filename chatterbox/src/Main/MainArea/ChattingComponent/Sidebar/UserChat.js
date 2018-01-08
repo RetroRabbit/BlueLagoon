@@ -1,22 +1,23 @@
 import React from 'react'
 
-function UserChat(props) {
-    return(
+  class UserChat extends React.Component {
+    render() {
+      return (
         <div>
-      <div className="userChatBox">
-        <div className="userNameBox">
-            <img src ={props.img} alt ="logo" className="imageStyling"/>
-            {props.username}  
+            <div className="userChatBox">
+                <div className="userNameBox">
+                    <img src ={this.props.img} alt ="logo" className="imageStyling"/>
+                    {this.props.username}  
+                </div>
+                <div className="chatTextBox">
+                        <p>{this.props.msg}</p>  
+                </div>
+            </div>
+            
+            <div className="line"></div> 
         </div>
-        <div className="chatTextBox">
-                <p>{props.msg}</p>  
-        </div>
-    </div>
-    
-    <div className="line"></div> 
-    </div>
-    
-    );
+      );
+    }
   }
 
 

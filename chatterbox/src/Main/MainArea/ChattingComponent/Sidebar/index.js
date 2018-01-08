@@ -6,7 +6,7 @@ import logo2 from '../../../../assets/female1.png';
 import logo3 from '../../../../assets/Male3.png';
 import slogo from '../../../../assets/search.png';
 import OverflowScrolling from 'react-overflow-scrolling';
-import UserChat from './UserChat';
+import UserChat from './userchat';
 
 
 class Sidebar extends React.Component {
@@ -57,8 +57,8 @@ class Sidebar extends React.Component {
                 </div>
                 <div className="line"></div> 
                 
-                <div className="sidebar2 scrollbar" id="style-4">
-                 { this.state.users.map(user => <UserChat username={user.name} msg={user.msg} img={user.img}/>) }
+                <div className="sidebar2 scrollbar">
+                 { this.state.users.map((user) => <UserChat username={user.name} msg={user.msg} img={user.img}/>) }
                  </div>
             </div>
         </div>
