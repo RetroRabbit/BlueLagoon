@@ -59,7 +59,7 @@
 }
 .fa-search 
 {
-	height: 20px;
+    height: 20px;
     width: 20px;
     float: right;
     margin-right: 10px;
@@ -67,10 +67,10 @@
 }
 .line 
 {
-	box-sizing: border-box;
-	height: 2px;
-	width: 414px;
-	border: 2px solid #EAEAEA;
+    box-sizing: border-box;
+    height: 2px;
+    width: 414px;
+    border: 2px solid #EAEAEA;
 }
 
 
