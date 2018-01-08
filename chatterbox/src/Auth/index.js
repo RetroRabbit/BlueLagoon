@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Register from './Register';
 import { Route } from 'react-router-dom'
+import Login from "./Login"
 
 import './Auth.css';
 
