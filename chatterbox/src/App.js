@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
+
 import './App.css';
+import ListExampleChat from './Main/MainArea/ChattingComponent/Sidebar';
 import { Route } from 'react-router-dom'
 import { push } from 'react-router-redux'
 import { history } from './store'
@@ -28,7 +29,7 @@ class App extends Component {
   render() {
     return (
 	    <div>
-		  {this.state.loading && <Loader/>}
+		    {this.state.loading && <Loader/>}
 	      <Route path="/auth" component={Auth} />
 	      <Route exact path="/" component={Main} />
 	    </div>
