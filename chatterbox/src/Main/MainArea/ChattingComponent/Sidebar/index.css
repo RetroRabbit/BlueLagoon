@@ -83,9 +83,9 @@
 
 .scrollbar
 {
-	width: 411px;
-	background: #F5F5F5;
-	overflow-y: scroll;
+    width: 411px;
+    background: #F5F5F5;
+    overflow-y: scroll;
     overflow-x: hidden;
 }
 .scrollbar::-webkit-scrollbar
