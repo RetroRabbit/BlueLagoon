@@ -1,7 +1,8 @@
 
 .outerBox 
 {
-    height: 939px;
+    bottom: 0px;
+    
     width: 411px;
     background-color: #FFFFFF;
     box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
@@ -92,3 +93,6 @@
 {
     display: none;
 }
+
+.userChatBox:hover { background-color: #e2e2e2; }
+.userChatBox::selection { background-color: #e2e2e2; }
