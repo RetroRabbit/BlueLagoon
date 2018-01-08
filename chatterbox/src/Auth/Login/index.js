@@ -11,7 +11,6 @@ class Login extends Component {
         this.props.history.push('/auth/register');
     }
     render() {
-
         return (
             <div className="Login">
                 <h1 className="welcome-to-the">Welcome to the</h1>
@@ -20,7 +19,8 @@ class Login extends Component {
                 </div>
                 <TextField
                     Email
-                    Email id="Email"
+                    Email
+                    id="Email"
                     label="Email"
                     className="text-field"
                     margin="normal"
@@ -37,7 +37,7 @@ class Login extends Component {
                     LOGIN
                 </Button>
                 <p className="bottom-text">
-                    No account yet? Get setup now{' '}
+                    <pre>No account yet? Get setup now </pre>{' '}
                     <i
                         onClick={this.register.bind(this)}
                         class="fa fa-chevron-down"

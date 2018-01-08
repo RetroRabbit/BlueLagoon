@@ -19,7 +19,6 @@ class StepOne extends Component {
         let input = el;
         let ext = val.substring(val.lastIndexOf('.') + 1).toLowerCase();
         let self = this;
-        //alert(ext)
         if (
             input.files &&
             input.files[0] &&
@@ -27,7 +26,6 @@ class StepOne extends Component {
         ) {
             var reader = new FileReader();
             reader.onload = function(e) {
-                // $('.imagepreview').attr('src', e.target.result);
                 let obj = { preview: e.target.result, value: val, file: input.files[0] };
                 self.setState({ image: obj, hasImage: true });
                 self.props.canNext(true);
