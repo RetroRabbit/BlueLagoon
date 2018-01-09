@@ -20,8 +20,25 @@ const SubmitChanges =  {
     color: '#FFFFFF'
 }
 
-class UserSettings extends Component {
+export const editUserName = () => {
+    return (
+        <div className="edit-user-name">
+            <input type="text" placeholder={this.props.user.firstname + " " + this.props.user.lastname} />
+            <Button label="SAVE" style={SubmitChanges} children="DONE"/>
+        </div>
+    );
+}
 
+export const editUserEmail = () => {
+    return (
+        <div className="edit-user-email">
+            <input type="text" placeholder={this.props.user.email} />
+            <Button label="SAVE" style={SubmitChanges} children="DONE"/>
+        </div>
+    );
+}
+
+class UserSettings extends Component {
     render() {
         return (
             <div className="user-details">
@@ -52,16 +69,6 @@ class UserSettings extends Component {
                         className="edit"
                     />
                     
-                </div>
-
-                <div className="edit-user-name">
-                    <input type="text" placeholder={this.props.user.firstname + " " + this.props.user.lastname} />
-                    <Button label="SAVE" style={SubmitChanges} children="DONE"/>
-                </div>
-
-                <div className="edit-user-email">
-                    <input type="text" placeholder={this.props.user.email} />
-                    <Button label="SAVE" style={SubmitChanges} children="DONE"/>
                 </div>
 
                 <Button  
