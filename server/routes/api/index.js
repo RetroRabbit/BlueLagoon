@@ -1,6 +1,7 @@
 var router = require('express').Router();
 
 router.use('/',require("./users"));
+router.use('/chats',require("./chats"));
 
 
 router.use(function(err, req, res, next){
