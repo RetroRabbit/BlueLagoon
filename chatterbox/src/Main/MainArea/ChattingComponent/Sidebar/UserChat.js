@@ -4,6 +4,7 @@ class UserChat extends React.Component {
     render() {
 
         return (
+          <div>
             <div>
                 <div className="userChatBox">
                     <div className="userNameBox">

@@ -20,13 +20,8 @@ class Login extends Component {
                 <div className="logo">
                     <img src={logo} />
                 </div>
-                <TextField
-                    Email
-                    id="Email"
-                    label="Email"
-                    className="text-field"
-                    margin="normal"
-                />
+                <div className="Fields">
+                <TextField Email id="Email" label="Email" className="text-field" margin="normal" />
                 <TextField
                     Password
                     id="Password"
@@ -34,12 +29,13 @@ class Login extends Component {
                     className="text-field"
                     margin="normal"
                 />
+                </div>
                 <br />
                 <Button raised className="button">
                     LOGIN
                 </Button>
                 <p className="bottom-text">
-                    <pre>No account yet? Get setup now </pre>{' '}
+                    No account yet? Get setup now &nbsp;{' '}
                     <i
                         onClick={this.register.bind(this)}
                         class="fa fa-chevron-down"
