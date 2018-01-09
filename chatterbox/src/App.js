@@ -23,7 +23,6 @@ class App extends Component {
         this.funcVar = setInterval(this.splash, 2000);
     }
     splash() {
-        history.push('/auth/login');
         this.setState({ loading: false });
         clearInterval(this.funcVar);
     }
@@ -32,7 +31,7 @@ class App extends Component {
             <div>
                 {this.props.loading && <Loader />}
                 <Route path="/auth" component={Auth} />
-                <Route exact path="/" component={Main} />
+                <Route path="/" component={Main} />
             </div>
         );
     }

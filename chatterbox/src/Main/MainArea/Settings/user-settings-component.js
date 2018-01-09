@@ -37,19 +37,23 @@ class UserSettings extends Component {
                 </div>
 
                 <div className="user-name">
-                    <h2 className="user-detail">{this.props.user.firstname} {this.props.user.lastname}</h2>
-                    <Pencil
-                        onClick={() => this.props.editUserNameRequest(this.props.user)} 
-                        className="edit"
-                    />
+                    <div className="item-detail">
+                        <h2 className="user-detail">{this.props.user.firstname} {this.props.user.lastname}</h2>
+                        <Pencil
+                            onClick={() => this.props.editUserNameRequest(this.props.user)} 
+                            className="edit"
+                        />
+                    </div>
                 </div>
                 
-                <div className="user-email">
-                    <h3 className="user-detail">{this.props.user.email}</h3>
-                    <Pencil
-                        onClick={() => this.props.editUserEmailRequest(this.props.user)} 
-                        className="edit"
-                    />
+                <div className="item-detail user-email">
+                    <div className="item-detail">
+                        <h3 className="user-detail">{this.props.user.email}</h3>
+                        <Pencil
+                            onClick={() => this.props.editUserEmailRequest(this.props.user)} 
+                            className="edit"
+                        />
+                    </div>
                     
                 </div>
 
