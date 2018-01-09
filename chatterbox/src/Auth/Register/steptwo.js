@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { TextField } from 'material-ui';
 
 class StepOne extends Component {
     constructor(pr) {
@@ -40,7 +39,7 @@ class StepOne extends Component {
             <div className="stage-two">
                 <div className="input-image-container">
                     {this.state.hasImage && (
-                        <img className="input-image" src={this.state.image.preview} />
+                        <img className="input-image" alt="none" src={this.state.image.preview} />
                     )}
                     <input
                         onChange={this.inputChange.bind(this)}
