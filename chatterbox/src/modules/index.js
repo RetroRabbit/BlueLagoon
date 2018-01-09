@@ -7,7 +7,6 @@ import EditUserReducer from './settings/edit-user-reducer.js'
 const rootReducer = combineReducers({
   user: UserReducer,
   edituser: EditUserReducer,
-  routing: routerReducer
 });
 
 export default rootReducer;
