@@ -75,7 +75,7 @@ class Register extends Component {
                 >
                     NEXT
                 </Button>
-                {this.state.stage != 1 && (
+                {this.state.stage !== 1 && (
                     <div onClick={this.handleSkip.bind(this)} className="skip">
                         Skip for now
                     </div>
