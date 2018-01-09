@@ -2,7 +2,6 @@
 
 # dependencies
 chatterbox/node_modules
-node_modules
 
 # testing
 chatterbox/coverage
