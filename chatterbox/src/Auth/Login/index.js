@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import logo from '../../assets/Full Logo.png';
 import './login.css';
-import { withStyles } from 'material-ui/styles';
-import MenuItem from 'material-ui/Menu/MenuItem';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 
