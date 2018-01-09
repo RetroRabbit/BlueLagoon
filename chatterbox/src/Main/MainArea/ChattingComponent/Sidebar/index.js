@@ -106,9 +106,11 @@ class Sidebar extends React.Component {
 const mapStateToProps = state => ({
     users: state.sidebar.users
 })
-  
+const mapDispatchToProps = dispatch => bindActionCreators({
+    searchGo
+}, dispatch)  
 
 export default connect(
     mapStateToProps,
-    null
+    mapDispatchToProps
 )(Sidebar);
