@@ -3,9 +3,9 @@
     bottom: 0px;
     width: 411px;
     background-color: #FFFFFF;
-    box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
-    margin-top: 90px;
-    padding-top: 30px; 
+    box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14); 
+    /*margin-top: 90px;*/
+    padding-top: 30px;
 }
 
 .searchBox
@@ -41,8 +41,8 @@
     height: 43px;	
     width: 348px;	
     color: #706F6F;	
-    font-family: "Avenir Next";	
-    font-size: 16px;	
+    font-family: "MontserratS";	
+    font-size: 14px;	
     line-height: 22px; 
     margin-left: 34px; 
     text-overflow: clip
@@ -74,9 +74,9 @@
 .line 
 {
     box-sizing: border-box;
-    height: 2px;
+    height: 1px;
     width: 414px;
-    border: 2px solid #EAEAEA;
+    border: 0px solid #EAEAEA;
 }
 
 .sidebar2 

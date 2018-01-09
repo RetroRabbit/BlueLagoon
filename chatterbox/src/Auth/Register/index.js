@@ -21,15 +21,15 @@ class Register extends Component {
         // alert("stage "+curr)
         let canNext = this.state.canNext;
         if (canNext) {
-            if (this.state.stage == 1) {
+            if (this.state.stage === 1) {
                 console.log('TO-DO: send details to backend');
-            } else if (this.state.stage == 2) {
+            } else if (this.state.stage === 2) {
                 console.log('TO-DO: send image to backend');
-            } else if (this.state.stage == 3) {
+            } else if (this.state.stage === 3) {
                 console.log('TO-DO: search for friend, redirect to main');
                 this.props.history.push('/');
             }
-            if (this.state.stage != 3)
+            if (this.state.stage !== 3)
                 this.setState({ stage: curr + 1, error: false, canNext: false });
         } else {
             this.setState({ error: true });
