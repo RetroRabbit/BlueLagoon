@@ -5,9 +5,7 @@ import logo3 from '../../assets/Male3.png';
 import slogo from '../../assets/search.png';
 import { push } from 'react-router-redux'
 export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED'
-export const INCREMENT = 'counter/INCREMENT'
-export const DECREMENT_REQUESTED = 'counter/DECREMENT_REQUESTED'
-export const DECREMENT = 'counter/DECREMENT'
+
 
 const initialState = {
     currentChat:1,  
