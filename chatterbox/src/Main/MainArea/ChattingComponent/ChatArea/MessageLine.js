@@ -6,9 +6,9 @@ class MessageLine extends Component {
         super(e);
         let chr = this.props.type.toLowerCase().charAt(0);
         let type;
-        if (chr == 's') {
+        if (chr === 's') {
             type = 'sent';
-        } else if (chr == 'r') {
+        } else if (chr === 'r') {
             type = 'received';
         }
         this.state = {
