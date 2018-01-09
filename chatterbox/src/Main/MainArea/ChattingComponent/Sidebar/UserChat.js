@@ -1,11 +1,15 @@
 import React from 'react';
+import '../../../../modules/Sidebar/index';
+import UserChatClick from '../../../../modules/Sidebar/index';
 
 class UserChat extends React.Component {
     render() {
 
         return (
             <div>
-                <div className="userChatBox">
+                <div className="userChatBox" onClick={user => (
+                            <UserChatClick id={user.id}/>
+                        )}>
                     <div className="userNameBox">
                         <img src={this.props.img} alt="logo" className="imageStyling" />
                         {this.props.username}
@@ -15,11 +19,8 @@ class UserChat extends React.Component {
                     </div>
 
                 </div>
-
-                <div className="line" />
-            </div>
             <div className="line"></div>
-        </div>
+            </div>
       );
 
     }
