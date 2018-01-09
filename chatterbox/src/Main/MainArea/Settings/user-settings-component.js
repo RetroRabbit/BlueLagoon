@@ -2,8 +2,8 @@ import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
-import { Button } from 'material-ui';
-import './user-settings-component.css'
+import { Button, TextField } from 'material-ui';
+import './user-settings-component.css';
 import {
     editUserNameRequest,
     editUserEmailRequest,
@@ -54,11 +54,13 @@ class UserSettings extends Component {
                 </div>
 
                 <div className="edit-user-name">
-                    <input type="text" value={this.props.user.firstname + " " + this.props.user.lastname} />
+                    <TextField  defaultValue={this.props.user.firstname + " " + this.props.user.lastname} />
                 </div>
 
                 <div className="edit-user-email">
-                    <input type="text" placeholder={this.props.user.email} />
+                    <TextField type="text" defaultValue={this.props.user.email} 
+                        
+                    />
                 </div>
 
                 <Button  
