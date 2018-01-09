@@ -8,14 +8,16 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';  
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
+import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import {openMenu,closeMenu} from "../../modules/Header"
+import { push } from 'react-router-redux';
 
 const styles = theme => ({
     root: {
         height: ' 103px',
-        width: '1440px',
         color: '#01B9BD'
     },
-
     flex: {
         flex: 1
     },
@@ -30,35 +32,16 @@ const styles = theme => ({
 });
 
 class MenuAppBar extends React.Component {
-    state = {
-        auth: true,
-        anchorEl: null
-    };
-
     static propTypes = {
         classes: PropTypes.object.isRequired
     };
-
-    handleChange = (event, checked) => {
-        this.setState({ auth: checked });
-    };
-
-    handleMenu = event => {
-        this.setState({ anchorEl: event.currentTarget });
-    };
-
-    handleClose = () => {
-        this.setState({ anchorEl: null });
-    };
-
     settings() {
-        this.props.history.push('/settings');
+        // this.props.history.push('/settings');
     }
 
     render() {
         const { classes } = this.props;
-        const { auth, anchorEl } = this.state;
-        const open = Boolean(anchorEl);
+        const open = Boolean(this.props.anchorEl);
 
         return (
             <div className={classes.root}>
@@ -76,12 +59,12 @@ class MenuAppBar extends React.Component {
                             </div>
                         </div>
 
-                        {auth && (
+                    
                             <div className="appbar-buttons-right">
                                 <Button
                                     aria-owns={open && 'menu-appbar'}
                                     aria-haspopup="true"
-                                    onClick={this.handleMenu}
+                                    onClick={this.props.openMenu.bind(this)}
                                 >
                                     <h6 id="Addie_div">Addie Hogan </h6> &nbsp;
                                     <img
@@ -102,7 +85,7 @@ class MenuAppBar extends React.Component {
                                 </Button>
                                 <Menu
                                     id="menu-appbar"
-                                    anchorEl={anchorEl}
+                                    anchorEl={this.props.anchorEl}
                                     anchorOrigin={{
                                         vertical: 'top',
                                         horizontal: 'center'
@@ -113,13 +96,13 @@ class MenuAppBar extends React.Component {
                                         width: '50'
                                     }}
                                     open={open}
-                                    onClose={this.handleClose}
+                                    onClose={this.props.closeMenu.bind(this)}
                                 >
-                                    <MenuItem onClick={this.handleClose}>Settings</MenuItem>{' '}
-                                    <MenuItem onClick={this.handleClose}>Log Out</MenuItem>
+                                    <MenuItem onClick={()=>(this.props.changeSettings(),this.props.closeMenu())} >Settings</MenuItem>{' '}
+                                    <MenuItem onClick={()=>(this.props.logout(),this.props.closeMenu())} >Log Out</MenuItem>
                                 </Menu>
                             </div>
-                        )}
+                        
                     </Toolbar>
                 </AppBar>
             </div>
@@ -127,4 +110,18 @@ class MenuAppBar extends React.Component {
     }
 }
 
-export default withStyles(styles)(MenuAppBar);
+
+const mapStateToProps = state => ({
+    anchorEl: state.header.anchorEl
+  })
+  
+const mapDispatchToProps = dispatch => bindActionCreators({
+    openMenu,
+    closeMenu,
+    changeSettings:()=>push("/settings"),
+    logout:()=>push("/auth/login")
+  }, dispatch)
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(withStyles(styles)(MenuAppBar));

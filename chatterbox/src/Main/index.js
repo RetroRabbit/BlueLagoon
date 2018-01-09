@@ -10,9 +10,9 @@ class Main extends Component {
     console.log("Main",this.props);
     return (
       <div className="MainApp">
-        <header className="MainAppHeader">
+        <div className="MainAppHeader">
           <Header/>
-        </header>
+        </div>
             <Route path={`${this.props.match.path}`} component={MainArea} />
       </div>
     );

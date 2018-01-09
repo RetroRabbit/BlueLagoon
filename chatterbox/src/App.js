@@ -12,23 +12,13 @@ class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = {
-            loading: true
-        };
-        this.splash = this.splash.bind(this);
     }
     componentDidMount() {
         console.log('TO-DO: Check if user online');
-        this.funcVar = setInterval(this.splash, 2000);
-    }
-    splash() {
-        this.setState({ loading: false });
-        clearInterval(this.funcVar);
     }
     render() {
         return (
             <div>
-                 {this.props.loading && <Loader />}
                 <Route path="/auth" component={Auth} />
                 <Route path="/" component={Main} />
             </div>
