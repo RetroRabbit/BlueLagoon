@@ -1,13 +1,8 @@
+import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
+import sidebar from './Sidebar'
 
-
-import { combineReducers } from 'redux'
-import UserReducer from './settings/user-reducer.js'
-import EditUserReducer from './settings/edit-user-reducer.js'
-
-const rootReducer = combineReducers({
-  user: UserReducer,
-  edituser: EditUserReducer,
+export default combineReducers({
+    routing: routerReducer,
+    sidebar:sidebar
 });
-
-export default rootReducer;
-

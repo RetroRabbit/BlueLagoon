@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { history } from './store';
-
+import ListExampleChat from './Main/MainArea/ChattingComponent/Sidebar';
+import Sidebar from './Main/MainArea/ChattingComponent/Sidebar/index';
 import Auth from './Auth';
 import Main from './Main';
 import Loader from './assets/Loader';
@@ -29,7 +30,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                {this.state.loading && <Loader />}
+                {this.props.loading && <Loader />}
                 <Route path="/auth" component={Auth} />
                 <Route exact path="/" component={Main} />
             </div>
