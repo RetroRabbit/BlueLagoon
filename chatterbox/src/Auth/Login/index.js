@@ -13,7 +13,7 @@ class Login extends Component {
             <div className="Login">
                 <h1 className="welcome-to-the">Welcome to the</h1>
                 <div className="logo">
-                    <img src={logo} />
+                    <img alt="none" src={logo} />
                 </div>
                 <TextField
                     Email
