@@ -20,6 +20,10 @@ const SubmitChanges =  {
     color: '#FFFFFF'
 }
 
+const TextFieldStyles = {
+    width: '100%'
+}
+
 class UserSettings extends Component {
     render() {
         return (
@@ -54,12 +58,16 @@ class UserSettings extends Component {
                 </div>
 
                 <div className="edit-user-name">
-                    <TextField  defaultValue={this.props.user.firstname + " " + this.props.user.lastname} />
+                    <TextField  
+                        defaultValue={this.props.user.firstname + " " + this.props.user.lastname} 
+                        style={TextFieldStyles}   
+                    />
                 </div>
 
                 <div className="edit-user-email">
-                    <TextField type="text" defaultValue={this.props.user.email} 
-                        
+                    <TextField 
+                        defaultValue={this.props.user.email} 
+                        style={TextFieldStyles}
                     />
                 </div>
 
