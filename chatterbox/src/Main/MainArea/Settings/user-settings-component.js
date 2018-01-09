@@ -54,7 +54,7 @@ class UserSettings extends Component {
                 </div>
 
                 <div className="edit-user-name">
-                    <input type="text" placeholder={this.props.user.firstname + " " + this.props.user.lastname} />
+                    <input type="text" value={this.props.user.firstname + " " + this.props.user.lastname} />
                 </div>
 
                 <div className="edit-user-email">
