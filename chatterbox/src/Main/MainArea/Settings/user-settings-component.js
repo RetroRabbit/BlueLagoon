@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
 import { Button } from 'material-ui';
-import styles from './user-settings-component.css'
+import './user-settings-component.css'
 import {
     editUserNameRequest,
     editUserEmailRequest,
