@@ -5,7 +5,7 @@ import logo1 from '../../../../assets/male2.png';
 import logo2 from '../../../../assets/female1.png';
 import logo3 from '../../../../assets/Male3.png';
 import slogo from '../../../../assets/search.png';
-import UserChat from './userchat';
+import UserChat from './UserChat';
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -62,8 +62,9 @@ class Sidebar extends React.Component {
                     img: logo3
                 }
             ]
-        };
-    }
+
+      };
+  }
 
     render() {
         return (
