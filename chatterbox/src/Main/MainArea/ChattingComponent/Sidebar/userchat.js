@@ -8,6 +8,7 @@ import { push } from 'react-router-redux'
 class UserChat extends React.Component {
     render() {
         return (
+          <div>
             <div>
                 <div className="userChatBox" onClick={()=>(this.props.chatClick(this.props.id),this.props.changeRoute(this.props.id))}>
                     <div className="userNameBox">

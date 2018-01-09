@@ -40,15 +40,15 @@ class Register extends Component {
         // alert("stage "+curr)
         let canNext = this.state.canNext;
         if (canNext) {
-            if (this.state.stage == 1) {
+            if (this.state.stage === 1) {
                 console.log('TO-DO: send details to backend');
-            } else if (this.state.stage == 2) {
+            } else if (this.state.stage === 2) {
                 console.log('TO-DO: send image to backend');
-            } else if (this.state.stage == 3) {
+            } else if (this.state.stage === 3) {
                 console.log('TO-DO: search for friend, redirect to main');
                 this.props.history.push('/');
             }
-            if (this.state.stage != 3)
+            if (this.state.stage !== 3)
                 this.setState({ stage: curr + 1, error: false, canNext: false });
         } else {
             this.setState({ error: true });
@@ -65,9 +65,9 @@ class Register extends Component {
                     {this.state.heading[this.state.stage - 1].title}
                 </h1>
                 <h1 className="heading-title">{this.state.heading[this.state.stage - 1].sub}</h1>
-                {this.state.stage == 1 && <StepOne canNext={this.handleCanNext.bind(this)} />}
-                {this.state.stage == 2 && <StepTwo canNext={this.handleCanNext.bind(this)} />}
-                {this.state.stage == 3 && <StepThree canNext={this.handleCanNext.bind(this)} />}
+                {this.state.stage === 1 && <StepOne canNext={this.handleCanNext.bind(this)} />}
+                {this.state.stage === 2 && <StepTwo canNext={this.handleCanNext.bind(this)} />}
+                {this.state.stage === 3 && <StepThree canNext={this.handleCanNext.bind(this)} />}
 
                 <Button
                     onClick={() => this.handleNext(this.state.stage)}
@@ -76,7 +76,7 @@ class Register extends Component {
                 >
                     NEXT
                 </Button>
-                {this.state.stage != 1 && (
+                {this.state.stage !== 1 && (
                     <div onClick={this.handleSkip.bind(this)} className="skip">
                         Skip for now
                     </div>

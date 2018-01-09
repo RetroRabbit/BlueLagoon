@@ -22,6 +22,10 @@
 .text-field {
 	margin-top: 100px;
 	width: 390px;
+
+}
+.Fields {
+	margin-top: 38px;
 }
 
 .Login button {
@@ -45,4 +49,6 @@
 	height: 100px;
 	margin-top: 70px;
 	margin-bottom: 100px;
+	border-bottom-right-radius: 12px;
+	border-bottom-left-radius: 12px;
 }
