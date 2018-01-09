@@ -4,7 +4,9 @@ import logo2 from '../../assets/female1.png';
 import logo3 from '../../assets/Male3.png';
 import slogo from '../../assets/search.png';
 import { push } from 'react-router-redux'
-export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED'
+import SearchApi from 'redux-search/dist/commonjs/SearchApi';
+export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED';
+export const SEARCH = 'sidebar/SEARCH';
 
 
 const initialState = {
@@ -72,13 +74,18 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case CHAT_CLICKED:
-      return {
-        ...state,
-        currentChat: action.payload
+        return {
+            ...state,
+            currentChat: action.payload
+      }
+    case SEARCH:
+        return {
+            ...state,
+            currentChat: action.payload
       }
 
     default:
-      return state
+        return state
   }
 }
 
@@ -91,4 +98,16 @@ export const chatClick = (id) => {
       payload:id
     })
   }
+}
+
+export const searchGo = (name) => {
+    alert(name);
+   
+    return dispatch => {
+        dispatch({
+          type: SEARCH,
+          payload:name
+        })
+      }
+  
 }

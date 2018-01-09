@@ -8,6 +8,10 @@ import slogo from '../../../../assets/search.png';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import UserChat from './userchat';
+import { SearchApi } from 'redux-search';
+import PeopleView from '../../../../modules/Sidebar/search'
+import { searchGo } from '../../../../modules/Sidebar/index';
+
 
 class Sidebar extends React.Component {
     constructor(props) {
@@ -82,7 +86,7 @@ class Sidebar extends React.Component {
                 <div className="outerBox">
                     <div className="searchBox">
                         <div className="search">
-                            <input class="searchInput" placeholder="Search Chats" />
+                            <input class="searchInput" placeholder="Search Chats" onChange = {()=> this.props.searchGo(this.props.name)}/>
                             <img src={slogo} alt="slogo" className="fa-search" />
                         </div>
                     </div>
@@ -101,16 +105,10 @@ class Sidebar extends React.Component {
 
 const mapStateToProps = state => ({
     users: state.sidebar.users
-  })
+})
   
-/*const mapDispatchToProps = dispatch => bindActionCreators({
-    increment,
-    incrementAsync,
-    decrement,
-    decrementAsync,
-    changePage: () => push('/about-us')
-  }, dispatch)*/
-  export default connect(
+
+export default connect(
     mapStateToProps,
     null
-  )(Sidebar);
+)(Sidebar);

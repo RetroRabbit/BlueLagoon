@@ -10,7 +10,7 @@ class UserChat extends React.Component {
         return (
           <div>
             <div>
-                <div className="userChatBox" onClick={()=>(this.props.chatClick(this.props.id),this.props.changeRoute(this.props.id))}>
+                <div className="userChatBox" onClick={()=>(this.props.chatClick(this.props.id), this.props.changeRoute(this.props.id))}>
                     <div className="userNameBox">
                         <img src={this.props.img} alt="logo" className="imageStyling" />
                         {this.props.username}
