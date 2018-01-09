@@ -1,0 +1,122 @@
+.outerBox 
+{
+    bottom: 0px;
+    width: 411px;
+    background-color: #FFFFFF;
+    box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14); 
+    /*margin-top: 90px;*/
+    padding-top: 30px;
+}
+
+.searchBox
+{	
+    height: 43px;	
+    width: 310px;	
+    border: 1px solid #979797;	
+    border-radius: 21.5px; 
+    margin-left: 34px;
+    margin-bottom: 30px;
+}
+
+.userChatBox
+{	
+    height: 139px;	
+    width: 411px;	
+    background-color: rgb(255, 255, 255); 
+    padding-top: 10px; 
+}
+
+.userNameBox 
+{	
+    height: 43px;	
+    width: 345px;	
+    border-radius: 21.5px;	
+    background-color: #EAEAEA; 
+    margin-left: 34px; 
+    margin-top: 20px
+}
+
+.chatTextBox 
+{	
+    height: 43px;	
+    width: 348px;	
+    color: #706F6F;	
+    font-family: "MontserratS";	
+    font-size: 14px;	
+    line-height: 22px; 
+    margin-left: 34px; 
+    text-overflow: clip
+}
+
+.imageStyling 
+{	
+    height: 35px;	
+    width: 35px; 
+    margin: 5px; 
+    margin-left: 15px
+}
+
+.search 
+{ 
+    margin-left: 15px; 
+    margin-top: 7px
+}
+
+.fa-search 
+{
+    height: 20px;
+    width: 20px;
+    float: right;
+    margin-right: 10px;
+    margin-top: 5px;
+}
+
+.line 
+{
+    box-sizing: border-box;
+    height: 1px;
+    width: 414px;
+    border: 0px solid #EAEAEA;
+}
+
+.sidebar2 
+{
+    height: 600px;
+    width: 411px;
+    background-color: #FFFFFF;
+}
+
+.scrollbar
+{
+    width: 411px;
+    background: #F5F5F5;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+    display: none;
+}
+
+.userChatBox:hover { background-color: #e2e2e2; }
+
+.searchInput
+{
+    border-color: #FFFFFF;
+    border-left: #FFFFFF;
+    border-top: #FFFFFF;
+    width: 250px;
+}
+
+input:focus
+{
+    outline-width: 0px;
+}
+
+.status
+{
+    height: 43px;	
+    width: 348px;
+    overflow: hidden;
+}

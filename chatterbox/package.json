@@ -10,14 +10,12 @@
     "material-ui-icons": "^1.0.0-beta.17",
     "prettier": "^1.9.2",
     "react": "^16.2.0",
-    "react-burger-menu": "^2.2.3",
     "react-dom": "^16.2.0",
     "react-redux": "^5.0.6",
     "react-router-dom": "^4.2.2",
     "react-router-redux": "^5.0.0-alpha.9",
     "react-scripts": "1.0.17",
     "redux": "^3.7.2",
-    "redux-burger-menu": "^0.2.4",
     "redux-thunk": "^2.2.0"
   },
   "scripts": {
@@ -25,6 +23,7 @@
     "prettier": "node_modules/.bin/prettier --write --tab-width=4 --single-quote=true --print-width=100 \"{src,test,utilities}/**/*.js\"",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "prettier": "node_modules/.bin/prettier --write --tab-width=4 --single-quote=true --print-width=100 \"{src,test,utilities}/**/*.js\""
   }
 }
