@@ -4,10 +4,7 @@ import { Route } from 'react-router-dom';
 import Login from './Login';
 import './Auth.css';
 
-class Auth extends Component {s
-    constructor(e) {
-        super(e);
-    }
+class Auth extends Component {
 
     render() {
         return (
