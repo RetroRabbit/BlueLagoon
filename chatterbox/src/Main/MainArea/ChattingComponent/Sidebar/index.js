@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
                 {
                     name: 'Lloyd Jimenez',
                     msg:
-                        'The practice of cigar smoking has been on the rise in the U.S. since the early 90’s. In part due',
+                        'The practice of cigar smoking has been on the rise in the U.S. since the early 90’s. In part due The practice of cigar smoking has been on the rise in the U.S. since the early 90’s. In part due',
                     img: logo
                 },
                 {
@@ -32,7 +32,7 @@ class Sidebar extends React.Component {
                     img: logo2
                 },
                 {
-                    name: 'Terry Gordon',
+                    name: 'Siyabonga Gift Ndovela',
                     msg:
                         'Here, I focus on a range of items and features that we use in life without giving them a second',
                     img: logo3
@@ -62,8 +62,9 @@ class Sidebar extends React.Component {
                     img: logo3
                 }
             ]
-        };
-    }
+
+      };
+  }
 
     render() {
         return (
@@ -71,8 +72,8 @@ class Sidebar extends React.Component {
                 <div className="outerBox">
                     <div className="searchBox">
                         <div className="search">
+                            <input class="searchInput" placeholder="Search Chats" />
                             <img src={slogo} alt="slogo" className="fa-search" />
-                            <p>Search Chats</p>
                         </div>
                     </div>
                     <div className="line" />

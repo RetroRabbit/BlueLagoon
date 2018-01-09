@@ -2,7 +2,9 @@ import React from 'react';
 
 class UserChat extends React.Component {
     render() {
+
         return (
+          <div>
             <div>
                 <div className="userChatBox">
                     <div className="userNameBox">
@@ -10,13 +12,17 @@ class UserChat extends React.Component {
                         {this.props.username}
                     </div>
                     <div className="chatTextBox">
-                        <p>{this.props.msg}</p>
+                        <p className="status">{this.props.msg}</p>
                     </div>
+
                 </div>
 
                 <div className="line" />
             </div>
-        );
+            <div className="line"></div>
+        </div>
+      );
+
     }
 }
 
