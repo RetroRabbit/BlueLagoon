@@ -3,10 +3,12 @@
 	height: 100%;
 	background-color: white;
 	position: relative;
+	display: flex;
+	justify-content: center;
 }
 
 .ChatArea .writer-container{
-	width: 100%;
+	width: 80%;
 	height: 230px;
 	position: absolute;
 	bottom: 0;
@@ -27,9 +29,10 @@
 	padding: 15px 25px;
 	outline: none;
 	font-size: 17px;
+	overflow: hidden;
 }
 .ChatArea .messages-container{
-	width: 100%;
+	width: 80%;
 	position: absolute;
 	overflow-y: auto;
 	top: 0;
