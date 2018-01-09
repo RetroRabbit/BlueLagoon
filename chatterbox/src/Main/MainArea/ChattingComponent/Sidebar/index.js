@@ -5,7 +5,7 @@ import logo1 from '../../../../assets/male2.png';
 import logo2 from '../../../../assets/female1.png';
 import logo3 from '../../../../assets/Male3.png';
 import slogo from '../../../../assets/search.png';
-import UserChat from './UserChat';
+import UserChat from './userchat';
 
 class Sidebar extends React.Component {
     constructor(props) {

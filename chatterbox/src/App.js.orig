@@ -1,13 +1,23 @@
 import React, { Component } from 'react';
 import './App.css';
+<<<<<<< HEAD
+import MenuAppBar from './Main/Header';
+import ReactDOM from 'react-dom';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
+class App extends Component {
+    render() {
+        return (
+            <MuiThemeProvider>
+                <MenuAppBar />
+            </MuiThemeProvider>
+=======
 import { Route } from 'react-router-dom';
 import { history } from './store';
- 
+
 import Auth from './Auth';
 import Main from './Main';
 import Loader from './assets/Loader';
-import MenuAppBar from './Main/Header';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'; 
 
 
 class App extends Component {
@@ -30,9 +40,12 @@ class App extends Component {
     }
     render() {
         return (
-            <MuiThemeProvider>
-                <MenuAppBar />
-            </MuiThemeProvider>
+            <div>
+                {this.state.loading && <Loader />}
+                <Route path="/auth" component={Auth} />
+                <Route exact path="/" component={Main} />
+            </div>
+>>>>>>> develop
         );
     }
 }
