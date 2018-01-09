@@ -5,6 +5,8 @@ import logo1 from '../../../../assets/male2.png';
 import logo2 from '../../../../assets/female1.png';
 import logo3 from '../../../../assets/Male3.png';
 import slogo from '../../../../assets/search.png';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
 import UserChat from './UserChat';
 
 class Sidebar extends React.Component {
@@ -87,7 +89,7 @@ class Sidebar extends React.Component {
                     <div className="line" />
 
                     <div className="sidebar2 scrollbar">
-                        {this.state.users.map(user => (
+                        {this.props.users.map(user => (
                             <UserChat username={user.name} msg={user.msg} img={user.img} id={user.id}/>
                         ))}
                     </div>
@@ -96,4 +98,19 @@ class Sidebar extends React.Component {
         );
     }
 }
-export default Sidebar;
+
+const mapStateToProps = state => ({
+    users: state.sidebar.users
+  })
+  
+/*const mapDispatchToProps = dispatch => bindActionCreators({
+    increment,
+    incrementAsync,
+    decrement,
+    decrementAsync,
+    changePage: () => push('/about-us')
+  }, dispatch)*/
+  export default connect(
+    mapStateToProps,
+    null
+  )(Sidebar);
