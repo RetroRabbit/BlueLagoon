@@ -1,13 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react'; 
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import './index.css';
 import img1 from '../../assets/img1.png';
 import img2 from '../../assets/img2.png';
 import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';
-import IconButton from 'material-ui/IconButton';
-import MenuIcon from 'material-ui-icons/Menu';
+import Toolbar from 'material-ui/Toolbar';  
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 
@@ -64,7 +62,7 @@ class MenuAppBar extends React.Component {
 
         return (
             <div className={classes.root}>
-                <AppBar position="static" className="AppBarymai">
+                <AppBar position="relative" className="AppBarymai">
                     <Toolbar>
                         <div className={classes.flex}>
                             <div className="appbar-buttons">
