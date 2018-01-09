@@ -5,13 +5,14 @@ import Login from './Login';
 import './Auth.css';
 
 class Auth extends Component {
-
     render() {
         return (
             <div className="Auth">
                 <div className="auth-box">
+
                     <Route path={`${this.props.match.path}/login`} component={Login} />
                     <Route path={`${this.props.match.path}/register`} component={Register} />
+
                 </div>
             </div>
         );

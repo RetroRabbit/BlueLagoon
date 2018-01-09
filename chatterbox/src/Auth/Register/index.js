@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Button } from 'material-ui';
+
 import StepOne from './stepone';
 import StepTwo from './steptwo';
 import StepThree from './stepthree';
@@ -85,6 +86,7 @@ class Register extends Component {
                         {this.state.heading[this.state.stage - 1].error}
                     </div>
                 )}
+
             </div>
         );
     }
