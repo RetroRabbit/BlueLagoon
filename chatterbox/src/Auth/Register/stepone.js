@@ -1,5 +1,9 @@
 import React, { Component } from 'react';
 import { TextField } from 'material-ui';
+import { Button } from 'material-ui';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import {handleStageOneEmail,handleStageOneName,handleStageOnePassword} from "../../modules/register"
 
 class StepOne extends Component {
     constructor(e) {
@@ -41,37 +45,49 @@ class StepOne extends Component {
                 <div className="input-line">
                     <TextField
                         id="name"
-                        onChange={this.handleName.bind(this)}
+                        onChange={this.props.handleName.bind(this)}
                         label="Your name"
                         className={'register-input'}
                         margin="normal"
-                        value={this.state.name}
                     />
                 </div>
                 <div className="input-line">
                     <TextField
                         id="email"
-                        onChange={this.handleEmail.bind(this)}
+                        onChange={this.props.handleEmail.bind(this)}
                         label="Email"
                         className={'register-input'}
                         margin="normal"
-                        value={this.state.email}
                     />
                 </div>
                 <div className="input-line">
                     <TextField
                         id="password"
                         type="password"
-                        onChange={this.handlePassword.bind(this)}
+                        onChange={this.props.handlePassword.bind(this)}
                         label="Password"
                         className={'register-input'}
                         margin="normal"
-                        value={this.state.password}
                     />
                 </div>
             </div>
         );
     }
 }
+const mapStateToProps = state => ({
+    stage: state.register.stage,
+    canNext: state.register.canNext,
+    error: state.register.error,
+    heading:state.register.heading
+  })
+  
+  const mapDispatchToProps = dispatch => bindActionCreators({
+    handlePassword:handleStageOnePassword,
+    handleEmail:handleStageOneEmail,
+    handleName:handleStageOneName
+  }, dispatch)
 
-export default StepOne;
+  export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+  )(StepOne);

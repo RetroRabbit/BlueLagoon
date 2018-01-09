@@ -4,6 +4,7 @@ import sidebar from './Sidebar';
 import header from './Header';
 import userSettings from '../modules/settings/edit-user-reducer'
 import userReducer from '../modules/settings/user-reducer'
+import register from "./register"
 
 export default combineReducers({
     routing: routerReducer,
@@ -11,4 +12,6 @@ export default combineReducers({
     user: userReducer,
     settings: userSettings,
     header:header
+     register,
+    settings: userSettings
 });
