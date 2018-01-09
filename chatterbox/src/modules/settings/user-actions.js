@@ -25,3 +25,10 @@ export const saveChanges = (user) => {
         payload: user
     }
 }
+
+export const saveUserName = (user) => {
+    return {
+        type: "SAVE_USER_NAME",
+        payload: user
+    }
+}

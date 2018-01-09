@@ -55,12 +55,10 @@ class UserSettings extends Component {
 
                 <div className="edit-user-name">
                     <input type="text" placeholder={this.props.user.firstname + " " + this.props.user.lastname} />
-                    <Button label="SAVE" style={SubmitChanges} children="DONE"/>
                 </div>
 
                 <div className="edit-user-email">
                     <input type="text" placeholder={this.props.user.email} />
-                    <Button label="SAVE" style={SubmitChanges} children="DONE"/>
                 </div>
 
                 <Button  
