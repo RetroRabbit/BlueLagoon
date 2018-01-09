@@ -10,7 +10,7 @@ import { connect } from 'react-redux'
 import UserChat from './userchat';
 import { SearchApi } from 'redux-search';
 import PeopleView from '../../../../modules/Sidebar/search'
-import { searchGo } from '../../../../modules/Sidebar/index';
+import { searchGo } from '../../../../modules/Sidebar';
 
 
 class Sidebar extends React.Component {
@@ -80,13 +80,14 @@ class Sidebar extends React.Component {
       };
   }
 
+
     render() {
         return (
             <div className="sidebar">
                 <div className="outerBox">
                     <div className="searchBox">
                         <div className="search">
-                            <input class="searchInput" placeholder="Search Chats" onChange = {()=> this.props.searchGo(this.props.name)}/>
+                            <input value={this.state.term} class="searchInput" placeholder="Search Chats"  onChange = {this.props.searchGo}/>
                             <img src={slogo} alt="slogo" className="fa-search" />
                         </div>
                     </div>
@@ -102,6 +103,7 @@ class Sidebar extends React.Component {
         );
     }
 }
+
 
 const mapStateToProps = state => ({
     users: state.sidebar.users

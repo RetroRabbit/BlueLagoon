@@ -100,14 +100,15 @@ export const chatClick = (id) => {
   }
 }
 
-export const searchGo = (name) => {
-    alert(name);
-   
-    return dispatch => {
-        dispatch({
-          type: SEARCH,
-          payload:name
-        })
-      }
+
+export const searchGo = (event) => {
+    alert(event.target.value);
+    
+    // return dispatch => {
+    //     dispatch({
+    //       type: SEARCH,
+    //       payload:users
+    //     })
+    //   }
   
 }
