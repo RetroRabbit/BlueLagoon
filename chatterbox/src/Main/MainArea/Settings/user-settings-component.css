@@ -36,6 +36,9 @@ h2, h3, .edit {
     color: #4A4A4A;
 }
 
+.user-name {
+    text-align: center;
+}
 .user-email {
     padding-bottom: 42px;
 }
