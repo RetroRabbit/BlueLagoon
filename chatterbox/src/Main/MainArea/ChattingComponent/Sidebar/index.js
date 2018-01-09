@@ -7,7 +7,7 @@ import logo3 from '../../../../assets/Male3.png';
 import slogo from '../../../../assets/search.png';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import UserChat from './UserChat';
+import UserChat from './userchat';
 
 class Sidebar extends React.Component {
     constructor(props) {

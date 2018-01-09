@@ -3,7 +3,7 @@ import '../../../../modules/Sidebar/index';
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { chatClick } from '../../../../modules/Sidebar/index';
-import { push } from 'react-router-redux'
+import { push } from 'react-router-redux';
 
 class UserChat extends React.Component {
     render() {
@@ -22,15 +22,14 @@ class UserChat extends React.Component {
                 </div>
             <div className="line"></div>
             </div>
+            </div>
       );
 
     }
 }
 
-/*const mapStateToProps = state => ({
-    users: state.sidebar.users
-  })*/
-  
+
+
 const mapDispatchToProps = dispatch => bindActionCreators({
     chatClick,
     changeRoute:(id)=> push('/chat/' + id)

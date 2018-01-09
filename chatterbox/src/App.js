@@ -30,7 +30,7 @@ class App extends Component {
     render() {
         return (
             <div>
-                {this.state.loading && <Loader />}
+                {this.props.loading && <Loader />}
                 <Route path="/auth" component={Auth} />
                 <Route exact path="/" component={Main} />
             </div>
