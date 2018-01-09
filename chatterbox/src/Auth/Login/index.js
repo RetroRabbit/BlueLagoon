@@ -19,7 +19,6 @@ class Login extends Component {
                 </div>
                 <TextField
                     Email
-                    Email
                     id="Email"
                     label="Email"
                     className="text-field"
