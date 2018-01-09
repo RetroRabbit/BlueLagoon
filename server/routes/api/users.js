@@ -150,13 +150,15 @@ router.post('/user/dp', function(req, res, next){
   if(!req.body.id){
     return res.status(422).json({errors: {id: "id is Required"}});
   }
-
+  let uploadDir="uploads/";
   let input=req.body;
+  let id=req.body.id;
   let keys=Object.keys(req.files);
-      let sampleFile=req.files[keys[0]];
+  let i=0;
+      let sampleFile=req.files[keys[i]];
       let now=(new Date()).getTime();
       console.log("UP file "+Object.keys(sampleFile))
-      let fileName=id+""+i+""+now+"."+sampleFile.mimetype.split("/")[1]
+      let fileName=uploadDir+id+""+i+""+now+"."+sampleFile.mimetype.split("/")[1]
       console.log(fileName)
         sampleFile.mv(fileName, function(err) {
           if (err){
@@ -164,81 +166,41 @@ router.post('/user/dp', function(req, res, next){
             console.log(err);
             return 
           }
-
-          res.status(200).send(dataString)
           console.log('File uploaded!');
-        });
-  /*POOL.getConnection(function(err,connection){
-    let email=input.email;
-    let password=encryption.encrypt(input.password);
-    if (err) {
-     res.json({"code" : 100, "status":"error","statusMessage" : "Error in connection database"}).status(100);
-     connection.release();
-     return;
-    }   
-
-    console.log('connected as id ' + connection.threadId);
-
-    let queryEmailCheck = `SELECT id FROM USER
-        WHERE email=?`
-   connection.query(queryEmailCheck,[email],function(err,rows){
-      if(err){
-         console.log("Error Selecting : %s ",err );
-         res.json({error:"error","code" : 100, "status":"error","statusMessage" : "Error in query"}).status(100);
-         connection.release();
-         return;
-      }
-      if (rows.length>0) {
-        let query = `SELECT id,name,image,email FROM USER
-            WHERE email=?  AND password=?`;
-            console.log(password)
-
-         connection.query(query,[email,password],function(err,rows){
-            if(err){
-               console.log("Error Selecting : %s ",err );
-               res.json({error:"error","code" : 100, "status":"error","statusMessage" : "Error in query"}).status(100);
+            POOL.getConnection(function(err,connection){;
+              if (err) {
+               res.json({"code" : 100, "status":"error","statusMessage" : "Error in connection database"}).status(100);
                connection.release();
                return;
-            }
-            if (rows.length>0) {
+              }   
+
+              console.log('connected as id ' + connection.threadId);
+
+              let query = `UPDATE USER SET image=? WHERE id=?`
+             connection.query(query,[fileName,id],function(err,rows){
+                if(err){
+                   console.log("Error Selecting : %s ",err );
+                   res.json({error:"error","code" : 100, "status":"error","statusMessage" : "Error in query"}).status(100);
+                   connection.release();
+                   return;
+                }
                   let jsonRet={
                     status:"success",
-                    statusMessage:"user logged in",
-                    data:rows[0]
-                  }
-                  res.json(jsonRet).status(200);       
-            }else{
-                  let jsonRet={
-                    status:"error",
-                    statusMessage:"incorrect password ",
-                    data:rows
+                    statusMessage:"profile image updated",
+                    filepath:fileName
                   }
                   res.json(jsonRet).status(200);
-            }
-         
-            // connection.release();
-            return;       
-                           
-         });
-      }else{
-        let jsonRet={
-          status:"error",
-          statusMessage:"no such user found",
-          data:rows
-        }
-        res.json(jsonRet).status(200);
+                connection.release();        
+                               
+             });
 
-      }
-      connection.release();        
-                     
-   });
+              connection.on('error', function(err) {      
+                   res.json({"code" : 100,"status":"error","statusMessage" : "Error in connection database"}).status(100);
 
-    connection.on('error', function(err) {      
-         res.json({"code" : 100,"status":"error","statusMessage" : "Error in connection database"}).status(100);
-
-         return;     
-    });
-  });*/
+                   return;     
+              });
+            });
+        });
 });
 
 

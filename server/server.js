@@ -3,8 +3,8 @@ var http = require('http'),
     express = require('express'),
     bodyParser = require('body-parser'),
     cors = require('cors'),
-    errorhandler = require('errorhandler');
-
+    errorhandler = require('errorhandler'),
+    fileUpload = require('express-fileupload');
 var isProduction = process.env.NODE_ENV === 'production';
 
 var app = express();
@@ -14,7 +14,7 @@ app.use(cors());
 
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-
+app.use(fileUpload());
 // app.use(require('method-override')());
 app.use(express.static(__dirname + '/public'));
 
