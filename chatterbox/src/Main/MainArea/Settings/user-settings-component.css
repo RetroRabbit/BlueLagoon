@@ -1,0 +1,48 @@
+.oval {	
+    height: 269px;	
+    width: 269px;	
+    background-color: #FFFFFF;	
+    box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+    border-radius: 50%;
+    padding: 17px;
+}
+
+.oval-4 {
+    border-radius: 50%;	
+    height: 236px;	
+    width: 236px;
+}
+
+img {
+    border-radius: 50%;	
+}
+
+.user-details {
+    position:absolute;
+    text-align: center;
+    top: 131px;
+    left: 579px;
+}
+
+.profile-picture {
+    display: inline-block;
+}
+
+.edit {
+    font-size: 26px;
+}
+
+h2, h3, .edit {
+    color: #4A4A4A;
+}
+
+.user-name {
+    text-align: center;
+}
+.user-email {
+    padding-bottom: 42px;
+}
+
+.user-detail {
+    padding-right: 10px;
+}

@@ -4,9 +4,6 @@ import './ChatArea.css';
 import MessageLine from './MessageLine';
 
 class ChatArea extends Component {
-    constructor(e) {
-        super(e);
-    }
     onTextAreaChange(e) {
         let el = e.target;
         el.style.cssText = 'height:auto; padding:0';

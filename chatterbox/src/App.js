@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
-import { push } from 'react-router-redux';
 import { history } from './store';
-import ListExampleChat from './Main/MainArea/ChattingComponent/Sidebar';
 
 import Auth from './Auth';
 import Main from './Main';
 import Loader from './assets/Loader';
+
 
 class App extends Component {
 

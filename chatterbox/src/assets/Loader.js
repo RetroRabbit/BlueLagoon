@@ -49,7 +49,7 @@ class Loader extends Component {
         return (
             <div style={style.loader} className="Loader">
                 <div style={style.imageHolder}>
-                    <img style={style.image} src={logo} />
+                    <img style={style.image} alt="none" src={logo} />
                 </div>
             </div>
         );
