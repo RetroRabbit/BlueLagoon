@@ -1,28 +1,16 @@
 import React, { Component } from 'react';
 import { TextField } from 'material-ui';
+import { Button } from 'material-ui';
+import { bindActionCreators } from 'redux'
+import { connect } from 'react-redux'
+import {handleStageEmail} from "../../modules/register"
 
-class StepOne extends Component {
+class StepThree extends Component {
     constructor(e) {
         super(e);
-        this.state = {
-            email: ''
-        };
-        this.checkCanNext = this.checkCanNext.bind(this);
+        // this.checkCanNext = this.checkCanNext.bind(this);
     }
-    handleEmail(e) {
-        console.log('checkCanNext:', this.checkCanNext());
-        this.setState({ email: e.target.value });
-    }
-    checkCanNext() {
-        let hasEmail = this.state.email.length > 0;
-
-        if (hasEmail) {
-            this.props.canNext(true);
-            return true;
-        }
-        this.props.canNext(false);
-        return false;
-    }
+    
     render() {
         return (
             <div className="stage-three">
@@ -30,10 +18,10 @@ class StepOne extends Component {
                     <TextField
                         id="with-placeholder"
                         label="Friends Email"
-                        onChange={this.handleEmail.bind(this)}
+                        onChange={this.props.handleEmail.bind(this)}
                         className={'register-input'}
                         margin="normal"
-                        value={this.state.email}
+                        value={this.props.email}
                     />
                 </div>
             </div>
@@ -41,4 +29,19 @@ class StepOne extends Component {
     }
 }
 
-export default StepOne;
+const mapStateToProps = state => ({
+    stage: state.register.stage,
+    canNext: state.register.canNext,
+    error: state.register.error,
+    heading:state.register.heading
+})
+  
+const mapDispatchToProps = dispatch => bindActionCreators({
+    handleEmail:handleStageEmail
+   // inputChange:checkCanNextStage
+}, dispatch)
+
+export default connect(
+    mapStateToProps,
+    mapDispatchToProps
+)(StepThree);
