@@ -3,6 +3,7 @@ import './App.css';
 import { Route } from 'react-router-dom';
 import { history } from './store';
  
+import Sidebar from './Main/MainArea/ChattingComponent/Sidebar/index';
 import Auth from './Auth';
 import Main from './Main';
 import Loader from './assets/Loader';
@@ -31,7 +32,7 @@ class App extends Component {
     render() {
         return (
             <MuiThemeProvider>
-                <MenuAppBar />
+                {this.state.loading && <Loader />}
             </MuiThemeProvider>
         );
     }
