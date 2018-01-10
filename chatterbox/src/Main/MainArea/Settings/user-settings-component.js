@@ -20,6 +20,10 @@ const buttonStyle =  {
     color: '#FFFFFF'
 }
 
+const TextFieldStyles = {
+    width: '100%'
+}
+
 class UserSettings extends Component {
     renderNormal() {
         return (
@@ -111,14 +115,6 @@ class UserSettings extends Component {
                         </div>
                     </div>
                 </div>
-
-                {renderUserDetails}
-
-                <Button 
-                    onClick={() => this.props.saveChanges(this.props.user.user)}
-                    children="DONE"
-                    style={buttonStyle}
-                />
             </div>
         );
     }
