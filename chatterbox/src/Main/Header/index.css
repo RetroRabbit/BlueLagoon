@@ -1,32 +1,131 @@
-.MuiToolbar-root-39,
-.MuiToolbar-gutters-40 {
+.Header{
 	height: 103px;
-	/*width: 1440px;*/
-	background-color: #01B9BD; 
-	font-family: "Montserrat";
+	background-color: #01b9bd;
+	width: 100%;
+}
+.Header .buttons-section{
+	width: 441px;
+	height: 100%;
+	display: flex;
+	align-content: center;
+	justify-content: center;
+}
+.Header .buttons-section .buttons{
+	background-color: #0dabaf;
+	width: 143px;
+	border-radius: 5px;
+	box-shadow: 0 2px 6px rgba(0,0,0,0.25);
+	height: 54px;
+	align-self: center;
+	color: white;
+	font-family: "Montserrat",sans-serif;
+	font-weight:bold;
+	margin-right: 24px;
+	outline: none;
+}
+.Header .buttons-section.phonesize{
+	width: 75%;
+}
+.Header .buttons-section.phonesize .buttons{
+   width: 80px
 }
 
-.AppBarymai .appbar-buttons button {
-	background-color: #01B9BD;
-	color: #FFFFFF;
-	font-family: "Montserrat";
-	font-weight: 500;
-	line-height: 25px;
-	text-align: center;
-}
 
-.AppBarymai .appbar-buttons-right button {
-	background-color: #01B9BD;
-	height: 2.44%;
-	color: #FFFFFF;
-	font-family: "Montserrat";
-	font-weight: 500;
-	text-align: center;
+.Header .profile-section{
+	display: flex;
+	align-self: flex-end;
+	position: absolute;
+	top: 0;
+	right: 0;
 	height: 103px;
+	align-items: center;
+	flex-direction: row;
+	justify-content: flex-end;
+	padding-right: 21px;
 }
 
-#Addie_div {
-	font-family: Lato;
-	text-decoration: none;
-	text-transform: capitalize;
+.Header .header-return-chats{
+	color: white;
+	width:100px;
+	cursor: pointer;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+}
+.Header .header-return-chats .header-resized-text{
+	margin-left: 6px;
+}
+
+.Header .profile-section .resized-arrow,
+.Header .header-return-chats .resized-arrow{
+	color: white;
+	font-size: 16px;
+}
+.Header .profile-section .profile-section-id-holder{
+	display: flex;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	margin-right: 17px;
+	height: 100%;
+	cursor: pointer;
+}
+
+.Header .profile-section .profile-section-id-holder .profile-section-id-name{
+	margin-right: 20px;
+	cursor: inherit;
+	font-size: 20px;
+	line-height: 24px;
+	height: 30px;
+	color: white;
+
+	
+}
+.Header .profile-section .profile-img-holder{
+	width: 67px;
+	height: 67px;
+	display: flex;
+	align-content: center;
+	align-items: center;
+	justify-content: center;
+	border-radius: 100%;
+	background-color: white;
+	box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+	
+}
+
+.Header .profile-section .profile-img{
+	width: 54px;
+	height: 54px;
+	align-self: center;
+	margin:auto;
+	object-fit: cover;	
+}
+
+.Header .profile-section .header-dropdown-menu{
+	height: 100px;
+	width: 200px;
+	top: 103px;
+	position: absolute;
+	right: 139px;
+	z-index: 2000;
+	background-color: white;
+	box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
+
+}
+.Header .profile-section .header-dropdown-menu .header-drop-item{
+	height: 50px;
+	display: flex;
+	align-items: center;
+
+}
+.Header .profile-section .header-dropdown-menu .header-drop-item .header-drop-item-name{
+	width: 100%;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	padding-left: 20px;
+	cursor: pointer;
+
 }
