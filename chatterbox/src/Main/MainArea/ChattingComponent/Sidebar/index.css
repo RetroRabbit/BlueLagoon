@@ -11,7 +11,7 @@
 .searchBox
 {	
     height: 43px;	
-    width: 310px;	
+    width: 345px;	
     border: 1px solid #979797;	
     border-radius: 21.5px; 
     margin-left: 34px;
@@ -99,7 +99,7 @@
     display: none;
 }
 
-.userChatBox:hover { background-color: #e2e2e2; }
+.userChatBox:hover { background-color: #F5F5F5;; }
 
 .searchInput
 {
