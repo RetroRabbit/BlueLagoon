@@ -25,7 +25,6 @@ console.log(`
   `);
 
 class Login extends Component {
-
     register() {
         this.props.history.push('/auth/register');
     }
@@ -39,14 +38,20 @@ class Login extends Component {
                     <img alt="none" src={logo} />
                 </div>
                 <div className="Fields">
-                <TextField Email id="Email" label="Email" className="text-field" margin="normal" />
-                <TextField
-                    Password
-                    id="Password"
-                    label="Password"
-                    className="text-field"
-                    margin="normal"
-                />
+                    <TextField
+                        Email
+                        id="Email"
+                        label="Email"
+                        className="text-field"
+                        margin="normal"
+                    />
+                    <TextField
+                        Password
+                        id="Password"
+                        label="Password"
+                        className="text-field"
+                        margin="normal"
+                    />
                 </div>
                 <br />
                 <Button raised className="button">
@@ -60,7 +65,6 @@ class Login extends Component {
                         aria-hidden="true"
                     />
                 </p>
-
             </div>
         );
     }

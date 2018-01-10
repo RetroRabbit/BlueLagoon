@@ -1,34 +1,51 @@
-export const editUserName = (user) => {
+export const editUserName = user => {
     return {
-        type: "EDIT_USER_NAME",
+        type: 'EDIT_USER_NAME',
         payload: user
+    };
+};
+
+export const editUserEmail = user => {
+    return {
+        type: 'EDIT_USER_EMAIL',
+        payload: user
+    };
+};
+
+export const editProfilePicture = user => {
+    return {
+        type: 'EDIT_PROFILE_PICTURE',
+        payload: user
+    };
+};
+
+export const saveChanges = user => {
+    return {
+        type: 'SAVE_CHANGES_USER_DETAILS',
+        payload: user
+
     }
 }
 
-export const editUserEmail = (user) => {
+export const updateUserName = (e, user) => {
     return {
-        type: "EDIT_USER_EMAIL",
-        payload: user
+        type: "UPDATE_USER_NAME",
+        payload: {
+            name: e.target.value,
+            email: user.email,
+            profilePic: user.profilePic
+        }
     }
 }
 
-export const editProfilePicture = (user) => {
+export const updateUserEmail = (e, user) => {
     return {
-        type: "EDIT_PROFILE_PICTURE",
-        payload: user
+        type: "UPDATE_USER_EMAIL",
+        payload: {
+            name: user.name,
+            email: e.target.value,
+            profilePic: user.profilePic
+        }
     }
 }
 
-export const saveChanges = (user) => {
-    return {
-        type: "SAVE_CHANGES_USER_DETAILS",
-        payload: user
-    }
-}
-
-export const saveUserName = (user) => {
-    return {
-        type: "SAVE_USER_NAME",
-        payload: user
-    }
-}
