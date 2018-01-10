@@ -33,17 +33,17 @@ class UserSettings extends Component {
         return (
             <div>
                 <div className="user-name">
-                    <h2 className="user-detail">{this.props.user.user.name}</h2>
+                    <h2 className="user-detail">{this.props.user.name}</h2>
                     <Pencil
-                        onClick={() => this.props.editUserName(this.props.user.user)}
+                        onClick={() => this.props.editUserName(this.props.user)}
                         className="edit"
                     />
                 </div>
                 
                 <div className="user-email">
-                    <h3 className="user-detail">{this.props.user.user.email}</h3>
+                    <h3 className="user-detail">{this.props.user.email}</h3>
                     <Pencil
-                        onClick={() => this.props.editUserEmail(this.props.user.user)}
+                        onClick={() => this.props.editUserEmail(this.props.user)}
                         className="edit"
                     />
                 </div>
@@ -56,20 +56,19 @@ class UserSettings extends Component {
             <div>
                 <div className="user-name">
                     <TextField  
-                        defaultValue={this.props.user.user.name} 
-                        refs="newName"
+                        defaultValue={this.props.user.name} 
                         style={TextFieldStyles}
                     />
                     <Pencil
-                        onClick={() => this.props.editUserName(this.props.user.user)}
+                        onClick={() => this.props.editUserName(this.props.user)}
                         className="edit"
                     />
                 </div>
                 
                 <div className="user-email">
-                    <h3 className="user-detail">{this.props.user.user.email}</h3>
+                    <h3 className="user-detail">{this.props.user.email}</h3>
                     <Pencil
-                        onClick={() => this.props.editUserEmail(this.props.user.user)}
+                        onClick={() => this.props.editUserEmail(this.props.user)}
                         className="edit"
                     />
                 </div>
@@ -81,21 +80,20 @@ class UserSettings extends Component {
         return (
             <div>
                 <div className="user-name">
-                    <h2 className="user-detail">{this.props.user.user.name}</h2>
+                    <h2 className="user-detail">{this.props.user.name}</h2>
                     <Pencil
-                        onClick={() => this.props.editUserName(this.props.user.user)}
+                        onClick={() => this.props.editUserName(this.props.user)}
                         className="edit"
                     />
                 </div>
                 
                 <div className="user-email">
                     <TextField  
-                        defaultValue={this.props.user.user.email}
-                        ref="newEmail" 
+                        defaultValue={this.props.user.email}
                         style={TextFieldStyles}
                     />
                     <Pencil
-                        onClick={() => this.props.editUserEmail(this.props.user.user)}
+                        onClick={() => this.props.editUserEmail(this.props.user)}
                         className="edit"
                     />
                 </div>
@@ -104,7 +102,6 @@ class UserSettings extends Component {
     }
 
     render() {
-        console.log(this.props)
 
         let renderUserDetails = this.renderNormal();
 
@@ -121,9 +118,9 @@ class UserSettings extends Component {
                     <div className="oval">
                         <div className="oval-4">
                             <img 
-                                src={this.props.user.user.profilePic} 
+                                src={this.props.user.profilePic} 
                                 alt="none"
-                                onClick={() => this.props.editProfilePicture(this.props.user.user)}
+                                onClick={() => this.props.editProfilePicture(this.props.user)}
                             />
                         </div>
                     </div>
@@ -132,7 +129,7 @@ class UserSettings extends Component {
                 {renderUserDetails}
 
                 <Button 
-                    onClick={() => this.props.saveChanges(this.props.user.user)}
+                    onClick={() => this.props.saveChanges(this.props.user)}
                     children="DONE"
                     style={buttonStyle}
                 />
