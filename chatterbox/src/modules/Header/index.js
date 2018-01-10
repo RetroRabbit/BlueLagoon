@@ -15,7 +15,7 @@ if (initWinsize < 500) {
     phnmd = true;
 }
 
-console.log('INIT SIZE:', phnmd);
+
 const initialState = {
     anchorEl: false,
     buttonsClass: btncls,
