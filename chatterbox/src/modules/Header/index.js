@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
         anchorEl: false
       }
     case HANDLE_IN_CHAT:{
-      let phonemodechat=window.location.href.indexOf("chat")>0;
+      let phonemodechat=action.payload;//window.location.href.indexOf("chat")>0;
       return {
         ...state,
         phonemodechat:phonemodechat 
@@ -85,10 +85,11 @@ export const resize = () => {
   }
 }
 
-export const handleHeaderInChat = () => {
+export const handleHeaderInChat = (status) => {
   return dispatch => {
     dispatch({
-      type: HANDLE_IN_CHAT
+      type: HANDLE_IN_CHAT,
+      payload:status
     })
   }
 }

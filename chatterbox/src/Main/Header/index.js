@@ -10,7 +10,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux'
 import { bindActionCreators } from 'redux';
-import {openMenu,closeMenu,resize} from "../../modules/Header"
+import {openMenu,handleHeaderInChat,closeMenu,resize} from "../../modules/Header"
 import { push } from 'react-router-redux';
 import logo from "../../assets/Icon.png"
 
@@ -25,6 +25,13 @@ class MenuAppBar extends React.Component {
 
         return (
             <div className="Header">
+                {
+                    (this.props.phonemode && this.props.phonemodechat) &&
+                    <div onClick={()=>this.props.handleHeaderInChat(false)} className="header-return-chats">
+                        <div className="resized-arrow fa fa-chevron-left"></div>
+                        <div className="header-resized-text">CHATS</div>                    
+                    </div>
+                }
                 {
                     (!this.props.phonemode || !this.props.phonemodechat) && 
                     <div className={`buttons-section ${this.props.buttonsClass}`}>
@@ -62,8 +69,8 @@ class MenuAppBar extends React.Component {
                         </div>
                     }
                     {
-                        this.props.phonemode &&
-                        <div className="profile-section">
+                        this.props.phonemode && !this.props.phonemodechat &&
+                        <div onClick={()=>this.props.handleHeaderInChat(true)} className="profile-section">
                             <div className="resized-arrow fa fa-chevron-right"/>                        
                         </div>
                     }
@@ -86,6 +93,7 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     openMenu,
     closeMenu,
     resize,
+    handleHeaderInChat,
     changeSettings:()=>push("/settings"),
     logout:()=>push("/auth/login")
   }, dispatch)

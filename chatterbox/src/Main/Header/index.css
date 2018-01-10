@@ -44,7 +44,21 @@
 	padding-right: 21px;
 }
 
-.Header .profile-section .resized-arrow{
+.Header .header-return-chats{
+	color: white;
+	width:100px;
+	cursor: pointer;
+	height: 100%;
+	display: flex;
+	align-items: center;
+	padding-left: 10px;
+}
+.Header .header-return-chats .header-resized-text{
+	margin-left: 6px;
+}
+
+.Header .profile-section .resized-arrow,
+.Header .header-return-chats .resized-arrow{
 	color: white;
 	font-size: 16px;
 }
