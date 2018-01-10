@@ -5,10 +5,10 @@ import Pencil from 'react-icons/lib/fa/pencil';
 import { Button } from 'material-ui';
 import './user-settings-component.css'
 import {
-    editUserNameRequest,
-    editUserEmailRequest,
-    editUserProfilePictureRequest,
-    saveChangesRequest
+    editUserName,
+    editUserEmail,
+    editProfilePicture,
+    saveChanges
 } from '../../../modules/settings/edit-user-reducer.js'
 
 const SubmitChanges =  {
