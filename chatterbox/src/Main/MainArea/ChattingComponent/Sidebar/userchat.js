@@ -11,7 +11,6 @@ class UserChat extends React.Component {
         return (
             <div>
                 <div>
-                
                     <div
                         className="userChatBox"
                         onClick={() => (
