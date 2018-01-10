@@ -86,7 +86,6 @@ class Register extends Component {
                         {this.state.heading[this.state.stage - 1].error}
                     </div>
                 )}
-
             </div>
         );
     }

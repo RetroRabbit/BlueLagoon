@@ -8,9 +8,7 @@ import Auth from './Auth';
 import Main from './Main';
 import Loader from './assets/Loader';
 
-
 class App extends Component {
-
     constructor(props) {
         super(props);
         this.state = {

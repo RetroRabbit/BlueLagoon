@@ -1,24 +1,24 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
 import { Button } from 'material-ui';
-import './user-settings-component.css'
+import './user-settings-component.css';
 import {
     editUserNameRequest,
     editUserEmailRequest,
     editUserProfilePictureRequest,
     saveChangesRequest
-} from '../../../modules/settings/edit-user-reducer.js'
+} from '../../../modules/settings/edit-user-reducer.js';
 
-const SubmitChanges =  {
-    backgroundColor: "#FB6902",
+const SubmitChanges = {
+    backgroundColor: '#FB6902',
     height: '54px',
-    width: '143px',	
-    borderRadius: '5px',		
+    width: '143px',
+    borderRadius: '5px',
     boxShadow: '0 2px 6px 0 rgba(0,0,0,0.25)',
     color: '#FFFFFF'
-}
+};
 
 class UserSettings extends Component {
     render() {
@@ -27,45 +27,51 @@ class UserSettings extends Component {
                 <div className="profile-picture">
                     <div className="oval">
                         <div className="oval-4">
-                            <img 
-                                src={this.props.user.profilePic} 
+                            <img
+                                src={this.props.user.profilePic}
                                 alt="none"
-                                onClick={() => this.props.editUserProfilePictureRequest(this.props.user)}
+                                onClick={() =>
+                                    this.props.editUserProfilePictureRequest(this.props.user)
+                                }
                             />
                         </div>
                     </div>
                 </div>
 
                 <div className="user-name">
-                    <h2 className="user-detail">{this.props.user.firstname} {this.props.user.lastname}</h2>
+                    <h2 className="user-detail">
+                        {this.props.user.firstname} {this.props.user.lastname}
+                    </h2>
                     <Pencil
-                        onClick={() => this.props.editUserNameRequest(this.props.user)} 
+                        onClick={() => this.props.editUserNameRequest(this.props.user)}
                         className="edit"
                     />
                 </div>
-                
+
                 <div className="user-email">
                     <h3 className="user-detail">{this.props.user.email}</h3>
                     <Pencil
-                        onClick={() => this.props.editUserEmailRequest(this.props.user)} 
+                        onClick={() => this.props.editUserEmailRequest(this.props.user)}
                         className="edit"
                     />
-                    
                 </div>
 
                 <div className="edit-user-name">
-                    <input type="text" placeholder={this.props.user.firstname + " " + this.props.user.lastname} />
+                    <input
+                        type="text"
+                        placeholder={this.props.user.firstname + ' ' + this.props.user.lastname}
+                    />
                 </div>
 
                 <div className="edit-user-email">
                     <input type="text" placeholder={this.props.user.email} />
                 </div>
 
-                <Button  
-                     onClick={() => this.props.saveChangesRequest(this.props.user)} 
-                     label="DONE"
-                     children="DONE"
-                     style={SubmitChanges}            
+                <Button
+                    onClick={() => this.props.saveChangesRequest(this.props.user)}
+                    label="DONE"
+                    children="DONE"
+                    style={SubmitChanges}
                 />
             </div>
         );
@@ -79,16 +85,19 @@ function mapStateToProps(state) {
         editUserNameRequest: state.editUserNameRequest,
         editUserEmailRequest: state.editUserEmailRequest,
         editUserProfilePictureRequest: state.editUserProfilePictureRequest
-    }
+    };
 }
 
 function matchDispatchToProps(dispatch) {
-    return bindActionCreators({
-                editUserProfilePictureRequest,
-                editUserNameRequest,
-                editUserEmailRequest,
-                saveChangesRequest
-            }, dispatch)
+    return bindActionCreators(
+        {
+            editUserProfilePictureRequest,
+            editUserNameRequest,
+            editUserEmailRequest,
+            saveChangesRequest
+        },
+        dispatch
+    );
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(UserSettings);
