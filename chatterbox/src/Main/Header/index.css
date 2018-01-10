@@ -130,4 +130,8 @@
 	cursor: pointer;
 
 }
+
+#new_chatBTN:hover {
+	background-color: #fb6902;
+}
  

@@ -44,7 +44,7 @@ class MenuAppBar extends React.Component {
                     )}
                 {(!this.props.phonemode || !this.props.phonemodechat) && (
                     <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.buttonsClass}`}>
-                        <Button onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
+                        <Button id="new_chatBTN" onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
                             NEW CHAT
                         </Button>
                         <Button raised className="buttons">
@@ -136,8 +136,8 @@ const mapStateToProps = state => ({
     buttonsClass: state.header.buttonsClass,
     phonemode: state.header.phonemode,
     phonemodechat: state.header.phonemodechat,
-    searchShow: state.header.searchShow
-    user: state.edituser,
+    searchShow: state.header.searchShow,
+        user: state.edituser,
 });
 
 const mapDispatchToProps = dispatch =>
