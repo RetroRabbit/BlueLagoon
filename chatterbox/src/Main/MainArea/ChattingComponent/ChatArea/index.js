@@ -30,7 +30,6 @@ class ChatArea extends Component {
                         onChange={this.onTextAreaChange.bind(this)}
                         className="input-message"
                         placeholder="Type a message"
-                        onClick= {<MessageLine message = "this.props"/>}
                     />
                 </div>
             </div>
