@@ -10,6 +10,7 @@ import SearchApi from 'redux-search/dist/commonjs/SearchApi';
 import '../../Main/MainArea/ChattingComponent/Sidebar/index.css';
 export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED';
 export const SEARCH = 'sidebar/SEARCH';
+export const MESSAGE = 'sidebar/MESSAGE';
 
 const initialState = {
     currentChat: 1,
@@ -128,7 +129,11 @@ const initialState = {
                 'Here, I focus on a range of items and features that we use in life without giving them a second',
             img: logo3
         }
-    ]
+    ],
+    Messages: [{message: "hi", type: "sent"},
+            {message: "hello", type: "received"},
+            {message: "Lagoon", type: "received"},]
+    
 };
 
 export default (state = initialState, action) => {
@@ -154,10 +159,21 @@ export default (state = initialState, action) => {
                 displayUsers: searchFound
             };
         }
+        case MESSAGE: {
+            
+            var messageCapture = [];
+            messageCapture.push({message: action.payload,type: (new Date()).getTime})
 
+            return {
+                ...state,
+
+                Messages: messageCapture
+            };
+        }
         default:
             return state;
     }
+
 };
 
 export const chatClick = id => {
@@ -183,3 +199,14 @@ export var searchGo = event => {
         });
     };
 };
+
+export function messagesCatch(message)
+{
+    console.log(message)
+    // return dispatch => {
+    //     dispatch({
+    //         type: MESSAGE,
+    //         payload: message.target.value
+    //     });
+    // };
+}
