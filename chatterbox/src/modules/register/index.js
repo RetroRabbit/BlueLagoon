@@ -3,6 +3,7 @@ export const STAGE_ONE_EMAIL = 'register/STAGE_ONE_EMAIL';
 export const STAGE_ONE_NAME = 'register/STAGE_ONE_NAME';
 export const STAGE_ONE_PASSWORD = 'register/STAGE_ONE_PASSWORD';
 export const CHANGE_IMG = 'register/CHANGE_IMG';
+export const CHANGE_IMG_WAIT = 'register/CHANGE_IMG_WAIT';
 export const STAGE_THREE_EMAIL = 'register/STAGE_THREE_EMAIL';
 
 const initialState = {
@@ -29,20 +30,16 @@ const initialState = {
             error: "Enter friend's email"
         }
     ],
-
     //StepTwo
     hasImage: false,
-    image: {}
+    preview: ""
 }
-
 
 export default (state = initialState, action) => {
   switch (action.type) {
     case CHANGE_STAGE:{
-        
         let currStage=state.stage;
         let canNext=state.canNext;
-        canNext = true;
         let error=state.error;
         if(canNext){
             if (currStage == 1) {
@@ -51,7 +48,6 @@ export default (state = initialState, action) => {
                 console.log('TO-DO: send image to backend');
             } else if (currStage == 3) {
                 console.log('TO-DO: search for friend, redirect to main');
-                //this.props.history.push('/');
             }
             if (currStage != 3){
                 currStage+=1;
@@ -93,7 +89,6 @@ export default (state = initialState, action) => {
             ...state,
             password,
             canNext
-
         }
     }
     case STAGE_ONE_NAME:{
@@ -115,29 +110,25 @@ export default (state = initialState, action) => {
     case CHANGE_IMG:{
         let email=state.email;
         let password=state.password;
-        let canNext=state.canNext;
-        let error=state.error;
+        let canNext=true;
+        let error=false;
         let image = action.image
+        let preview = image.preview
         let hasImage = action.hasImage
-        if(email.length>0 && password.length>0 && hasImage==true){
-            canNext=true;
-        }
         return{
             ...state,
             hasImage,
-            canNext
+            canNext,
+            preview
         }
     }
     case STAGE_THREE_EMAIL:{
         let email=action.payload;
-        let password=state.password;
-        let name=state.name;
         let canNext=state.canNext;
-        if(email.length>0 && password.length>0 && name.length>0)
+        if(email.length>0)
             canNext=true;
         return{
             ...state,
-            email,
             canNext
         }
     }
@@ -145,19 +136,6 @@ export default (state = initialState, action) => {
       return state
   }
 }
-//  this.checkCanNext = this.checkCanNext.bind(this);
-//  export const checkCanNextStage = () => {
-//      let hasName = this.props.name.length > 0;
-//      let hasEmail = this.props.email.length > 0;
-//      let hasPassword = this.props.password.length > 0;
-
-//     if (hasName && hasEmail && hasPassword) {
-//          this.props.canNext(true);
-//          return true;
-//      }
-//      this.props.canNext(false);
-//      return false;
-//  }
 
 export const changeStage = () => {
     return dispatch => {
@@ -201,35 +179,20 @@ export const changeStage = () => {
   }
 
   //StepTwo
- 
-  export const addImageStage = (e) => {
+  export const addImageStage = () => {
     var el = document.getElementById('upload-img-input');
     el.click();
   }
 
-  export const inputChangeStage = (e) => {
-        var el = document.getElementById('upload-img-input');
-        let val = el.value;
-        let input = el;
-        let ext = val.substring(val.lastIndexOf('.') + 1).toLowerCase();
-        if (
-            input.files &&
-            input.files[0] &&
-            (ext === 'gif' || ext === 'png' || ext === 'jpeg' || ext === 'jpg')
-        ) {
-            var reader = new FileReader();
-            reader.readAsDataURL(input.files[0]);
-            reader.onload = function(e) {
-                let obj = { preview: e.target.result, value: val, file: input.files[0] };
-                return dispatch => {
-                    dispatch({
-                        type: CHANGE_IMG,
-                        image:obj,
-                        hasImage:true
-                    })
-                }
-            };
-        }
+  export const inputChangeStage = (obj) => {
+    return dispatch => {
+        dispatch({
+            type: CHANGE_IMG,
+            image: obj,
+            hasImage: true
+        })
+    }
+        
   }
 
   //StepThree

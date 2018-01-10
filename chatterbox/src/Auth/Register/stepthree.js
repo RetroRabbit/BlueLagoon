@@ -38,7 +38,6 @@ const mapStateToProps = state => ({
   
 const mapDispatchToProps = dispatch => bindActionCreators({
     handleEmail:handleStageEmail
-   // inputChange:checkCanNextStage
 }, dispatch)
 
 export default connect(
