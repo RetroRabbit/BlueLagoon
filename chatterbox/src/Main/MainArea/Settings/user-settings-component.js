@@ -23,8 +23,10 @@ const buttonStyle =  {
 }
 
 const TextFieldStyles = {
-    width: '100%'
+    width: '100%',
+    fontFamily: 'Montserrat'
 }
+
 
 class UserSettings extends Component {
     renderNormal() {
@@ -56,6 +58,7 @@ class UserSettings extends Component {
                     <TextField  
                         defaultValue={this.props.user.user.name} 
                         refs="newName"
+                        style={TextFieldStyles}
                     />
                     <Pencil
                         onClick={() => this.props.editUserName(this.props.user.user)}
@@ -89,6 +92,7 @@ class UserSettings extends Component {
                     <TextField  
                         defaultValue={this.props.user.user.email}
                         ref="newEmail" 
+                        style={TextFieldStyles}
                     />
                     <Pencil
                         onClick={() => this.props.editUserEmail(this.props.user.user)}
