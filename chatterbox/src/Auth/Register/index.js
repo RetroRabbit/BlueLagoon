@@ -67,7 +67,6 @@ class Register extends Component {
                         {this.props.heading[this.props.stage - 1].error}
                     </div>
                 )}
-
             </div>
         );
     }

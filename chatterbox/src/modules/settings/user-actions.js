@@ -1,28 +1,29 @@
-export const editUserName = (user) => {
+export const editUserName = user => {
     return {
-        type: "EDIT_USER_NAME",
+        type: 'EDIT_USER_NAME',
         payload: user
-    }
-}
+    };
+};
 
-export const editUserEmail = (user) => {
+export const editUserEmail = user => {
     return {
-        type: "EDIT_USER_EMAIL",
+        type: 'EDIT_USER_EMAIL',
         payload: user
-    }
-}
+    };
+};
 
-export const editProfilePicture = (user) => {
+export const editProfilePicture = user => {
     return {
-        type: "EDIT_PROFILE_PICTURE",
+        type: 'EDIT_PROFILE_PICTURE',
         payload: user
-    }
-}
+    };
+};
 
-export const saveChanges = (user) => {
+export const saveChanges = user => {
     return {
-        type: "SAVE_CHANGES_USER_DETAILS",
+        type: 'SAVE_CHANGES_USER_DETAILS',
         payload: user
+
     }
 }
 
@@ -47,3 +48,4 @@ export const updateUserEmail = (e, user) => {
         }
     }
 }
+
