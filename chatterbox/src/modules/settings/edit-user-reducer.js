@@ -1,42 +1,39 @@
-
 const initialState = {
-    name: "Rian van der Merwe",
+    name: 'Rian van der Merwe',
     email: 'hvandermerwe@retrorabbit.co.za',
     profilePic: 'http://www.legobatman.com/assets/media/global/header/batwink-loop.gif',
     editName: false,
     editEmail: false,
     editProfilePic: false,
     changesMade: false
-}
-
+};
 
 export default function(state = initialState, action) {
     switch (action.type) {
         case 'EDIT_USER_NAME':
+            return {
+                ...state,
+                editName: !state.editName,
+                editEmail: false,
+                editProfilePic: false,
+                changesMade: true
+            };
 
-           return {
-               ...state,
-               editName: !state.editName,
-               editEmail: false,
-               editProfilePic: false,
-               changesMade: true
-            }
- 
         case 'EDIT_USER_EMAIL':
             return {
                 ...state,
                 editEmail: !state.editEmail,
                 editName: false,
                 editProfilePic: false
-            }
+            };
 
         case 'EDIT_PROFILE_PICTURE':
             return {
                 ...state,
                 editProfilePic: !state.editProfilePic,
                 editName: false,
-                editEmail: false,
-            }
+                editEmail: false
+            };
 
         case 'SAVE_CHANGES_USER_DETAILS':
             return {
@@ -45,7 +42,7 @@ export default function(state = initialState, action) {
                 editEmail: false,
                 editProfilePic: false,
                 changesMade: true
-        }
+            };
 
         case 'UPDATE_USER_NAME':
             return {
@@ -53,7 +50,7 @@ export default function(state = initialState, action) {
                 editName: true,
                 email: action.payload.email,
                 profilePic: action.payload.profilePic
-            }
+            };
 
         case 'UPDATE_USER_EMAIL':
             return {
@@ -61,7 +58,7 @@ export default function(state = initialState, action) {
                 email: action.payload.email,
                 profilePic: action.payload.profilePic,
                 editEmail: true
-            }
+            };
 
         default:
             return state;
