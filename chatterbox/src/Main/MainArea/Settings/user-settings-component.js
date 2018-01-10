@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
 import { Button, TextField } from 'material-ui';
 import './user-settings-component.css'
+import {push} from 'react-router-redux'
+
 import {
     editUserName,
     editUserEmail,
@@ -150,7 +152,8 @@ function matchDispatchToProps(dispatch) {
         editUserName: editUserName,
         editUserEmail: editUserEmail,
         editProfilePicture: editProfilePicture,
-        saveChanges: saveChanges
+        saveChanges: saveChanges,
+        done: () => {push('/') }
     }, dispatch)
 }
 
