@@ -12,13 +12,7 @@ class ChatArea extends Component {
         super(props);
         this.state = {value: ''};
       }
-    onTextAreaChange(e) {
-        let el = e.target;
-        el.style.cssText = 'height:auto; padding:10';
-        el.style.cssText = 'height:' + el.scrollHeight + 'px';
-        console.log(e);
-        return e.value;
-    }
+    
 
 
 
