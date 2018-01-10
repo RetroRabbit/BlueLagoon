@@ -1,11 +1,11 @@
-import React, { Component } from 'react'; 
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { withStyles } from 'material-ui/styles';
 import './index.css';
 import img1 from '../../assets/img1.png';
 import img2 from '../../assets/img2.png';
 import AppBar from 'material-ui/AppBar';
-import Toolbar from 'material-ui/Toolbar';  
+import Toolbar from 'material-ui/Toolbar';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux'
@@ -43,7 +43,7 @@ class MenuAppBar extends React.Component {
         const { classes } = this.props;
         const open = Boolean(this.props.anchorEl);
 
-        return (
+        return (          
             <div className={classes.root}>
                 <AppBar position="relative" className="AppBarymai">
                     <Toolbar>
@@ -59,7 +59,7 @@ class MenuAppBar extends React.Component {
                             </div>
                         </div>
 
-                    
+
                             <div className="appbar-buttons-right">
                                 <Button
                                     aria-owns={open && 'menu-appbar'}
@@ -102,7 +102,7 @@ class MenuAppBar extends React.Component {
                                     <MenuItem onClick={()=>(this.props.logout(),this.props.closeMenu())} >Log Out</MenuItem>
                                 </Menu>
                             </div>
-                        
+
                     </Toolbar>
                 </AppBar>
             </div>
@@ -114,7 +114,7 @@ class MenuAppBar extends React.Component {
 const mapStateToProps = state => ({
     anchorEl: state.header.anchorEl
   })
-  
+
 const mapDispatchToProps = dispatch => bindActionCreators({
     openMenu,
     closeMenu,

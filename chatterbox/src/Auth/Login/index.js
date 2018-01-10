@@ -4,6 +4,26 @@ import './login.css';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 
+import constants from './constants';
+import { userDetails } from './initialState.json';
+import { userlogin } from  './loginReducer';
+
+
+const state = "unsuccess";
+
+const action = {
+  type : constants.ACTION_VALID,
+  validLogin : "successful"
+}
+
+const nextState = userlogin (state, action);
+
+console.log(`
+  initial userlogin : ${state}
+  action : ${JSON.stringify(action)}
+  new userlogin :${nextState}
+  `);
+
 class Login extends Component {
 
     register() {
@@ -46,3 +66,7 @@ class Login extends Component {
     }
 }
 export default Login;
+console.log(`
+  There are currently ${userDetails.length} users online
+  ${Object.keys(constants).join('\n  ')}
+`);
