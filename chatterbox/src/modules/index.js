@@ -11,7 +11,7 @@ export default combineReducers({
     sidebar:sidebar,
     user: userReducer,
     settings: userSettings,
-    header:header
+    header:header,
      register,
     settings: userSettings
 });

@@ -4,7 +4,7 @@ const HANDLE_CLOSE_MENU = 'header/HANDLE_CLOSE_MENU'
 
 
 const initialState = {
-    anchorEl:null 
+    anchorEl:false 
 }
 
 export default (state = initialState, action) => {
@@ -12,12 +12,12 @@ export default (state = initialState, action) => {
     case HANDLE_OPEN_MENU:
       return {
         ...state,
-        anchorEl: action.payload
+        anchorEl: true
       }
     case HANDLE_CLOSE_MENU:
       return {
         ...state,
-        anchorEl: null
+        anchorEl: false
       }
 
     default:
@@ -30,8 +30,7 @@ export const openMenu = (event) => {
    
   return dispatch => {
     dispatch({
-      type: HANDLE_OPEN_MENU,
-      payload:event.currentTarget
+      type: HANDLE_OPEN_MENU
     })
   }
 }
