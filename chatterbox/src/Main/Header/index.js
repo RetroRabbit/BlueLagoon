@@ -21,6 +21,14 @@ class MenuAppBar extends React.Component {
     componentWillUnmount(){
         window.removeEventListener('resize');
     }
+    gotoSettings(){
+        this.props.closeMenu();
+        this.props.changeSettings();
+    }
+    gotoLogout(){
+        this.props.closeMenu();
+        this.props.logout();
+    }
     render() {
 
         return (
@@ -44,7 +52,7 @@ class MenuAppBar extends React.Component {
                     {
                         (!this.props.phonemode || (this.props.phonemode && this.props.phonemodechat)) &&
                         <div onMouseLeave={this.props.closeMenu.bind(this)}  className="profile-section">
-                            <div onMouseOver={this.props.openMenu.bind(this)} className="profile-section-id-holder">
+                            <div onMouseOver={this.props.openMenu.bind(this)} onClick={this.props.openMenu.bind(this)} className="profile-section-id-holder">
                                 <div className="profile-section-id-name">Addie Heins</div>
                                 <div className="profile-img-holder">
                                     <img className="profile-img profile-user-img" src={logo}/>
@@ -59,10 +67,10 @@ class MenuAppBar extends React.Component {
                                 this.props.anchorEl &&
                                 <div onMouseOver={this.props.openMenu.bind(this)} onMouseLeave={this.props.closeMenu.bind(this)} className="header-dropdown-menu">
                                     <div className="header-drop-item">
-                                        <div onClick={this.props.changeSettings()} className="header-drop-item-name">Settings</div>
+                                        <div onClick={this.gotoSettings.bind(this)} className="header-drop-item-name">Settings</div>
                                     </div>
                                     <div className="header-drop-item">
-                                        <div onClick={this.props.logout()} className="header-drop-item-name">Log Out</div>
+                                        <div onClick={this.gotoLogout.bind(this)} className="header-drop-item-name">Log Out</div>
                                     </div>
                                 </div>
                             }
@@ -94,8 +102,8 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     closeMenu,
     resize,
     handleHeaderInChat,
-    changeSettings:()=>push("/settings"),
-    logout:()=>push("/auth/login")
+    changeSettings:(e)=>(push("/settings")),
+    logout:(e)=>(push("/auth/login"))
   }, dispatch)
   export default connect(
     mapStateToProps,

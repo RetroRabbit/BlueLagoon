@@ -47,6 +47,9 @@ export default (state = initialState, action) => {
       if(winsize<500){
         buttonsClass="phonesize";
         phonemode=true;
+      }else{
+        buttonsClass="normal";
+        phonemode=false;
       }
       return {
         ...state,
@@ -61,7 +64,7 @@ export default (state = initialState, action) => {
   }
 }
 
-export const openMenu = (event) => {
+export const openMenu = () => {
     // alert("GO TO CHAT: "+id);
    
   return dispatch => {
