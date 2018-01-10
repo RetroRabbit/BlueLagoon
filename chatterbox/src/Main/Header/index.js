@@ -25,10 +25,13 @@ class MenuAppBar extends React.Component {
 
         return (
             <div className="Header">
-                <div className={`buttons-section ${this.props.buttonsClass}`}>
-                    <Button raised className="buttons">NEW CHAT</Button>
-                    <Button raised className="buttons">NEW GROUP</Button>
-                </div>
+                {
+                    (!this.props.phonemode || !this.props.phonemodechat) && 
+                    <div className={`buttons-section ${this.props.buttonsClass}`}>
+                        <Button raised className="buttons">NEW CHAT</Button>
+                        <Button raised className="buttons">NEW GROUP</Button>
+                    </div>
+                }
 
                 <div>
                     {

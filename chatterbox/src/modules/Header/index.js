@@ -84,3 +84,11 @@ export const resize = () => {
     })
   }
 }
+
+export const handleHeaderInChat = () => {
+  return dispatch => {
+    dispatch({
+      type: HANDLE_IN_CHAT
+    })
+  }
+}
