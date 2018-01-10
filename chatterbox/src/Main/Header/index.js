@@ -18,7 +18,7 @@ class MenuAppBar extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', () => this.props.resize());
     }
-    componentWillUnmount() {
+    componentDidUnmount() {
         window.removeEventListener('resize');
     }
     gotoSettings() {
