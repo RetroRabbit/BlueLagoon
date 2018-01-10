@@ -2,16 +2,16 @@ import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
-import { Button } from 'material-ui';
+import { Button, TextField } from 'material-ui';
 import './user-settings-component.css'
 import {
     editUserName,
     editUserEmail,
     editProfilePicture,
     saveChanges
-} from '../../../modules/settings/edit-user-reducer.js'
+} from '../../../modules/settings/user-actions'
 
-const SubmitChanges =  {
+const buttonStyle =  {
     backgroundColor: "#FB6902",
     height: '54px',
     width: '143px',	
