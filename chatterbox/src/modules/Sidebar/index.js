@@ -136,7 +136,7 @@ const initialState = {
     
 };
 
-export default (state = initialState, action) => {
+export default (state = initialState, action) => {console.log(action.payload)
     switch (action.type) {
         case CHAT_CLICKED:
             return {
@@ -162,7 +162,7 @@ export default (state = initialState, action) => {
         case MESSAGE: {
             
             var messageCapture = [];
-            messageCapture.push({message: action.payload,type: (new Date()).getTime})
+            messageCapture.push({message: action.payload,type: "sent"})
 
             return {
                 ...state,
@@ -202,7 +202,7 @@ export var searchGo = event => {
 
 export function messagesCatch(message)
 {
-    console.log(message)
+    //console.log(message)
     // return dispatch => {
     //     dispatch({
     //         type: MESSAGE,

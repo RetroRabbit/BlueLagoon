@@ -1,7 +1,7 @@
 import { Component } from "react";
 
-class App extends Component({
-  getInitialState : function() {
+class messages extends Component {
+  getInitialState(){
     return (
       {
         fruits : {
@@ -10,7 +10,7 @@ class App extends Component({
         }
       }
      )
-    },
+    }
     addFruit(fruit) {
      //create a unike key for each new fruit item
      var timestamp = (new Date()).getTime();
@@ -18,7 +18,7 @@ class App extends Component({
      this.state.fruits['fruit-' + timestamp ] = fruit;
      // set the state
      this.setState({ fruits : this.state.fruits });
-    },
+    }
     render() {
       return (
         <div className="component-wrapper">
@@ -27,10 +27,10 @@ class App extends Component({
         </div>
       );
      }
-    });
+    };
 
-    class FruitList extends Component({
-      render : function() {
+    class FruitList extends Component{
+      render() {
         return (
           <div className="container">
             <ul className="list-group text-center">
@@ -43,10 +43,10 @@ class App extends Component({
            </div>
          );
        }
-     });
+     };
 
-    class AddFruitForm extends Componen({
-      createFruit : function(e) {
+    class AddFruitForm extends Component{
+      createFruit(e) {
         e.preventDefault();
         //get the fruit object name from the form
         var fruit = this.refs.fruitName.value;
@@ -58,7 +58,7 @@ class App extends Component({
           //reset the form
           this.refs.fruitForm.reset();
         }
-       },
+       }
        render() {
         return(
           <form className="form-inline" ref="fruitForm" onSubmit={this.createFruit}>
@@ -72,7 +72,8 @@ class App extends Component({
          </form>
         )
        }
-      })
+      }
+  
 
 
-export default App
+export default messages
