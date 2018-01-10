@@ -126,11 +126,11 @@ class UserSettings extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user,
-        saveChanges: state.saveChanges,
-        editUserNameRequest: state.editUserNameRequest,
-        editUserEmailRequest: state.editUserEmailRequest,
-        editUserProfilePictureRequest: state.editUserProfilePictureRequest
+        user: state.edituser,
+        editName: state.edituser.editName,
+        editEmail: state.edituser.editEmail,
+        editProfilePic: state.edituser.editProfilePic,
+        changesMade: state.edituser.changesMade
     }
 }
 
