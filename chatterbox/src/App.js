@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route } from 'react-router-dom';
 import { history } from './store';
-import ListExampleChat from './Main/MainArea/ChattingComponent/Sidebar';
-import Sidebar from './Main/MainArea/ChattingComponent/Sidebar/index';
+
 import Auth from './Auth';
 import Main from './Main';
 import Loader from './assets/Loader';
@@ -15,14 +14,11 @@ class App extends Component {
     componentDidMount() {
         console.log('TO-DO: Check if user online');
     }
-    splash() {
-        history.push('/auth/login');
-    }
     render() {
         return (
-            <div> 
+            <div>
                 <Route path="/auth" component={Auth} />
-                <Route exact path="/" component={Main} />
+                <Route path="/" component={Main} />
             </div>
         );
     }
