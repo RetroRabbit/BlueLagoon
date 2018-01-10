@@ -44,9 +44,9 @@ class MenuAppBar extends React.Component {
                     )}
                 {(!this.props.phonemode || !this.props.phonemodechat) && (
                     <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.buttonsClass}`}>
-                        <Button onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
+                       <Button id="right-button" onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
                             NEW CHAT
-                        </Button>
+                        </Button>  
                         <Button raised className="buttons">
                             NEW GROUP
                         </Button>

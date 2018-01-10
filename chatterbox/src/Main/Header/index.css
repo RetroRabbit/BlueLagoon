@@ -129,4 +129,7 @@
 	cursor: pointer;
 
 }
- 
+
+#right-button:hover {
+	background-color: #fb6902;
+}
