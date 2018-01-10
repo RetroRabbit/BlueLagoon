@@ -101,6 +101,7 @@
 	align-self: center;
 	margin:auto;
 	object-fit: cover;	
+	border-radius: 100%;
 }
 
 .Header .profile-section .header-dropdown-menu{

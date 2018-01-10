@@ -65,9 +65,9 @@ class MenuAppBar extends React.Component {
                                 onClick={this.props.openMenu.bind(this)}
                                 className="profile-section-id-holder"
                             >
-                                <div className="profile-section-id-name">Addie Heins</div>
+                                <div className="profile-section-id-name">{this.props.user.name}</div>
                                 <div className="profile-img-holder">
-                                    <img className="profile-img profile-user-img" src={logo} />
+                                    <img className="profile-img profile-user-img" src={this.props.user.profilePic} />
                                 </div>
                             </div>
                             <div className="profile-section-logo">
@@ -137,6 +137,7 @@ const mapStateToProps = state => ({
     phonemode: state.header.phonemode,
     phonemodechat: state.header.phonemodechat,
     searchShow: state.header.searchShow
+    user: state.edituser,
 });
 
 const mapDispatchToProps = dispatch =>
