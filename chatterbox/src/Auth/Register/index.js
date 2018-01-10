@@ -1,13 +1,13 @@
 import React, { Component } from 'react';
 import { Button } from 'material-ui';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
 
 import StepOne from './stepone';
 import StepTwo from './steptwo';
 import StepThree from './stepthree';
 import './Register.css';
-import {changeStage} from "../../modules/register"
+import { changeStage } from '../../modules/register';
 
 class Register extends Component {
     constructor(props) {
@@ -50,11 +50,7 @@ class Register extends Component {
                 {this.props.stage == 2 && <StepTwo canNext={this.handleCanNext.bind(this)} />}
                 {this.props.stage == 3 && <StepThree canNext={this.handleCanNext.bind(this)} />}
 
-                <Button
-                    onClick={() => this.props.changeStage()}
-                    raised
-                    className="button-next"
-                >
+                <Button onClick={() => this.props.changeStage()} raised className="button-next">
                     NEXT
                 </Button>
                 {this.props.stage != 1 && (
@@ -75,14 +71,15 @@ const mapStateToProps = state => ({
     stage: state.register.stage,
     canNext: state.register.canNext,
     error: state.register.error,
-    heading:state.register.heading
-  })
-  
-  const mapDispatchToProps = dispatch => bindActionCreators({
-    changeStage:changeStage
-  }, dispatch)
+    heading: state.register.heading
+});
 
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(Register);
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            changeStage: changeStage
+        },
+        dispatch
+    );
+
+export default connect(mapStateToProps, mapDispatchToProps)(Register);

@@ -2,20 +2,17 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import sidebar from './Sidebar';
 import header from './Header';
-import EditUserReducer from '../modules/settings/edit-user-reducer'
-import userReducer from '../modules/settings/user-reducer'
-import register from "./register"
+import EditUserReducer from '../modules/settings/edit-user-reducer';
+import userReducer from '../modules/settings/user-reducer';
+import register from './register';
 //import userSettings from '../modules/settings/edit-user-reducer'
 
 export default combineReducers({
     routing: routerReducer,
-    sidebar:sidebar,
+    sidebar: sidebar,
     user: userReducer,
-
-    //settings: userSettings,
-
+    header: header,
     edituser: EditUserReducer,
-    header:header,
-    register:register,
-
+    header: header,
+    register: register
 });

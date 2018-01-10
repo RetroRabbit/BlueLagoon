@@ -8,38 +8,29 @@ import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
-import { connect } from 'react-redux'
+import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {openMenu,closeMenu} from "../../modules/Header"
+import { openMenu, handleHeaderInChat, closeMenu, resize } from '../../modules/Header';
 import { push } from 'react-router-redux';
-
-const styles = theme => ({
-    root: {
-        height: ' 103px',
-        color: '#01B9BD'
-    },
-    flex: {
-        flex: 1
-    },
-    menuButton: {
-        marginLeft: -12,
-        marginRight: 20
-    },
-
-    images: {
-        borderRadius: 50
-    }
-});
+import logo from '../../assets/Icon.png';
 
 class MenuAppBar extends React.Component {
-    static propTypes = {
-        classes: PropTypes.object.isRequired
-    };
-    settings() {
-        // this.props.history.push('/settings');
+    componentDidMount() {
+        window.addEventListener('resize', () => this.props.resize());
     }
-
+    componentWillUnmount() {
+        window.removeEventListener('resize');
+    }
+    gotoSettings() {
+        this.props.closeMenu();
+        this.props.changeSettings();
+    }
+    gotoLogout() {
+        this.props.closeMenu();
+        this.props.logout();
+    }
     render() {
+<<<<<<< HEAD
         const { classes } = this.props;
         const open = Boolean(this.props.anchorEl);
 
@@ -57,8 +48,32 @@ class MenuAppBar extends React.Component {
                                     New Group
                                 </Button>
                             </div>
+=======
+        return (
+            <div className="Header">
+                {this.props.phonemode &&
+                    this.props.phonemodechat && (
+                        <div
+                            onClick={() => this.props.handleHeaderInChat(false)}
+                            className="header-return-chats"
+                        >
+                            <div className="resized-arrow fa fa-chevron-left" />
+                            <div className="header-resized-text">CHATS</div>
+>>>>>>> develop
                         </div>
+                    )}
+                {(!this.props.phonemode || !this.props.phonemodechat) && (
+                    <div className={`buttons-section ${this.props.buttonsClass}`}>
+                        <Button raised className="buttons">
+                            NEW CHAT
+                        </Button>
+                        <Button raised className="buttons">
+                            NEW GROUP
+                        </Button>
+                    </div>
+                )}
 
+<<<<<<< HEAD
 
                             <div className="appbar-buttons-right">
                                 <Button
@@ -97,21 +112,79 @@ class MenuAppBar extends React.Component {
                                     }}
                                     open={open}
                                     onClose={this.props.closeMenu.bind(this)}
-                                >
-                                    <MenuItem onClick={()=>(this.props.changeSettings(),this.props.closeMenu())} >Settings</MenuItem>{' '}
-                                    <MenuItem onClick={()=>(this.props.logout(),this.props.closeMenu())} >Log Out</MenuItem>
-                                </Menu>
+=======
+                <div>
+                    {(!this.props.phonemode ||
+                        (this.props.phonemode && this.props.phonemodechat)) && (
+                        <div
+                            onMouseLeave={this.props.closeMenu.bind(this)}
+                            className="profile-section"
+                        >
+                            <div
+                                onMouseOver={this.props.openMenu.bind(this)}
+                                onClick={this.props.openMenu.bind(this)}
+                                className="profile-section-id-holder"
+                            >
+                                <div className="profile-section-id-name">Addie Heins</div>
+                                <div className="profile-img-holder">
+                                    <img className="profile-img profile-user-img" src={logo} />
+                                </div>
                             </div>
+                            <div className="profile-section-logo">
+                                <div className="profile-img-holder">
+                                    <img className="profile-img profile-logo" src={logo} />
+                                </div>
+                            </div>
+                            {this.props.anchorEl && (
+                                <div
+                                    onMouseOver={this.props.openMenu.bind(this)}
+                                    onMouseLeave={this.props.closeMenu.bind(this)}
+                                    className="header-dropdown-menu"
+>>>>>>> develop
+                                >
+                                    <div className="header-drop-item">
+                                        <div
+                                            onClick={this.gotoSettings.bind(this)}
+                                            className="header-drop-item-name"
+                                        >
+                                            Settings
+                                        </div>
+                                    </div>
+                                    <div className="header-drop-item">
+                                        <div
+                                            onClick={this.gotoLogout.bind(this)}
+                                            className="header-drop-item-name"
+                                        >
+                                            Log Out
+                                        </div>
+                                    </div>
+                                </div>
+                            )}
+                        </div>
+                    )}
+                    {this.props.phonemode &&
+                        !this.props.phonemodechat && (
+                            <div
+                                onClick={() => this.props.handleHeaderInChat(true)}
+                                className="profile-section"
+                            >
+                                <div className="resized-arrow fa fa-chevron-right" />
+                            </div>
+<<<<<<< HEAD
 
                     </Toolbar>
                 </AppBar>
+=======
+                        )}
+                </div>
+>>>>>>> develop
             </div>
         );
     }
 }
 
-
 const mapStateToProps = state => ({
+<<<<<<< HEAD
     anchorEl: state.header.anchorEl
   })
 
@@ -125,3 +198,24 @@ const mapDispatchToProps = dispatch => bindActionCreators({
     mapStateToProps,
     mapDispatchToProps
   )(withStyles(styles)(MenuAppBar));
+=======
+    anchorEl: state.header.anchorEl,
+    buttonsClass: state.header.buttonsClass,
+    phonemode: state.header.phonemode,
+    phonemodechat: state.header.phonemodechat
+});
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            openMenu,
+            closeMenu,
+            resize,
+            handleHeaderInChat,
+            changeSettings: e => push('/settings'),
+            logout: e => push('/auth/login')
+        },
+        dispatch
+    );
+export default connect(mapStateToProps, mapDispatchToProps)(MenuAppBar);
+>>>>>>> develop
