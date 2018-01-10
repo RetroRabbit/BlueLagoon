@@ -21,55 +21,103 @@ const SubmitChanges =  {
 }
 
 class UserSettings extends Component {
+    renderNormal() {
+        return (
+            <div>
+                <div className="user-name">
+                    <h2 className="user-detail">{this.props.user.user.name}</h2>
+                    <Pencil
+                        onClick={() => this.props.editUserName(this.props.user.user)}
+                        className="edit"
+                    />
+                </div>
+                
+                <div className="user-email">
+                    <h3 className="user-detail">{this.props.user.user.email}</h3>
+                    <Pencil
+                        onClick={() => this.props.editUserEmail(this.props.user.user)}
+                        className="edit"
+                    />
+                </div>
+            </div>
+        );
+    }
+
+    renderEditName() {
+        return (
+            <div>
+                <div className="user-name">
+                    {/* USE TEXTFIELD HERE */}
+                    <TextField  
+                        defaultValue={this.props.user.user.name} 
+                        refs="newName"
+                    />
+                </div>
+                
+                <div className="user-email">
+                    <h3 className="user-detail">{this.props.user.user.email}</h3>
+                    <Pencil
+                        onClick={() => this.props.editUserEmail(this.props.user.user)}
+                        className="edit"
+                    />
+                </div>
+            </div>
+        );
+    }
+
+    renderEditEmail() {
+        return (
+            <div>
+                <div className="user-name">
+                    <h2 className="user-detail">{this.props.user.user.name}</h2>
+                    <Pencil
+                        onClick={() => this.props.editUserName(this.props.user.user)}
+                        className="edit"
+                    />
+                </div>
+                
+                <div className="user-email">
+                    <TextField  
+                        defaultValue={this.props.user.user.email}
+                        ref="newEmail" 
+                    />
+                </div>
+            </div>
+        );
+    }
+
     render() {
+        console.log(this.props)
+
+        let renderUserDetails = this.renderNormal();
+
+        if(this.props.user.editName) {
+            renderUserDetails = this.renderEditName();
+        }
+        else if(this.props.user.editEmail) {
+            renderUserDetails = this.renderEditEmail();
+        }
+
         return (
             <div className="user-details">
                 <div className="profile-picture">
                     <div className="oval">
                         <div className="oval-4">
                             <img 
-                                src={this.props.user.profilePic} 
+                                src={this.props.user.user.profilePic} 
                                 alt="none"
-                                onClick={() => this.props.editUserProfilePictureRequest(this.props.user)}
+                                onClick={() => this.props.editProfilePicture(this.props.user.user)}
                             />
                         </div>
                     </div>
                 </div>
 
-                <div className="user-name">
-                    <div className="item-detail">
-                        <h2 className="user-detail">{this.props.user.firstname} {this.props.user.lastname}</h2>
-                        <Pencil
-                            onClick={() => this.props.editUserNameRequest(this.props.user)} 
-                            className="edit"
-                        />
-                    </div>
-                </div>
-                
-                <div className="item-detail user-email">
-                    <div className="item-detail">
-                        <h3 className="user-detail">{this.props.user.email}</h3>
-                        <Pencil
-                            onClick={() => this.props.editUserEmailRequest(this.props.user)} 
-                            className="edit"
-                        />
-                    </div>
-                    
-                </div>
+                {renderUserDetails}
 
-                <div className="edit-user-name">
-                    <input type="text" placeholder={this.props.user.firstname + " " + this.props.user.lastname} />
-                </div>
-
-                <div className="edit-user-email">
-                    <input type="text" placeholder={this.props.user.email} />
-                </div>
-
-                <Button  
-                     onClick={() => this.props.saveChangesRequest(this.props.user)} 
-                     label="DONE"
-                     children="DONE"
-                     style={SubmitChanges}            
+                <Button 
+                    onClick={() => this.props.saveChanges(this.props.user.user)}
+                    label="DONE"
+                    style={buttonStyle}
                 />
             </div>
         );
