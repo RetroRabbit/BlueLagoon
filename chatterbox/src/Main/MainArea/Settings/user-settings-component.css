@@ -11,17 +11,20 @@
     border-radius: 50%;	
     height: 236px;	
     width: 236px;
+    display: flex;
 }
 
-img {
-    border-radius: 50%;	
+.oval-4 img {
+    border-radius: 50%;
+    align-self: center;	
 }
-
-.user-details {
-    position:absolute;
+.settings-component .user-details .item-detail{
+    display: inline-flex;
+}
+.settings-component .user-details {
     text-align: center;
-    top: 131px;
-    left: 579px;
+    align-self: center;
+    margin: auto;
 }
 
 .profile-picture {
@@ -37,12 +40,14 @@ h2, h3, .edit {
 }
 
 .user-name {
+    padding-top: 30px;
     text-align: center;
+    
 }
 .user-email {
     padding-bottom: 42px;
 }
 
 .user-detail {
-    padding-right: 10px;
+    font-family: 'Montserrat'
 }
