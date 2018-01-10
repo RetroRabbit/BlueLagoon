@@ -6,7 +6,7 @@ import MessageLine from './MessageLine';
 class ChatArea extends Component {
     onTextAreaChange(e) {
         let el = e.target;
-        el.style.cssText = 'height:auto; padding:0';
+        el.style.cssText = 'height:auto; padding:10';
         el.style.cssText = 'height:' + el.scrollHeight + 'px';
     }
 
