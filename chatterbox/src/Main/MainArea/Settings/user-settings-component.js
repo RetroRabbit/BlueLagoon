@@ -51,10 +51,13 @@ class UserSettings extends Component {
         return (
             <div>
                 <div className="user-name">
-                    {/* USE TEXTFIELD HERE */}
                     <TextField  
                         defaultValue={this.props.user.user.name} 
                         refs="newName"
+                    />
+                    <Pencil
+                        onClick={() => this.props.editUserName(this.props.user.user)}
+                        className="edit"
                     />
                 </div>
                 
@@ -84,6 +87,10 @@ class UserSettings extends Component {
                     <TextField  
                         defaultValue={this.props.user.user.email}
                         ref="newEmail" 
+                    />
+                    <Pencil
+                        onClick={() => this.props.editUserEmail(this.props.user.user)}
+                        className="edit"
                     />
                 </div>
             </div>
