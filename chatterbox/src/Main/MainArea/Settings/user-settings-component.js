@@ -136,11 +136,11 @@ function mapStateToProps(state) {
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-                editUserProfilePictureRequest,
-                editUserNameRequest,
-                editUserEmailRequest,
-                saveChangesRequest
-            }, dispatch)
+        editUserName: editUserName,
+        editUserEmail: editUserEmail,
+        editProfilePicture: editProfilePicture,
+        saveChanges: saveChanges
+    }, dispatch)
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(UserSettings);
