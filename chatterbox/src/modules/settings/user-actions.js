@@ -36,3 +36,14 @@ export const updateUserName = (e, user) => {
         }
     }
 }
+
+export const updateUserEmail = (e, user) => {
+    return {
+        type: "UPDATE_USER_EMAIL",
+        payload: {
+            name: user.name,
+            email: e.target.value,
+            profilePic: user.profilePic
+        }
+    }
+}

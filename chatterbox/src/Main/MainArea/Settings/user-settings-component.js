@@ -11,7 +11,8 @@ import {
     editUserEmail,
     editProfilePicture,
     saveChanges,
-    updateUserName
+    updateUserName,
+    updateUserEmail
 } from '../../../modules/settings/user-actions'
 
 const buttonStyle =  {
@@ -93,6 +94,7 @@ class UserSettings extends Component {
                     <TextField  
                         defaultValue={this.props.user.email}
                         style={TextFieldStyles}
+                        onChange={(e) => this.props.updateUserEmail(e, this.props.user)}
                     />
                     <Pencil
                         onClick={() => this.props.editUserEmail(this.props.user)}
@@ -104,7 +106,6 @@ class UserSettings extends Component {
     }
 
     render() {
-        console.log(this.props)
         let renderUserDetails = this.renderNormal();
 
         if(this.props.user.editName) {
@@ -157,6 +158,7 @@ function matchDispatchToProps(dispatch) {
         editProfilePicture: editProfilePicture,
         saveChanges: saveChanges,
         updateUserName: updateUserName,
+        updateUserEmail: updateUserEmail
         // done: () => {push('/') }
     }, dispatch)
 }

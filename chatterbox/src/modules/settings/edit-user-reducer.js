@@ -52,6 +52,14 @@ export default function(state=initialState, action) {
                 profilePic: action.payload.profilePic
             }
 
+        case 'UPDATE_USER_EMAIL':
+            return {
+                name: action.payload.name,
+                email: action.payload.email,
+                profilePic: action.payload.profilePic,
+                editEmail: true
+            }
+
         default:
             return state;
     }
