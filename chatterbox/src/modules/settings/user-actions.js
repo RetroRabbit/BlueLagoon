@@ -25,3 +25,14 @@ export const saveChanges = (user) => {
         payload: user
     }
 }
+
+export const updateUserName = (e, user) => {
+    return {
+        type: "UPDATE_USER_NAME",
+        payload: {
+            name: e.target.value,
+            email: user.email,
+            profilePic: user.profilePic
+        }
+    }
+}
