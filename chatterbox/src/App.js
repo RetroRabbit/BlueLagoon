@@ -19,7 +19,7 @@ class App extends Component {
             <div>
                 
                 <Route path="/auth" component={Auth} />
-                <Route path="/" component={Main} />
+                <Route path="/main" component={Main} />
             </div>
         );
     }

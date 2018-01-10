@@ -4,6 +4,7 @@ import './ChatArea.css';
 import MessageLine from './MessageLine';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { easing } from 'material-ui/styles/transitions';
 
 
 class ChatArea extends Component {
@@ -15,6 +16,8 @@ class ChatArea extends Component {
         let el = e.target;
         el.style.cssText = 'height:auto; padding:10';
         el.style.cssText = 'height:' + el.scrollHeight + 'px';
+        console.log(e);
+        return e.value;
     }
 
 
@@ -43,11 +46,11 @@ class ChatArea extends Component {
                 
                 <div className="writer-container">
                     <form>
-                    <div className="add-attachment fa fa-plus-circle" onClick={this.props.messagesCatch(this.onTextAreaChange)}/>
+                    <div className="add-attachment fa fa-plus-circle"/>
                     <div style={{ clear: 'both' }} />
                     <textarea
                         rows={1}
-                        onChange={this.onTextAreaChange.bind(this)}
+                        onChange={(e) => this.props.messagesCatch(e)}
                         className="input-message"
                         placeholder="Type a message"
                     />
@@ -63,7 +66,7 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            messagesCatch
+            messagesCatch: messagesCatch
         },
         dispatch
     );
