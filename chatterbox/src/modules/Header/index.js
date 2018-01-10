@@ -1,10 +1,24 @@
 import { push } from 'react-router-redux'
 const HANDLE_OPEN_MENU = 'header/HANDLE_OPEN_MENU'
 const HANDLE_CLOSE_MENU = 'header/HANDLE_CLOSE_MENU'
+const RESIZE_HEADER = 'header/RESIZE_HEADER'
+const HANDLE_IN_CHAT='header/HANDLE_IN_CHAT'
 
+let initWinsize=window.innerWidth;
+let btncls="normal";
+let phnmd=false;
+let inChat=window.location.href.indexOf("chat")>0;
+if(initWinsize<500){
+  btncls="phonesize";
+  phnmd=true;
+}
 
+console.log("INIT SIZE:",phnmd)
 const initialState = {
-    anchorEl:false 
+    anchorEl:false,
+    buttonsClass:btncls,
+    phonemode:phnmd,
+    phonemodechat:true
 }
 
 export default (state = initialState, action) => {
@@ -19,6 +33,28 @@ export default (state = initialState, action) => {
         ...state,
         anchorEl: false
       }
+    case HANDLE_IN_CHAT:{
+      let phonemodechat=window.location.href.indexOf("chat")>0;
+      return {
+        ...state,
+        phonemodechat:phonemodechat 
+      }
+    }
+    case RESIZE_HEADER:{
+      let buttonsClass=state.buttonsClass;
+      let phonemode=state.phonemode;
+      let winsize=window.innerWidth;
+      if(winsize<500){
+        buttonsClass="phonesize";
+        phonemode=true;
+      }
+      return {
+        ...state,
+        buttonsClass: buttonsClass,
+        phonemode:phonemode
+      }
+    }
+
 
     default:
       return state
@@ -38,6 +74,13 @@ export const closeMenu = () => {
   return dispatch => {
     dispatch({
       type: HANDLE_CLOSE_MENU
+    })
+  }
+}
+export const resize = () => {
+  return dispatch => {
+    dispatch({
+      type: RESIZE_HEADER
     })
   }
 }

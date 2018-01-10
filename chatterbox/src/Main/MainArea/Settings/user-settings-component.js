@@ -2,16 +2,18 @@ import React, {Component} from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
-import { Button } from 'material-ui';
+import { Button, TextField } from 'material-ui';
 import './user-settings-component.css'
-import {
-    editUserNameRequest,
-    editUserEmailRequest,
-    editUserProfilePictureRequest,
-    saveChangesRequest
-} from '../../../modules/settings/edit-user-reducer.js'
+import {push} from 'react-router-redux'
 
-const SubmitChanges =  {
+import {
+    editUserName,
+    editUserEmail,
+    editProfilePicture,
+    saveChanges
+} from '../../../modules/settings/user-actions'
+
+const buttonStyle =  {
     backgroundColor: "#FB6902",
     height: '54px',
     width: '143px',	
@@ -20,8 +22,96 @@ const SubmitChanges =  {
     color: '#FFFFFF'
 }
 
+const TextFieldStyles = {
+    width: '100%',
+    fontFamily: 'Montserrat'
+}
+
+
 class UserSettings extends Component {
+    renderNormal() {
+        return (
+            <div>
+                <div className="user-name">
+                    <h2 className="user-detail">{this.props.user.name}</h2>
+                    <Pencil
+                        onClick={() => this.props.editUserName(this.props.user)}
+                        className="edit"
+                    />
+                </div>
+                
+                <div className="user-email">
+                    <h3 className="user-detail">{this.props.user.email}</h3>
+                    <Pencil
+                        onClick={() => this.props.editUserEmail(this.props.user)}
+                        className="edit"
+                    />
+                </div>
+            </div>
+        );
+    }
+
+    renderEditName() {
+        return (
+            <div>
+                <div className="user-name">
+                    <TextField  
+                        defaultValue={this.props.user.name} 
+                        style={TextFieldStyles}
+                    />
+                    <Pencil
+                        onClick={() => this.props.editUserName(this.props.user)}
+                        className="edit"
+                    />
+                </div>
+                
+                <div className="user-email">
+                    <h3 className="user-detail">{this.props.user.email}</h3>
+                    <Pencil
+                        onClick={() => this.props.editUserEmail(this.props.user)}
+                        className="edit"
+                    />
+                </div>
+            </div>
+        );
+    }
+
+    renderEditEmail() {
+        return (
+            <div>
+                <div className="user-name">
+                    <h2 className="user-detail">{this.props.user.name}</h2>
+                    <Pencil
+                        onClick={() => this.props.editUserName(this.props.user)}
+                        className="edit"
+                    />
+                </div>
+                
+                <div className="user-email">
+                    <TextField  
+                        defaultValue={this.props.user.email}
+                        style={TextFieldStyles}
+                    />
+                    <Pencil
+                        onClick={() => this.props.editUserEmail(this.props.user)}
+                        className="edit"
+                    />
+                </div>
+            </div>
+        );
+    }
+
     render() {
+
+        let renderUserDetails = this.renderNormal();
+
+        if(this.props.user.editName) {
+            renderUserDetails = this.renderEditName();
+        }
+        else if(this.props.user.editEmail) {
+            renderUserDetails = this.renderEditEmail();
+        }
+
         return (
             <div className="user-details">
                 <div className="profile-picture">
@@ -30,46 +120,18 @@ class UserSettings extends Component {
                             <img 
                                 src={this.props.user.profilePic} 
                                 alt="none"
-                                onClick={() => this.props.editUserProfilePictureRequest(this.props.user)}
+                                onClick={() => this.props.editProfilePicture(this.props.user)}
                             />
                         </div>
                     </div>
                 </div>
 
-                <div className="user-name">
-                    <div className="item-detail">
-                        <h2 className="user-detail">{this.props.user.firstname} {this.props.user.lastname}</h2>
-                        <Pencil
-                            onClick={() => this.props.editUserNameRequest(this.props.user)} 
-                            className="edit"
-                        />
-                    </div>
-                </div>
-                
-                <div className="item-detail user-email">
-                    <div className="item-detail">
-                        <h3 className="user-detail">{this.props.user.email}</h3>
-                        <Pencil
-                            onClick={() => this.props.editUserEmailRequest(this.props.user)} 
-                            className="edit"
-                        />
-                    </div>
-                    
-                </div>
+                {renderUserDetails}
 
-                <div className="edit-user-name">
-                    <input type="text" placeholder={this.props.user.firstname + " " + this.props.user.lastname} />
-                </div>
-
-                <div className="edit-user-email">
-                    <input type="text" placeholder={this.props.user.email} />
-                </div>
-
-                <Button  
-                     onClick={() => this.props.saveChangesRequest(this.props.user)} 
-                     label="DONE"
-                     children="DONE"
-                     style={SubmitChanges}            
+                <Button 
+                    onClick={() => this.props.saveChanges(this.props.user)}
+                    children="DONE"
+                    style={buttonStyle}
                 />
             </div>
         );
@@ -78,21 +140,22 @@ class UserSettings extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.user,
-        saveChanges: state.saveChanges,
-        editUserNameRequest: state.editUserNameRequest,
-        editUserEmailRequest: state.editUserEmailRequest,
-        editUserProfilePictureRequest: state.editUserProfilePictureRequest
+        user: state.edituser,
+        editName: state.edituser.editName,
+        editEmail: state.edituser.editEmail,
+        editProfilePic: state.edituser.editProfilePic,
+        changesMade: state.edituser.changesMade
     }
 }
 
 function matchDispatchToProps(dispatch) {
     return bindActionCreators({
-                editUserProfilePictureRequest,
-                editUserNameRequest,
-                editUserEmailRequest,
-                saveChangesRequest
-            }, dispatch)
+        editUserName: editUserName,
+        editUserEmail: editUserEmail,
+        editProfilePicture: editProfilePicture,
+        saveChanges: saveChanges,
+        done: () => {push('/') }
+    }, dispatch)
 }
 
 export default connect(mapStateToProps, matchDispatchToProps)(UserSettings);

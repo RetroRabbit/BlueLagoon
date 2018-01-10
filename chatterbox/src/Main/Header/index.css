@@ -4,7 +4,7 @@
 	width: 100%;
 }
 .Header .buttons-section{
-	width: 411px;
+	width: 441px;
 	height: 100%;
 	display: flex;
 	align-content: center;
@@ -23,6 +23,13 @@
 	margin-right: 24px;
 	outline: none;
 }
+.Header .buttons-section.phonesize{
+	width: 75%;
+}
+.Header .buttons-section.phonesize .buttons{
+   width: 80px
+}
+
 
 .Header .profile-section{
 	display: flex;
@@ -37,6 +44,10 @@
 	padding-right: 21px;
 }
 
+.Header .profile-section .resized-arrow{
+	color: white;
+	font-size: 16px;
+}
 .Header .profile-section .profile-section-id-holder{
 	display: flex;
 	align-content: center;
@@ -44,11 +55,12 @@
 	justify-content: center;
 	margin-right: 17px;
 	height: 100%;
+	cursor: pointer;
 }
 
 .Header .profile-section .profile-section-id-holder .profile-section-id-name{
 	margin-right: 20px;
-	font-family: "Montserrat",sans-serif;
+	cursor: inherit;
 	font-size: 20px;
 	line-height: 24px;
 	height: 30px;
@@ -84,6 +96,7 @@
 	position: absolute;
 	right: 139px;
 	z-index: 2000;
+	background-color: white;
 	box-shadow: 0 2px 12px 3px rgba(0,0,0,0.14);
 
 }
