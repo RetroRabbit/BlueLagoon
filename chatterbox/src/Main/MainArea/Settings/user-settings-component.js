@@ -116,7 +116,7 @@ class UserSettings extends Component {
 
                 <Button 
                     onClick={() => this.props.saveChanges(this.props.user.user)}
-                    label="DONE"
+                    children="DONE"
                     style={buttonStyle}
                 />
             </div>
