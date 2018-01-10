@@ -1,7 +1,8 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import Pencil from 'react-icons/lib/fa/pencil';
+
 import { Button, TextField } from 'material-ui';
 import './user-settings-component.css'
 import {push} from 'react-router-redux'
@@ -16,11 +17,11 @@ import {
 const buttonStyle =  {
     backgroundColor: "#FB6902",
     height: '54px',
-    width: '143px',	
-    borderRadius: '5px',		
+    width: '143px',
+    borderRadius: '5px',
     boxShadow: '0 2px 6px 0 rgba(0,0,0,0.25)',
     color: '#FFFFFF'
-}
+};
 
 const TextFieldStyles = {
     width: '100%',
@@ -117,14 +118,16 @@ class UserSettings extends Component {
                 <div className="profile-picture">
                     <div className="oval">
                         <div className="oval-4">
-                            <img 
-                                src={this.props.user.profilePic} 
+                            <img
+                                src={this.props.user.profilePic}
                                 alt="none"
+
                                 onClick={() => this.props.editProfilePicture(this.props.user)}
                             />
                         </div>
                     </div>
                 </div>
+
 
                 {renderUserDetails}
 
@@ -140,6 +143,7 @@ class UserSettings extends Component {
 
 function mapStateToProps(state) {
     return {
+
         user: state.edituser,
         editName: state.edituser.editName,
         editEmail: state.edituser.editEmail,

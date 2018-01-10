@@ -1,3 +1,4 @@
+
 const initialState = {
     name: "Rian van der Merwe",
     email: 'hvandermerwe@retrorabbit.co.za',
@@ -8,9 +9,11 @@ const initialState = {
     changesMade: false
 }
 
-export default function(state=initialState, action) {
-    switch(action.type) {
+
+export default function(state = initialState, action) {
+    switch (action.type) {
         case 'EDIT_USER_NAME':
+
            return {
                ...state,
                editName: !state.editName,

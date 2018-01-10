@@ -1,9 +1,8 @@
-import React, {Component} from 'react';
-import {MuiThemeProvider} from 'material-ui';
-import UserSettings from '../Settings/user-settings-component.js'
+import React, { Component } from 'react';
+import { MuiThemeProvider } from 'material-ui';
+import UserSettings from '../Settings/user-settings-component.js';
 
 class Settings extends Component {
-
     render() {
         return (
             <MuiThemeProvider>

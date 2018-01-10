@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import logo from '../logo.svg';
 import './Main.css';
+
+import MainArea from './MainArea';
+
 import { Route } from 'react-router-dom';
-import MainArea from "./MainArea"
 import Header from "./Header"
 
 class Main extends Component {
