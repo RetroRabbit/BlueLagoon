@@ -40,12 +40,14 @@ h2, h3, .edit {
 }
 
 .user-name {
+    padding-top: 30px;
     text-align: center;
+    
 }
 .user-email {
     padding-bottom: 42px;
 }
 
 .user-detail {
-    padding-right: 10px;
+    font-family: 'Montserrat'
 }
