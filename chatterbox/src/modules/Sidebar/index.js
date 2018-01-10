@@ -162,7 +162,7 @@ export default (state = initialState, action) => {console.log(action.payload)
         case MESSAGE: {
             
             var messageCapture = [];
-            messageCapture.push({message: action.payload,type: "sent"})
+            messageCapture.push({message: action.payload, type: "sent"})
 
             return {
                 ...state,
@@ -202,7 +202,7 @@ export var searchGo = event => {
 
 export function messagesCatch(message)
 {
-    console.log(message.target.value);
+    console.log(message);
     return dispatch => {
             dispatch({
                 type: MESSAGE,

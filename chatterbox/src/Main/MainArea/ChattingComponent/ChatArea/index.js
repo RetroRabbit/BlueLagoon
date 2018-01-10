@@ -12,10 +12,14 @@ class ChatArea extends Component {
         super(props);
         this.state = {value: ''};
       }
+
+    handleKeyPress = (event) => {
+        if(event.key == 'Enter'){
+            alert('enter press here! ')
+
+        }
+    }
     
-
-
-
     render() {
         return (
             
@@ -42,11 +46,12 @@ class ChatArea extends Component {
                     <form>
                     <div className="add-attachment fa fa-plus-circle"/>
                     <div style={{ clear: 'both' }} />
-                    <textarea
+                    <input type="text"
                         rows={1}
                         onChange={(e) => this.props.messagesCatch(e)}
                         className="input-message"
                         placeholder="Type a message"
+                        onKeyPress={this.handleKeyPress}
                     />
                     </form>
                 </div>

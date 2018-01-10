@@ -1,9 +1,5 @@
 import React from 'react';
 import './index.css';
-import logo from '../../../../assets/male1.png';
-import logo1 from '../../../../assets/male2.png';
-import logo2 from '../../../../assets/female1.png';
-import logo3 from '../../../../assets/Male3.png';
 import slogo from '../../../../assets/search.png';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
