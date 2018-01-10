@@ -10,7 +10,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { openMenu, handleHeaderInChat, closeMenu, resize } from '../../modules/Header';
+import { openMenu, handleHeaderInChat, closeMenu, resize,openSearch,closeSearch } from '../../modules/Header';
 import { push } from 'react-router-redux';
 import logo from '../../assets/Icon.png';
 
@@ -43,8 +43,8 @@ class MenuAppBar extends React.Component {
                         </div>
                     )}
                 {(!this.props.phonemode || !this.props.phonemodechat) && (
-                    <div className={`buttons-section ${this.props.buttonsClass}`}>
-                        <Button raised className="buttons">
+                    <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.buttonsClass}`}>
+                        <Button onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
                             NEW CHAT
                         </Button>
                         <Button raised className="buttons">
@@ -111,6 +111,21 @@ class MenuAppBar extends React.Component {
                             </div>
                         )}
                 </div>
+                {
+                    this.props.searchShow &&
+                    <div onMouseEnter={this.props.openSearch.bind(this)} onMouseLeave={this.props.closeSearch.bind(this)} className="searchBox">
+                        <div className="search">
+                            <input
+                                class="searchInput"
+                                placeholder="friend's email"
+                                onChange={this.props.searchGo}
+                                onLoad={this.props.searchGo}
+                            />
+                            <div className="search-icon" class="fa fa-search" />
+                        </div>
+                        <div className="line" />
+                    </div>
+                }
             </div>
         );
     }
@@ -120,7 +135,8 @@ const mapStateToProps = state => ({
     anchorEl: state.header.anchorEl,
     buttonsClass: state.header.buttonsClass,
     phonemode: state.header.phonemode,
-    phonemodechat: state.header.phonemodechat
+    phonemodechat: state.header.phonemodechat,
+    searchShow: state.header.searchShow
 });
 
 const mapDispatchToProps = dispatch =>
@@ -129,6 +145,8 @@ const mapDispatchToProps = dispatch =>
             openMenu,
             closeMenu,
             resize,
+            openSearch,
+            closeSearch,
             handleHeaderInChat,
             changeSettings: e => push('/settings'),
             logout: e => push('/auth/login')

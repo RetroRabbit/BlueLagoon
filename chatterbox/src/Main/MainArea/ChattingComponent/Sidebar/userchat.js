@@ -7,6 +7,7 @@ import { push } from 'react-router-redux';
 
 class UserChat extends React.Component {
     render() {
+
         return (
             <div>
                 <div>

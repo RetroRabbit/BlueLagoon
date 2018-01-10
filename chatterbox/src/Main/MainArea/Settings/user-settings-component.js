@@ -35,7 +35,9 @@ class UserSettings extends Component {
         return (
             <div>
                 <div className="settings-label user-name">
-                    <h2 className="settings-label-name settings-label-heading user-detail">{this.props.user.name}</h2>
+                    <h2 className="settings-label-name settings-label-heading user-detail">
+                        {this.props.user.name}
+                    </h2>
                     <Pencil
                         onClick={() => this.props.editUserName(this.props.user)}
                         className="edit"
@@ -43,7 +45,9 @@ class UserSettings extends Component {
                 </div>
 
                 <div className="settings-label user-email">
-                    <h3 className="settings-label-email settings-label-heading user-detail">{this.props.user.email}</h3>
+                    <h3 className="settings-label-email settings-label-heading user-detail">
+                        {this.props.user.email}
+                    </h3>
                     <Pencil
                         onClick={() => this.props.editUserEmail(this.props.user)}
                         className="edit"
