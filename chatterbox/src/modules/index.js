@@ -13,5 +13,4 @@ export default combineReducers({
     settings: userSettings,
     header:header,
     register:register,
-    settings: userSettings
 });
