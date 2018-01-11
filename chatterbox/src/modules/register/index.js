@@ -1,3 +1,5 @@
+import {history} from "../../store"
+import { push } from "react-router-redux/actions";
 export const CHANGE_STAGE = 'register/CHANGESTAGE';
 export const STAGE_ONE_EMAIL = 'register/STAGE_ONE_EMAIL';
 export const STAGE_ONE_NAME = 'register/STAGE_ONE_NAME';
@@ -49,7 +51,7 @@ export default (state = initialState, action) => {
                     console.log('TO-DO: send image to backend');
                 } else if (currStage == 3) {
                     console.log('TO-DO: search for friend, redirect to main');
-                    //this.props.history.push('/');
+                    //history.push('/');
                 }
                 if (currStage != 3) {
                     currStage += 1;
@@ -149,7 +151,9 @@ export default (state = initialState, action) => {
   }
 }
 
-export const changeStage = () => {
+export const changeStage = (stage) => {
+    if (stage==3)
+        history.push("/");
     return dispatch => {
         dispatch({
             type: CHANGE_STAGE

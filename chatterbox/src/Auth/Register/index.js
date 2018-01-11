@@ -12,28 +12,6 @@ import { changeStage } from '../../modules/register';
 class Register extends Component {
     constructor(props) {
         super(props);
-        this.handleNext = this.handleNext.bind(this);
-    }
-    handleCanNext(canNext) {
-        this.setState({ canNext, error: false });
-    }
-    handleNext(curr) {
-        // alert("stage "+curr)
-        let canNext = this.state.canNext;
-        if (canNext) {
-            if (this.state.stage === 1) {
-                console.log('TO-DO: send details to backend');
-            } else if (this.state.stage === 2) {
-                console.log('TO-DO: send image to backend');
-            } else if (this.state.stage === 3) {
-                console.log('TO-DO: search for friend, redirect to main');
-                this.props.history.push('/');
-            }
-            if (this.state.stage !== 3)
-                this.setState({ stage: curr + 1, error: false, canNext: false });
-        } else {
-            this.setState({ error: true });
-        }
     }
     handleSkip() {
         this.props.history.push('/');
@@ -46,11 +24,11 @@ class Register extends Component {
                     {this.props.heading[this.props.stage - 1].title}
                 </h1>
                 <h1 className="heading-title">{this.props.heading[this.props.stage - 1].sub}</h1>
-                {this.props.stage == 1 && <StepOne canNext={this.handleCanNext.bind(this)} />}
-                {this.props.stage == 2 && <StepTwo canNext={this.handleCanNext.bind(this)} />}
-                {this.props.stage == 3 && <StepThree canNext={this.handleCanNext.bind(this)} />}
+                {this.props.stage == 1 && <StepOne />}
+                {this.props.stage == 2 && <StepTwo />}
+                {this.props.stage == 3 && <StepThree />}
 
-                <Button onClick={() => this.props.changeStage()} raised className="button-next">
+                <Button onClick={() => this.props.changeStage(this.props.stage)} raised className="button-next">
                     NEXT
                 </Button>
                 {this.props.stage != 1 && (
