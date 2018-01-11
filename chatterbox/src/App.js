@@ -8,7 +8,7 @@ import Main from './Main';
 import Loader from './assets/Loader';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { resize} from './modules/Responsive';
+import { resize } from './modules/Responsive';
 
 class App extends Component {
     constructor(props) {

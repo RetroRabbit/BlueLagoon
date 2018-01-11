@@ -1,67 +1,101 @@
 import React, { Component } from 'react';
-
+import { messagesCatch } from '../../../../modules/Sidebar/index';
 import './ChatArea.css';
 import MessageLine from './MessageLine';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { easing } from 'material-ui/styles/transitions';
+import messages from './messages';
+
+var message = "";
 
 class ChatArea extends Component {
-    constructor(e) {
-        super(e);
-        this.state = {
-            messages: [
-                {
-                    message: 'hi',
-                    type: 'received'
-                }
-            ]
-        };
-    }
-    onTextAreaChange(e) {
-        let el = e.target;
-        el.style.cssText = 'height:auto; padding:10';
-        el.style.cssText = 'height:' + el.scrollHeight + 'px';
-    }
-    addMessage() {
-        let messa = this.state.messages;
-        let el = document.getElementById('textMess');
-        let obj = {
-            message: el.value,
-            type: 'sent'
-        };
-        messa.push(obj);
-        this.setState({ messages: messa });
+    constructor(props) {
+        super(props);
+        this.state = {value: ''};
+        this.handleKeyPress = this.handleKeyPress.bind(this)
+      
     }
 
+    handleKeyPress(event) {
+        if(event.key === 'Enter'){
+            message = event.target.value;
+            event.preventDefault();
+            
+            
+            if(message.length > 0)
+            {
+                this.refs.fruitName.value = "";
+                var currentDate = new Date();
+                var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes();
+                this.props.messagesCatch(message, currentTime, "received");
+                message = "";
+            }
+           
+           this.forceUpdate();
+        }
+        else {
+           message = event.target.value;
+        }
+    }
+  
     render() {
+        console.log(this.props.Messages)
         return (
+            
             <div className="ChatArea">
                 <div className="messages-container">
                     <div className="messages-holder">
-                        {this.state.messages.map(item => {
-                            if (item.type == 'sent') {
-                                return <MessageLine message={item.message} />;
-                            }
+                    {this.props.Messages?
+                        this.props.Messages.map(msg => (
+                            <MessageLine
+                                message={msg.message}
+                                type={msg.type}
+                                time={msg.time}
+                            />
+                        ))
+                        :
+                        null
+                    }
 
-                            return <MessageLine message={item.message} type="received" />;
-                        })}
+
                     </div>
                 </div>
+                
                 <div className="writer-container">
-                    <div
-                        onClick={this.addMessage.bind(this)}
-                        className="add-attachment fa fa-plus-circle"
-                    />
-                    <div style={{ clear: 'both' }} />
-                    <textarea
+                    <form  ref="fruitForm">
+                    <div className="add-attachment fa fa-plus-circle"/>
+                    <div  />
+                    
+                    <input   type="text"
                         rows={1}
-                        id="textMess"
-                        onChange={this.onTextAreaChange.bind(this)}
+                        //onChange={(e) => this.props.messagesCatch(e)}
                         className="input-message"
                         placeholder="Type a message"
+                        onKeyPress={(e) => this.handleKeyPress(e)}
+                        ref="fruitName"
                     />
+                    
+                    </form>
                 </div>
             </div>
         );
     }
 }
+const mapStateToProps = state => {
+    return { 
+        Messages: state.sidebar.Messages,
+        messagesCatch: messagesCatch
+    }
 
-export default ChatArea;
+
+};
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            messagesCatch: messagesCatch
+        },
+        dispatch
+    );
+
+export default connect(mapStateToProps, mapDispatchToProps)(ChatArea);
