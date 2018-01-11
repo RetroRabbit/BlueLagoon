@@ -21,10 +21,4 @@ yarn-debug.log*
 yarn-error.log*
 
 # vscode
-<<<<<<< HEAD
 .vscode 
-=======
-.vscode/
-package-lock.json
-package.json
->>>>>>> develop
