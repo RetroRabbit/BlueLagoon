@@ -10,13 +10,13 @@ import messages from './Sidebar/message-reducer'
 
 export default combineReducers({
     routing: routerReducer,
-    sidebar:sidebar,
+    sidebar: sidebar,
     user: userReducer,
     messages: messages,
     //settings: userSettings,
 
     edituser: EditUserReducer,
-    header:header,
-    register:register,
-
+    header: header,
+    register: register,
+    responsive: responsive
 });
