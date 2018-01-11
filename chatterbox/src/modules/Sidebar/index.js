@@ -130,9 +130,7 @@ const initialState = {
             img: logo3
         }
     ],
-    Messages: [{message: "hi", type: "sent"},
-            {message: "hello", type: "received"},
-            {message: "Lagoon", type: "received"},]
+    Messages: []
     
 };
 
@@ -160,8 +158,8 @@ export default (state = initialState, action) => {console.log(action.payload)
             };
         }
         case MESSAGE: {
-            
             var messageCapture = [];
+            //messageCapture = state.Messages;
             messageCapture.push({message: action.payload, type: "sent"})
 
             return {
@@ -206,14 +204,8 @@ export function messagesCatch(message)
     return dispatch => {
             dispatch({
                 type: MESSAGE,
-                payload: message.target.value
+                payload: message
             });
     }
-    //console.log(message)
-    // return dispatch => {
-    //     dispatch({
-    //         type: MESSAGE,
-    //         payload: message.target.value
-    //     });
-    // };
+
 }

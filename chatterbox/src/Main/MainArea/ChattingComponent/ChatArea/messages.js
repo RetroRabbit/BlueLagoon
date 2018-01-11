@@ -1,4 +1,6 @@
-import { Component } from "react";
+import React, { Component } from "react";
+import FruitList from './messages2';
+import AddFruitForm from './messages3';
 
 class messages extends Component {
   getInitialState(){
@@ -28,52 +30,5 @@ class messages extends Component {
       );
      }
     };
-
-    class FruitList extends Component{
-      render() {
-        return (
-          <div className="container">
-            <ul className="list-group text-center">
-              {
-                Object.keys(this.props.fruits).map(function(key) {
-                  return <li className="list-group-item list-group-item-info">{this.props.fruits[key]}</li>
-                }.bind(this))
-              }
-            </ul>
-           </div>
-         );
-       }
-     };
-
-    class AddFruitForm extends Component{
-      createFruit(e) {
-        e.preventDefault();
-        //get the fruit object name from the form
-        var fruit = this.refs.fruitName.value;
-        //if we have a value
-        //call the addFruit method of the App component
-        //to change the state of the fruit list by adding an new item
-        if(typeof fruit === 'string' && fruit.length > 0) {
-          this.props.addFruit(fruit);
-          //reset the form
-          this.refs.fruitForm.reset();
-        }
-       }
-       render() {
-        return(
-          <form className="form-inline" ref="fruitForm" onSubmit={this.createFruit}>
-          <div className="form-group">
-            <label for="fruitItem">
-              Fruit Name
-              <input type="text" id="fruitItem" placeholder="e.x.lemmon" ref="fruitName" className="form-control" />
-            </label>
-          </div>
-          <button type="submit" className="btn btn-primary">Add Fruit</button>
-         </form>
-        )
-       }
-      }
-  
-
 
 export default messages
