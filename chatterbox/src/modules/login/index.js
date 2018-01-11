@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
                     console.log('TO-DO: send image to backend');
                 } else if (currStage == 3) {
                     console.log('TO-DO: search for friend, redirect to main');
-                    //history.push('/');
+                    
                 }
                 if (currStage != 3) {
                     currStage += 1;
@@ -169,13 +169,7 @@ export const handleStageOneName = e => {
         });
     };
 };
-
-//StepTwo
-export const addImageStage = () => {
-    var el = document.getElementById('upload-img-input');
-    el.click();
-};
-
+ 
 export const inputChangeStage = obj => {
     return dispatch => {
         dispatch({
