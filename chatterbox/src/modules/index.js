@@ -2,6 +2,7 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import sidebar from './Sidebar';
 import header from './Header';
+
 import EditUserReducer from '../modules/settings/edit-user-reducer'
 import userReducer from '../modules/settings/user-reducer'
 import register from "./register"
@@ -19,5 +20,6 @@ export default combineReducers({
     edituser: EditUserReducer,
     header: header,
     register: register,
-    responsive: responsive
+    responsive: responsive,
+    login: login
 });
