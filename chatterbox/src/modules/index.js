@@ -2,8 +2,12 @@ import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 import sidebar from './Sidebar';
 import header from './Header';
+<<<<<<< HEAD
 import login from './login/login-reducer';
 
+=======
+import login from "./login/login-reducer"
+>>>>>>> develop
 import EditUserReducer from '../modules/settings/edit-user-reducer'
 import userReducer from '../modules/settings/user-reducer'
 import register from "./register"
