@@ -12,7 +12,8 @@ export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED';
 export const SEARCH = 'sidebar/SEARCH';
 export const MESSAGE = 'sidebar/MESSAGE';
 
-const initialState = {
+
+var initialState = {
     currentChat: 1,
     users: [
         {
@@ -133,8 +134,8 @@ const initialState = {
     Messages: []
     
 };
-
-export default (state = initialState, action) => {console.log(action.payload)
+var messageCapture = [];
+export default (state = initialState, action) => {
     switch (action.type) {
         case CHAT_CLICKED:
             return {
@@ -158,15 +159,16 @@ export default (state = initialState, action) => {console.log(action.payload)
             };
         }
         case MESSAGE: {
-            var messageCapture = [];
-            //messageCapture = state.Messages;
-            messageCapture.push({message: action.payload, type: "sent"})
-
+            messageCapture.push({message: action.payload.message, type: "sent", time: action.payload.time, type: action.payload.type})
+            console.log(messageCapture);
             return {
-                ...state,
-
-                Messages: messageCapture
+                users: state.users,
+                displayUsers: state.displayUsers,
+                currentChat: state.currentChat,
+                Messages: messageCapture,
+                //Messages: state.Messages.find(action.payload.chat_id).messages.push({message: action.payload, type: "sent"})
             };
+            
         }
         default:
             return state;
@@ -198,14 +200,19 @@ export var searchGo = event => {
     };
 };
 
-export function messagesCatch(message)
+export function messagesCatch(message, time, type)
 {
-    console.log(message);
+    
     return dispatch => {
             dispatch({
                 type: MESSAGE,
-                payload: message
+                payload: {
+                    message: message,
+                    time: time,
+                    type: type
+                }
             });
     }
 
 }
+

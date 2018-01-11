@@ -13,71 +13,51 @@ class ChatArea extends Component {
     constructor(props) {
         super(props);
         this.state = {value: ''};
+        this.handleKeyPress = this.handleKeyPress.bind(this)
       
     }
 
-    handleKeyPress = (event) => {
+    handleKeyPress(event) {
         if(event.key === 'Enter'){
             message = event.target.value;
             event.preventDefault();
-            this.refs.fruitName.value = "";
-            this.props.messagesCatch(message);
-           message = "";
+            
+            
+            if(message.length > 0)
+            {
+                this.refs.fruitName.value = "";
+                var currentDate = new Date();
+                var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes();
+                this.props.messagesCatch(message, currentTime, "received");
+                message = "";
+            }
+           
+           this.forceUpdate();
         }
         else {
            message = event.target.value;
         }
     }
-    // getInitialState(){
-    //     return (
-    //       {
-    //         fruits : {
-    //           'fruit-1' : 'orange',
-    //           'fruit-2' : 'apple'
-    //         }
-    //       }
-    //      )
-    //     }
-    // addFruit(fruit) {
-    //      var timestamp = (new Date()).getTime();
-    //      this.state.fruits['fruit-' + timestamp ] = fruit;
-    //      this.setState({ fruits : this.state.fruits });
-    // }
-    // createFruit(e) {
-    //     e.preventDefault();
-
-    //     var fruit = this.refs.fruitName.value;
-    //     if(typeof fruit === 'string' && fruit.length > 0) {
-    //         this.props.addFruit(fruit);
-    //         this.refs.fruitForm.reset();
-    //     }
-    // }
-        
   
     render() {
-       
+        console.log(this.props.Messages)
         return (
             
             <div className="ChatArea">
                 <div className="messages-container">
                     <div className="messages-holder">
-                        <MessageLine message="hi" type="sent" />
-                        <MessageLine message="hello" type="received" />
-                        <MessageLine message="Blue" />
-                        <MessageLine message="Lagoon" type="received" />
-                        <MessageLine message="Blue Lagoon" />
-                        {/* {
-                            Object.keys(this.props.fruits).map(function(key) {
-                                return <li className="list-group-item list-group-item-info">{this.props.fruits[key]}</li>
-                            }.bind(this))
-                        } */}
-                        {this.props.Messages.map(msg => (
+                    {this.props.Messages?
+                        this.props.Messages.map(msg => (
                             <MessageLine
                                 message={msg.message}
                                 type={msg.type}
+                                time={msg.time}
                             />
-                            
-                        ))}
+                        ))
+                        :
+                        null
+                    }
+
 
                     </div>
                 </div>
