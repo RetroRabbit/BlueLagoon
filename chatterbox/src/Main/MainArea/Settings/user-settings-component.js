@@ -70,6 +70,9 @@ class UserSettings extends Component {
             newUserName = event.target.value;
             this.props.updateUserName(newUserName)
         }
+        else {
+            newUserName = event.target.value;
+        }
     }
 
     renderEditName() {
