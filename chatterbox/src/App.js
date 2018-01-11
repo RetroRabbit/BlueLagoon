@@ -9,6 +9,7 @@ import Loader from './assets/Loader';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { resize } from './modules/Responsive';
+import { withRouter } from 'react-router-dom'
 
 class App extends Component {
     constructor(props) {
@@ -37,4 +38,4 @@ const mapDispatchToProps = dispatch =>
         },
         dispatch
     );
-export default connect(null, mapDispatchToProps)(App);
+export default withRouter(connect(null, mapDispatchToProps)(App));
