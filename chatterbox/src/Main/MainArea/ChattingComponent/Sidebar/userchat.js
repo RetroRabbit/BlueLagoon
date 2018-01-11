@@ -14,10 +14,14 @@ class UserChat extends React.Component {
             <div className="userChatLineBox">
                 <div>
                     <div
+                        id="write"
+                        method="GET"
+                        value = {this.props.id}
                         className="userChatBox"
                         onClick={() => (
-                            this.props.chatClick(this.props.id),
-                            this.props.changeRoute(this.props.id)
+                            this.props.chatClick(this.props.id)
+                            
+                            //this.props.changeRoute(this.props.id)
                         )}
                     >
                         <div className="userChatDetailsHolder">
@@ -40,8 +44,8 @@ class UserChat extends React.Component {
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            chatClick,
-            changeRoute: id => push('/chat/' + id)
+            chatClick
+            //changeRoute: id => id
         },
         dispatch
     );

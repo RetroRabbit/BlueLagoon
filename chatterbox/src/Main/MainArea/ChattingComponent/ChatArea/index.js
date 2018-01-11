@@ -26,8 +26,10 @@ class ChatArea extends Component {
             {
                 this.refs.fruitName.value = "";
                 var currentDate = new Date();
+                var identity = document.getElementById("write").value;
                 var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes();
-                this.props.messagesCatch(message, currentTime, "received");
+                console.log(identity);
+                this.props.messagesCatch(message, currentTime, "received", identity);
                 message = "";
             }
            

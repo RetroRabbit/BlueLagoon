@@ -140,11 +140,18 @@ var messageCapture = [];
 export default (state = initialState, action) => {
     switch (action.type) {
         case CHAT_CLICKED:
+            var chatNum = action.payload
+            console.log(messageStore2[state.currentChat])
+            console.log(state.currentChat)
+            console.log(chatNum)
+            const KEYS_TO_FILTERS2 = ['id'];
 
+            //messageStore = messageCapture.filter(createFilter(chatNum, KEYS_TO_FILTERS2));
             return {
                 ...state,
-                currentChat: action.payload
-            };
+                currentChat: chatNum,
+                Messages: messageStore2[chatNum] //messageStore
+            }
         case SEARCH: {
             var searchString = action.payload;
             var searchFound = [];
@@ -162,15 +169,17 @@ export default (state = initialState, action) => {
             };
         }
         case MESSAGE: {
-            
-            messageCapture.push({message: action.payload.message, time: action.payload.time, type: action.payload.type})
-            messageStore2[state.currentChat] = messageCapture;
+            console.log(state.currentChat)
+
+            messageCapture.push({message: action.payload.message, time: action.payload.time, type: action.payload.type, id: action.payload.id})
+            messageStore2[state.chatNum] = messageCapture;
+            //messageStore = messageCapture.filter(createFilter(state.chatNum, KEYS_TO_FILTERS2));
             console.log(messageCapture);
             return {
                 users: state.users,
                 displayUsers: state.displayUsers,
                 currentChat: state.currentChat,
-                Messages: messageStore2[state.currentChat],
+                Messages: messageStore2[state.chatNum], //messageStore
             };
             
         }
@@ -182,7 +191,7 @@ export default (state = initialState, action) => {
 };
 
 export const chatClick = id => {
-    alert('GO TO CHAT: ' + id);
+    //alert('GO TO CHAT: ' + id);
 
     return dispatch => {
         dispatch({
@@ -205,7 +214,7 @@ export var searchGo = event => {
     };
 };
 
-export function messagesCatch(message, time, type)
+export function messagesCatch(message, time, type, id)
 {
     
     return dispatch => {
@@ -215,7 +224,7 @@ export function messagesCatch(message, time, type)
                     message: message,
                     time: time,
                     type: type,
-                    
+                    id: id
                 }
             });
     }
