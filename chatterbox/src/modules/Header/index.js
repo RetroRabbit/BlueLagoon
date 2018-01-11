@@ -5,11 +5,9 @@ const HANDLE_OPEN_SEARCH = 'header/HANDLE_OPEN_SEARCH';
 const HANDLE_CLOSE_SEARCH = 'header/HANDLE_CLOSE_SEARCH';
 const HANDLE_IN_CHAT = 'header/HANDLE_IN_CHAT';
 
-
-
 const initialState = {
     anchorEl: false,
-    searchShow:false,
+    searchShow: false,
     phonemodechat:false
 };
 
@@ -25,7 +23,7 @@ export default (state = initialState, action) => {
                 ...state,
                 anchorEl: false
             };
-            
+
         case HANDLE_OPEN_SEARCH:
             return {
                 ...state,

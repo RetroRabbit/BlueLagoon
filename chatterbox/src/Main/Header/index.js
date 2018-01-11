@@ -59,9 +59,14 @@ class MenuAppBar extends React.Component {
                                 onClick={this.props.openMenu.bind(this)}
                                 className="profile-section-id-holder"
                             >
-                                <div className="profile-section-id-name">{this.props.user.name}</div>
+                                <div className="profile-section-id-name">
+                                    {this.props.user.name}
+                                </div>
                                 <div className="profile-img-holder">
-                                    <img className="profile-img profile-user-img" src={this.props.user.profilePic} />
+                                    <img
+                                        className="profile-img profile-user-img"
+                                        src={this.props.user.profilePic}
+                                    />
                                 </div>
                             </div>
                             <div className="profile-section-logo">
@@ -105,9 +110,12 @@ class MenuAppBar extends React.Component {
                             </div>
                         )}
                 </div>
-                {
-                    this.props.searchShow &&
-                    <div onMouseEnter={this.props.openSearch.bind(this)} onMouseLeave={this.props.closeSearch.bind(this)} className="searchBox">
+                {this.props.searchShow && (
+                    <div
+                        onMouseEnter={this.props.openSearch.bind(this)}
+                        onMouseLeave={this.props.closeSearch.bind(this)}
+                        className="searchBox"
+                    >
                         <div className="search">
                             <input
                                 class="searchInput"
@@ -119,7 +127,7 @@ class MenuAppBar extends React.Component {
                         </div>
                         <div className="line" />
                     </div>
-                }
+                )}
             </div>
         );
     }
@@ -131,7 +139,7 @@ const mapStateToProps = state => ({
     phonemode: state.responsive.phonemode,
     phonemodechat: state.responsive.phonemodechat,
     searchShow: state.header.searchShow,
-        user: state.edituser,
+    user: state.edituser
 });
 
 const mapDispatchToProps = dispatch =>
