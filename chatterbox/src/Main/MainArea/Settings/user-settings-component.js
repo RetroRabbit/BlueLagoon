@@ -56,7 +56,7 @@ class UserSettings extends Component {
             </div>
         );
     }
-    done(){
+    done() {
         this.props.saveChanges(this.props.user);
         this.props.done();
     }
@@ -137,11 +137,7 @@ class UserSettings extends Component {
 
                 {renderUserDetails}
 
-                <Button
-                    onClick={() => this.done()}
-                    children="DONE"
-                    style={buttonStyle}
-                />
+                <Button onClick={() => this.done()} children="DONE" style={buttonStyle} />
             </div>
         );
     }
@@ -166,7 +162,7 @@ function matchDispatchToProps(dispatch) {
             saveChanges: saveChanges,
             updateUserName: updateUserName,
             updateUserEmail: updateUserEmail,
-            done: () => push('/') 
+            done: () => push('/')
         },
         dispatch
     );

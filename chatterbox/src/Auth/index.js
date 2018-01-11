@@ -19,8 +19,8 @@ class Auth extends Component {
 }
 
 function mapState(params) {
-    return{
-        className:params.responsive.windowSizeClass
-    }
+    return {
+        className: params.responsive.windowSizeClass
+    };
 }
-export default connect(mapState,null)(Auth);
+export default connect(mapState, null)(Auth);

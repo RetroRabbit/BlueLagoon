@@ -3,26 +3,9 @@ import logo from '../../assets/Full Logo.png';
 import './login.css';
 import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
-
-import constants from './constants';
-import { userDetails } from './initialState.json';
-import { userlogin } from  './loginReducer';
-
-
-const state = "unsuccess";
-
-const action = {
-  type : constants.ACTION_VALID,
-  validLogin : "successful"
-}
-
-const nextState = userlogin (state, action);
-
-console.log(`
-  initial userlogin : ${state}
-  action : ${JSON.stringify(action)}
-  new userlogin :${nextState}
-  `);
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import { verifyUser } from '../../modules/login/login-actions';
 
 class Login extends Component {
     register() {
@@ -54,7 +37,7 @@ class Login extends Component {
                     />
                 </div>
                 <br />
-                <Button raised className="button">
+                <Button onClick={this.props.verify.bind(this)} raised className="button">
                     LOGIN
                 </Button>
                 <p className="bottom-text">
@@ -69,4 +52,18 @@ class Login extends Component {
         );
     }
 }
-export default (Login);
+
+function mapStateToProps(state) {
+    return {
+        user: state.login.Username
+    };
+}
+
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            verify: verifyUser
+        },
+        dispatch
+    );
+export default connect(mapStateToProps, mapDispatchToProps)(Login);
