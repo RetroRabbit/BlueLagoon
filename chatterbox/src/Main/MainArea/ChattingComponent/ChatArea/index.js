@@ -5,7 +5,6 @@ import MessageLine from './MessageLine';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { easing } from 'material-ui/styles/transitions';
-import messages from './messages';
 
 var message = "";
 
@@ -52,13 +51,12 @@ class ChatArea extends Component {
                                 message={msg.message}
                                 type={msg.type}
                                 time={msg.time}
+                                
                             />
                         ))
                         :
                         null
                     }
-
-
                     </div>
                 </div>
                 

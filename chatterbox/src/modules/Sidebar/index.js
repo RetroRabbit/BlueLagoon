@@ -134,10 +134,13 @@ var initialState = {
     Messages: []
     
 };
+var messageStore =[];
+var messageStore2 = [];
 var messageCapture = [];
 export default (state = initialState, action) => {
     switch (action.type) {
         case CHAT_CLICKED:
+
             return {
                 ...state,
                 currentChat: action.payload
@@ -159,17 +162,19 @@ export default (state = initialState, action) => {
             };
         }
         case MESSAGE: {
-            messageCapture.push({message: action.payload.message, type: "sent", time: action.payload.time, type: action.payload.type})
+            
+            messageCapture.push({message: action.payload.message, time: action.payload.time, type: action.payload.type})
+            messageStore2[state.currentChat] = messageCapture;
             console.log(messageCapture);
             return {
                 users: state.users,
                 displayUsers: state.displayUsers,
                 currentChat: state.currentChat,
-                Messages: messageCapture,
-                //Messages: state.Messages.find(action.payload.chat_id).messages.push({message: action.payload, type: "sent"})
+                Messages: messageStore2[state.currentChat],
             };
             
         }
+
         default:
             return state;
     }
@@ -209,10 +214,13 @@ export function messagesCatch(message, time, type)
                 payload: {
                     message: message,
                     time: time,
-                    type: type
+                    type: type,
+                    
                 }
             });
     }
 
 }
+
+
 

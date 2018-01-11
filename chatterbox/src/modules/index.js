@@ -21,5 +21,5 @@ export default combineReducers({
     header: header,
     register: register,
     responsive: responsive,
-    login: login
+    //login: login
 });

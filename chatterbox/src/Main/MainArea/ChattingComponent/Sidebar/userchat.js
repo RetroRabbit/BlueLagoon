@@ -2,8 +2,10 @@ import React from 'react';
 import '../../../../modules/Sidebar/index';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import { chatClick } from '../../../../modules/Sidebar/index';
+import { chatClick , changeChat } from '../../../../modules/Sidebar/index';
 import { push } from 'react-router-redux';
+import { messagesCatch } from '../../../../modules/Sidebar';
+
 
 class UserChat extends React.Component {
     render() {

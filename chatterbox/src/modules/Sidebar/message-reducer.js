@@ -1,20 +1,12 @@
-export default function() {
-    return [
-       {
-           chat_ID: 1,
-           messages: [
-               {
-                   message: "Hello There",
-                   type: "sent",
-                   time: "11:39"
-               },
-               {
-                    message: "General Kenobi!",
-                    type: "received",
-                    time: "11:40"
-                }
-           ]
-       }
-    ]
-}
+// export default function() {
+//     return [
+//       {
+//           message,
+//           type,
+//           time,
+//           senderID: user.id,
+//           receiverID
+//       }
+//     ]
+// }
 
