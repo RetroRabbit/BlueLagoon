@@ -43,6 +43,10 @@
 	justify-content: flex-end;
 	padding-right: 21px;
 }
+.Header .profile-section.phonesize{
+	width: 55px;
+	cursor: pointer;
+}
 
 .Header .header-return-chats{
 	color: white;

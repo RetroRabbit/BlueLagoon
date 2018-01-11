@@ -69,8 +69,4 @@ class Login extends Component {
         );
     }
 }
-export default Login;
-console.log(`
-  There are currently ${userDetails.length} users online
-  ${Object.keys(constants).join('\n  ')}
-`);
+export default (Login);
