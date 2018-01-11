@@ -1,6 +1,6 @@
 const initialState = {
-    name: 'Rian van der Merwe',
-    email: 'hvandermerwe@retrorabbit.co.za',
+    name: 'Adam Lerumo',
+    email: 'alerumo@retrorabbit.co.za',
     profilePic: 'http://www.legobatman.com/assets/media/global/header/batwink-loop.gif',
     password: '1234',
     editName: false,
@@ -20,17 +20,6 @@ export default function(state = initialState, action) {
                 changesMade: true
             };
 
-<<<<<<< HEAD
-           return {
-               ...state,
-               editName: !state.editName,
-               editEmail: false,
-               editProfilePic: false,
-               changesMade: true
-            }
-
-=======
->>>>>>> develop
         case 'EDIT_USER_EMAIL':
             return {
                 ...state,

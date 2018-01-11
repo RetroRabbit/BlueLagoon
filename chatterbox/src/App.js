@@ -18,7 +18,11 @@ class App extends Component {
         return (
             <div>
                 <Route path="/auth" component={Auth} />
+<<<<<<< HEAD
                 <Route exact path="/" component={Main} />
+=======
+                {window.location.href.indexOf("auth")<0 && <Route path="/" component={Main} />}
+>>>>>>> develop
             </div>
         );
     }

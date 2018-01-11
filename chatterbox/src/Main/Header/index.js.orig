@@ -18,7 +18,7 @@ class MenuAppBar extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', () => this.props.resize());
     }
-    componentDidUnmount() {
+    componentWillUnmount() {
         window.removeEventListener('resize');
     }
     gotoSettings() {
@@ -30,7 +30,6 @@ class MenuAppBar extends React.Component {
         this.props.logout();
     }
     render() {
-
         return (
             <div className="Header">
                 {this.props.phonemode &&
@@ -41,12 +40,11 @@ class MenuAppBar extends React.Component {
                         >
                             <div className="resized-arrow fa fa-chevron-left" />
                             <div className="header-resized-text">CHATS</div>
->>>>>>> develop
                         </div>
                     )}
                 {(!this.props.phonemode || !this.props.phonemodechat) && (
                     <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.buttonsClass}`}>
-                        <Button id="new_chatBTN" onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
+                        <Button onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
                             NEW CHAT
                         </Button>
                         <Button raised className="buttons">
@@ -54,7 +52,6 @@ class MenuAppBar extends React.Component {
                         </Button>
                     </div>
                 )}
-
 
                 <div>
                     {(!this.props.phonemode ||
@@ -83,7 +80,6 @@ class MenuAppBar extends React.Component {
                                     onMouseOver={this.props.openMenu.bind(this)}
                                     onMouseLeave={this.props.closeMenu.bind(this)}
                                     className="header-dropdown-menu"
->>>>>>> develop
                                 >
                                     <div className="header-drop-item">
                                         <div
@@ -113,7 +109,6 @@ class MenuAppBar extends React.Component {
                             >
                                 <div className="resized-arrow fa fa-chevron-right" />
                             </div>
-
                         )}
                 </div>
                 {
@@ -137,13 +132,15 @@ class MenuAppBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-
     anchorEl: state.header.anchorEl,
     buttonsClass: state.header.buttonsClass,
     phonemode: state.header.phonemode,
     phonemodechat: state.header.phonemodechat,
-    searchShow: state.header.searchShow,
-        user: state.edituser,
+<<<<<<< HEAD
+    searchShow: state.header.searchShow
+=======
+    user: state.edituser,
+>>>>>>> b8bc55b7628ca77c688da0b494908746e5545082
 });
 
 const mapDispatchToProps = dispatch =>
