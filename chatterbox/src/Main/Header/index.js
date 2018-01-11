@@ -54,7 +54,7 @@ class MenuAppBar extends React.Component {
                             className="buttons"
                         >
                             NEW CHAT
-                        </Button>
+                        </Button>  
                         <Button raised className="buttons">
                             NEW GROUP
                         </Button>
