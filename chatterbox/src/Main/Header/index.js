@@ -30,25 +30,7 @@ class MenuAppBar extends React.Component {
         this.props.logout();
     }
     render() {
-<<<<<<< HEAD
-        const { classes } = this.props;
-        const open = Boolean(this.props.anchorEl);
 
-        return (          
-            <div className={classes.root}>
-                <AppBar position="relative" className="AppBarymai">
-                    <Toolbar>
-                        <div className={classes.flex}>
-                            <div className="appbar-buttons">
-                                <Button raised className={classes.button}>
-                                    New Chat
-                                </Button>
-                                &nbsp;&nbsp;
-                                <Button raised className={classes.button}>
-                                    New Group
-                                </Button>
-                            </div>
-=======
         return (
             <div className="Header">
                 {this.props.phonemode &&
@@ -73,46 +55,7 @@ class MenuAppBar extends React.Component {
                     </div>
                 )}
 
-<<<<<<< HEAD
 
-                            <div className="appbar-buttons-right">
-                                <Button
-                                    aria-owns={open && 'menu-appbar'}
-                                    aria-haspopup="true"
-                                    onClick={this.props.openMenu.bind(this)}
-                                >
-                                    <h6 id="Addie_div">Addie Hogan </h6> &nbsp;
-                                    <img
-                                        className={classes.images}
-                                        height="60"
-                                        src={img1}
-                                        alt=" "
-                                    />
-                                </Button>
-
-                                <Button>
-                                    <img
-                                        src={img2}
-                                        height="60"
-                                        alt=" "
-                                        className={classes.images}
-                                    />
-                                </Button>
-                                <Menu
-                                    id="menu-appbar"
-                                    anchorEl={this.props.anchorEl}
-                                    anchorOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'center'
-                                    }}
-                                    transformOrigin={{
-                                        vertical: 'top',
-                                        horizontal: 'center',
-                                        width: '50'
-                                    }}
-                                    open={open}
-                                    onClose={this.props.closeMenu.bind(this)}
-=======
                 <div>
                     {(!this.props.phonemode ||
                         (this.props.phonemode && this.props.phonemodechat)) && (
@@ -170,11 +113,7 @@ class MenuAppBar extends React.Component {
                             >
                                 <div className="resized-arrow fa fa-chevron-right" />
                             </div>
-<<<<<<< HEAD
 
-                    </Toolbar>
-                </AppBar>
-=======
                         )}
                 </div>
 >>>>>>> develop
@@ -184,21 +123,7 @@ class MenuAppBar extends React.Component {
 }
 
 const mapStateToProps = state => ({
-<<<<<<< HEAD
-    anchorEl: state.header.anchorEl
-  })
 
-const mapDispatchToProps = dispatch => bindActionCreators({
-    openMenu,
-    closeMenu,
-    changeSettings:()=>push("/settings"),
-    logout:()=>push("/auth/login")
-  }, dispatch)
-  export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-  )(withStyles(styles)(MenuAppBar));
-=======
     anchorEl: state.header.anchorEl,
     buttonsClass: state.header.buttonsClass,
     phonemode: state.header.phonemode,
@@ -218,4 +143,3 @@ const mapDispatchToProps = dispatch =>
         dispatch
     );
 export default connect(mapStateToProps, mapDispatchToProps)(MenuAppBar);
->>>>>>> develop
