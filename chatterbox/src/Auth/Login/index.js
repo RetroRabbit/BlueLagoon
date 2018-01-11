@@ -12,7 +12,9 @@ class Login extends Component {
     register() {
         this.props.history.push('/auth/register');
     }
-
+    verify() {
+        this.props.history.push('/');
+    }
     render() {
         return (
             <div className="Login">
@@ -38,7 +40,7 @@ class Login extends Component {
                     />
                 </div>
                 <br />
-                <Button onClick={this.props.verify.bind(this)} raised className="button">
+                <Button onClick={this.verify.bind(this)} raised className="button">
                     LOGIN
                 </Button>
                 <p className="bottom-text">
