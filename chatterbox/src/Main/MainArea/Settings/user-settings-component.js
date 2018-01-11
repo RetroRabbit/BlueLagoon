@@ -30,8 +30,8 @@ const TextFieldStyles = {
     fontFamily: 'Montserrat'
 };
 
-var newName = "";
-var newEmail = "";
+const newUserName = "";
+const newEmailAddress = "";
 
 class UserSettings extends Component {
     renderNormal() {
@@ -59,10 +59,19 @@ class UserSettings extends Component {
             </div>
         );
     }
+
     done() {
         this.props.saveChanges(this.props.user);
         this.props.done();
     }
+
+    handleEditUserNameKeyDown(event) {
+        if(event.key == 'Enter') {
+            newUserName = event.target.value;
+            this.props.updateUserName(newUserName)
+        }
+    }
+
     renderEditName() {
         return (
             <div>
@@ -87,13 +96,6 @@ class UserSettings extends Component {
                 </div>
             </div>
         );
-    }
-
-    
-    handleKeyDown(event) {
-        if(event.key == 'Enter') {
-            this.props.updateUserEmail(event.target.val)
-        }
     }
 
     renderEditEmail() {
