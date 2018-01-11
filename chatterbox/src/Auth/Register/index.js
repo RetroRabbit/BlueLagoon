@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'material-ui';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 import StepOne from './stepone';
 import StepTwo from './steptwo';
@@ -64,4 +65,4 @@ const mapDispatchToProps = dispatch =>
         dispatch
     );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));
