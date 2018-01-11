@@ -15,8 +15,7 @@ class Register extends Component {
         super(props);
     }
     handleSkip() {
-        this.props.history.push('/');
-        alert('TO-DO: redirect to main page');
+        this.props.history.push('/'); 
     }
     render() {
         return (
