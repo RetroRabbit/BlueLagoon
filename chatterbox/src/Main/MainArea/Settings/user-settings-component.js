@@ -30,9 +30,6 @@ const TextFieldStyles = {
     fontFamily: 'Montserrat'
 };
 
-const newUserName = "";
-const newEmailAddress = "";
-
 class UserSettings extends Component {
     renderNormal() {
         return (
@@ -59,23 +56,10 @@ class UserSettings extends Component {
             </div>
         );
     }
-
     done() {
         this.props.saveChanges(this.props.user);
         this.props.done();
     }
-
-    handleEditUserNameKeyDown(event) {
-        if(event.key == 'Enter') {
-            newUserName = event.target.value;
-            this.props.updateUserName(newUserName);
-            this.refs.username.value = "";
-        }
-        else {
-            newUserName = event.target.value;
-        }
-    }
-
     renderEditName() {
         return (
             <div>
@@ -84,7 +68,6 @@ class UserSettings extends Component {
                         defaultValue={this.props.user.name}
                         style={TextFieldStyles}
                         onChange={e => this.props.updateUserName(e, this.props.user)}
-                        ref="username"
                     />
                     <Pencil
                         onClick={() => this.props.editUserName(this.props.user)}
@@ -118,7 +101,7 @@ class UserSettings extends Component {
                     <TextField
                         defaultValue={this.props.user.email}
                         style={TextFieldStyles}
-                        onKeyDown={e => this.props.updateUserEmail(e, this.props.user)}
+                        onChange={e => this.props.updateUserEmail(e, this.props.user)}
                     />
                     <Pencil
                         onClick={() => this.props.editUserEmail(this.props.user)}
