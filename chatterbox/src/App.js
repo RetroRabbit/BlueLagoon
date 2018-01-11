@@ -25,7 +25,6 @@ class App extends Component {
         return (
             <div>
                 <Route path="/auth" component={Auth} />
-                <Route path="/" component={Main} />
                 {window.location.href.indexOf('auth') < 0 && <Route path="/" component={Main} />}
             </div>
         );

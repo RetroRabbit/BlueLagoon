@@ -52,7 +52,7 @@ class MenuAppBar extends React.Component {
                         (this.props.phonemode && this.props.phonemodechat)) && (
                         <div
                             onMouseLeave={this.props.closeMenu.bind(this)}
-                            className="profile-section"
+                            className={`profile-section ${this.props.windowSizeClass}`}
                         >
                             <div
                                 onMouseOver={this.props.openMenu.bind(this)}
