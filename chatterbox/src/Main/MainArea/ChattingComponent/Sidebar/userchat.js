@@ -9,6 +9,7 @@ import { messagesCatch } from '../../../../modules/Sidebar';
 
 class UserChat extends React.Component {
     render() {
+
         return (
             <div className="userChatLineBox">
                 <div>

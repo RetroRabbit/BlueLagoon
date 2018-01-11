@@ -26,23 +26,23 @@ export const saveChanges = user => {
     };
 };
 
-export const updateUserName = (e, user) => {
+export const updateUserName = (name, user) => {
     return {
         type: 'UPDATE_USER_NAME',
         payload: {
-            name: e.target.value,
+            name: name,
             email: user.email,
             profilePic: user.profilePic
         }
     };
 };
 
-export const updateUserEmail = (e, user) => {
+export const updateUserEmail = (name, user) => {
     return {
         type: 'UPDATE_USER_EMAIL',
         payload: {
             name: user.name,
-            email: e.target.value,
+            email: name,
             profilePic: user.profilePic
         }
     };
