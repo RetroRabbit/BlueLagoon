@@ -10,8 +10,10 @@ import SearchApi from 'redux-search/dist/commonjs/SearchApi';
 import '../../Main/MainArea/ChattingComponent/Sidebar/index.css';
 export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED';
 export const SEARCH = 'sidebar/SEARCH';
+export const MESSAGE = 'sidebar/MESSAGE';
 
-const initialState = {
+
+var initialState = {
     currentChat: 1,
     users: [
         {
@@ -128,9 +130,11 @@ const initialState = {
                 'Here, I focus on a range of items and features that we use in life without giving them a second',
             img: logo3
         }
-    ]
+    ],
+    Messages: []
+    
 };
-
+var messageCapture = [];
 export default (state = initialState, action) => {
     switch (action.type) {
         case CHAT_CLICKED:
@@ -154,10 +158,22 @@ export default (state = initialState, action) => {
                 displayUsers: searchFound
             };
         }
-
+        case MESSAGE: {
+            messageCapture.push({message: action.payload.message, type: "sent", time: action.payload.time, type: action.payload.type})
+            console.log(messageCapture);
+            return {
+                users: state.users,
+                displayUsers: state.displayUsers,
+                currentChat: state.currentChat,
+                Messages: messageCapture,
+                //Messages: state.Messages.find(action.payload.chat_id).messages.push({message: action.payload, type: "sent"})
+            };
+            
+        }
         default:
             return state;
     }
+
 };
 
 export const chatClick = id => {
@@ -183,3 +199,20 @@ export var searchGo = event => {
         });
     };
 };
+
+export function messagesCatch(message, time, type)
+{
+    
+    return dispatch => {
+            dispatch({
+                type: MESSAGE,
+                payload: {
+                    message: message,
+                    time: time,
+                    type: type
+                }
+            });
+    }
+
+}
+

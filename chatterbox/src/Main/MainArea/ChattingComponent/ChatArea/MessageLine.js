@@ -15,12 +15,11 @@ class MessageLine extends Component {
             type: type
         };
     }
-
-    props: {
-        message?: ?string,
-        time?: ?string,
-        type?: ?string
-    };
+    // props: {
+    //     message?: ?string,
+    //     time?: ?string,
+    //     type?: ?string
+    // };
 
     static propTypes = {
         message: PropTypes.string,
@@ -34,9 +33,9 @@ class MessageLine extends Component {
     render() {
         return (
             <div className="MessageLine">
-                <div className={`message message-${this.state.type}`}> {this.props.message}</div>
+                <div className={`message message-${this.props.type}`}> {this.props.message}</div>
                 <div className="message-line-clear" />
-                <div className={`message-time message-time-${this.state.type}`}>7:45</div>
+                <div className={`message-time message-time-${this.props.type}`}>{this.props.time}</div>
                 <div className="message-line-clear" />
             </div>
         );
