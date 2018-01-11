@@ -68,7 +68,8 @@ class UserSettings extends Component {
     handleEditUserNameKeyDown(event) {
         if(event.key == 'Enter') {
             newUserName = event.target.value;
-            this.props.updateUserName(newUserName)
+            this.props.updateUserName(newUserName);
+            this.refs.username.value = "";
         }
         else {
             newUserName = event.target.value;
@@ -83,6 +84,7 @@ class UserSettings extends Component {
                         defaultValue={this.props.user.name}
                         style={TextFieldStyles}
                         onChange={e => this.props.updateUserName(e, this.props.user)}
+                        ref="username"
                     />
                     <Pencil
                         onClick={() => this.props.editUserName(this.props.user)}
