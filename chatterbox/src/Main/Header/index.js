@@ -40,7 +40,7 @@ class MenuAppBar extends React.Component {
                     <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.windowSizeClass}`}>
                         <Button id="new_chatBTN" onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
                             NEW CHAT
-                        </Button>
+                        </Button>  
                         <Button raised className="buttons">
                             NEW GROUP
                         </Button>
