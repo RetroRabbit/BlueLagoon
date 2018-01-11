@@ -5,6 +5,7 @@ import header from './Header';
 import EditUserReducer from '../modules/settings/edit-user-reducer';
 import userReducer from '../modules/settings/user-reducer';
 import register from './register';
+import responsive from './Responsive';
 //import userSettings from '../modules/settings/edit-user-reducer'
 
 export default combineReducers({
@@ -14,5 +15,6 @@ export default combineReducers({
     header: header,
     edituser: EditUserReducer,
     header: header,
-    register: register
+    register: register,
+    responsive: responsive
 });

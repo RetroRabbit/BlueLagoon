@@ -1,24 +1,14 @@
 import { push } from 'react-router-redux';
 const HANDLE_OPEN_MENU = 'header/HANDLE_OPEN_MENU';
 const HANDLE_CLOSE_MENU = 'header/HANDLE_CLOSE_MENU';
-const RESIZE_HEADER = 'header/RESIZE_HEADER';
+const HANDLE_OPEN_SEARCH = 'header/HANDLE_OPEN_SEARCH';
+const HANDLE_CLOSE_SEARCH = 'header/HANDLE_CLOSE_SEARCH';
 const HANDLE_IN_CHAT = 'header/HANDLE_IN_CHAT';
 
-let initWinsize = window.innerWidth;
-let btncls = 'normal';
-let phnmd = false;
-let inChat = window.location.href.indexOf('chat') > 0;
-if (initWinsize < 500) {
-    btncls = 'phonesize';
-    phnmd = true;
-}
-
-console.log('INIT SIZE:', phnmd);
 const initialState = {
     anchorEl: false,
-    buttonsClass: btncls,
-    phonemode: phnmd,
-    phonemodechat: true
+    searchShow: false,
+    phonemodechat:false
 };
 
 export default (state = initialState, action) => {
@@ -33,30 +23,17 @@ export default (state = initialState, action) => {
                 ...state,
                 anchorEl: false
             };
-        case HANDLE_IN_CHAT: {
-            let phonemodechat = action.payload; //window.location.href.indexOf("chat")>0;
+
+        case HANDLE_OPEN_SEARCH:
             return {
                 ...state,
-                phonemodechat: phonemodechat
+                searchShow: true
             };
-        }
-        case RESIZE_HEADER: {
-            let buttonsClass = state.buttonsClass;
-            let phonemode = state.phonemode;
-            let winsize = window.innerWidth;
-            if (winsize < 500) {
-                buttonsClass = 'phonesize';
-                phonemode = true;
-            } else {
-                buttonsClass = 'normal';
-                phonemode = false;
-            }
+        case HANDLE_CLOSE_SEARCH:
             return {
                 ...state,
-                buttonsClass: buttonsClass,
-                phonemode: phonemode
+                searchShow: false
             };
-        }
 
         default:
             return state;
@@ -79,14 +56,23 @@ export const closeMenu = () => {
         });
     };
 };
-export const resize = () => {
+
+export const openSearch = () => {
+    // alert("GO TO CHAT: "+id);
+
     return dispatch => {
         dispatch({
-            type: RESIZE_HEADER
+            type: HANDLE_OPEN_SEARCH
         });
     };
 };
-
+export const closeSearch = () => {
+    return dispatch => {
+        dispatch({
+            type: HANDLE_CLOSE_SEARCH
+        });
+    };
+};
 export const handleHeaderInChat = status => {
     return dispatch => {
         dispatch({
