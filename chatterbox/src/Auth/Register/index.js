@@ -8,7 +8,7 @@ import StepOne from './stepone';
 import StepTwo from './steptwo';
 import StepThree from './stepthree';
 import './Register.css';
-import { changeStage } from '../../modules/register';
+import { changeStage,handleSkip } from '../../modules/register';
 
 class Register extends Component {
     constructor(props) {
@@ -16,6 +16,7 @@ class Register extends Component {
     }
     handleSkip() {
         this.props.history.push('/'); 
+        this.props.handleSkip();
     }
     render() {
         return (
@@ -59,7 +60,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            changeStage: changeStage
+            changeStage: changeStage,
+            handleSkip
         },
         dispatch
     );

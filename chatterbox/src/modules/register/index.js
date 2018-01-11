@@ -7,6 +7,7 @@ export const STAGE_ONE_PASSWORD = 'register/STAGE_ONE_PASSWORD';
 export const CHANGE_IMG = 'register/CHANGE_IMG';
 export const CHANGE_IMG_WAIT = 'register/CHANGE_IMG_WAIT';
 export const STAGE_THREE_EMAIL = 'register/STAGE_THREE_EMAIL';
+export const SKIP_REGISTER = 'register/SKIP_REGISTER';
 
 const initialState = {
     stage: 1,
@@ -118,6 +119,20 @@ export default (state = initialState, action) => {
                 canNext
             };
         }
+        
+        case SKIP_REGISTER: {
+            return {
+                ...state,
+                stage: 1,
+                canNext: false,
+                error: false,
+                email: '',
+                password: '',
+                name: '',
+                hasImage: false,
+                preview: ''
+            };
+        }
 
         case CHANGE_IMG: {
             let email = state.email;
@@ -184,6 +199,13 @@ export const handleStageOneName = e => {
         dispatch({
             type: STAGE_ONE_NAME,
             payload: val
+        });
+    };
+};
+export const handleSkip = e => {
+    return dispatch => {
+        dispatch({
+            type: SKIP_REGISTER
         });
     };
 };

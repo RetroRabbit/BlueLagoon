@@ -16,6 +16,7 @@ class App extends Component {
         super(props);
     }
     componentDidMount() {
+        history.push("/auth/login");
         console.log('TO-DO: Check if user online');
         window.addEventListener('resize', () => this.props.resize());
     }
