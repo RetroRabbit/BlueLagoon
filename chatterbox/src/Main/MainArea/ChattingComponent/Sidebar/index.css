@@ -91,6 +91,14 @@
     width: 100%;
     background-color: #FFFFFF;
 }
+.sidebar.phonesize
+{
+    width: 100%;
+}
+.sidebar.phonesize .outerBox
+{
+    width: 100%;
+}
 
 .scrollbar
 {

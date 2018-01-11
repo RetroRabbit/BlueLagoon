@@ -15,7 +15,7 @@ import { searchFound } from '../../../../modules/Sidebar/index';
 class Sidebar extends React.Component {
     render() {
         return (
-            <div className="sidebar">
+            <div className={`sidebar ${this.props.windowSizeClass}`}>
                 <div className="outerBox">
                     <div className="searchBox">
                         <div className="search">
@@ -48,6 +48,7 @@ class Sidebar extends React.Component {
 
 const mapStateToProps = state => ({
     users: state.sidebar.users,
+    windowSizeClass: state.responsive.windowSizeClass,
     displayUsers: state.sidebar.displayUsers
 });
 const mapDispatchToProps = dispatch =>
