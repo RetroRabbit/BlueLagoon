@@ -18,7 +18,7 @@ class MenuAppBar extends React.Component {
     componentDidMount() {
         window.addEventListener('resize', () => this.props.resize());
     }
-    componentDidUnmount() {
+    componentWillUnmount() {
         window.removeEventListener('resize');
     }
     gotoSettings() {
@@ -44,7 +44,7 @@ class MenuAppBar extends React.Component {
                     )}
                 {(!this.props.phonemode || !this.props.phonemodechat) && (
                     <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.buttonsClass}`}>
-                        <Button id="new_chatBTN" onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
+                        <Button onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
                             NEW CHAT
                         </Button>
                         <Button raised className="buttons">
@@ -136,8 +136,11 @@ const mapStateToProps = state => ({
     buttonsClass: state.header.buttonsClass,
     phonemode: state.header.phonemode,
     phonemodechat: state.header.phonemodechat,
-    searchShow: state.header.searchShow,
-        user: state.edituser,
+<<<<<<< HEAD
+    searchShow: state.header.searchShow
+=======
+    user: state.edituser,
+>>>>>>> b8bc55b7628ca77c688da0b494908746e5545082
 });
 
 const mapDispatchToProps = dispatch =>
