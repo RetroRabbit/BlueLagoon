@@ -30,6 +30,9 @@ const TextFieldStyles = {
     fontFamily: 'Montserrat'
 };
 
+var newName = "";
+var newEmail = "";
+
 class UserSettings extends Component {
     renderNormal() {
         return (
@@ -86,6 +89,13 @@ class UserSettings extends Component {
         );
     }
 
+    
+    handleKeyDown(event) {
+        if(event.key == 'Enter') {
+            this.props.updateUserEmail(event.target.val)
+        }
+    }
+
     renderEditEmail() {
         return (
             <div>
@@ -101,7 +111,7 @@ class UserSettings extends Component {
                     <TextField
                         defaultValue={this.props.user.email}
                         style={TextFieldStyles}
-                        onChange={e => this.props.updateUserEmail(e, this.props.user)}
+                        onKeyDown={e => this.props.updateUserEmail(e, this.props.user)}
                     />
                     <Pencil
                         onClick={() => this.props.editUserEmail(this.props.user)}
