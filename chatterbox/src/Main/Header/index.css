@@ -43,6 +43,10 @@
 	justify-content: flex-end;
 	padding-right: 21px;
 }
+.Header .profile-section.phonesize{
+	width: 55px;
+	cursor: pointer;
+}
 
 .Header .header-return-chats{
 	color: white;
@@ -101,6 +105,7 @@
 	align-self: center;
 	margin:auto;
 	object-fit: cover;	
+	border-radius: 100%;
 }
 
 .Header .profile-section .header-dropdown-menu{
@@ -129,3 +134,8 @@
 	cursor: pointer;
 
 }
+
+#new_chatBTN:hover {
+	background-color: #fb6902;
+}
+ 

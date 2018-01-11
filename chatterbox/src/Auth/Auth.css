@@ -1,7 +1,8 @@
 .Auth {
   text-align: center;
   background-color: #004853;
-  height: 100%;
+  min-height: 100%;
+  height: auto;
   width: 100%;
   position: absolute;
   display: flex;
@@ -13,7 +14,19 @@
   border-radius: 12px;  
   background-color: #FDFDFD;
   margin: auto;
-  /*position: absolute;*/
+}
+.Auth.phonesize {
+  background-color: #01B9BD;
+}
+.Auth.phonesize .auth-box{  
+  height: 100%;  
+  width: 100%;
+  background-color: #01B9BD;
+}
+.Auth.phonesize .auth-box .Login{
+  background-color: white;
+  overflow: hidden;
+  margin: auto;
 }
 
 .App-logo {

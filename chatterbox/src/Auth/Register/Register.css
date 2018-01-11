@@ -8,6 +8,14 @@
   font-family: 'Montserrat', sans-serif; 
 }
 
+.phonesize .Register{
+  width: 100%;
+  overflow: hidden;
+}
+.phonesize .Register .register-input{
+  width: 100%;
+}
+
 .Register .heading-title{
   color: white;
   margin: 0;
@@ -63,7 +71,7 @@
   font-family: 'Montserrat', sans-serif; 
   margin-top: 20px;
   text-align: center;
-  width: 533px;
+  width: 100%;
 }
 .Register .stage-two .input-image-container { 
   height: 269px;  

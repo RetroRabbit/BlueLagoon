@@ -10,11 +10,17 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { openMenu, handleHeaderInChat, closeMenu, openSearch,closeSearch } from '../../modules/Header';
+import { openMenu, handleHeaderInChat, closeMenu, resize,openSearch,closeSearch } from '../../modules/Header';
 import { push } from 'react-router-redux';
 import logo from '../../assets/Icon.png';
 
 class MenuAppBar extends React.Component {
+    componentDidMount() {
+        window.addEventListener('resize', () => this.props.resize());
+    }
+    componentWillUnmount() {
+        window.removeEventListener('resize');
+    }
     gotoSettings() {
         this.props.closeMenu();
         this.props.changeSettings();
@@ -37,8 +43,8 @@ class MenuAppBar extends React.Component {
                         </div>
                     )}
                 {(!this.props.phonemode || !this.props.phonemodechat) && (
-                    <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.windowSizeClass}`}>
-                        <Button id="new_chatBTN" onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
+                    <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.buttonsClass}`}>
+                        <Button onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
                             NEW CHAT
                         </Button>
                         <Button raised className="buttons">
@@ -59,14 +65,9 @@ class MenuAppBar extends React.Component {
                                 onClick={this.props.openMenu.bind(this)}
                                 className="profile-section-id-holder"
                             >
-                                <div className="profile-section-id-name">
-                                    {this.props.user.name}
-                                </div>
+                                <div className="profile-section-id-name">{this.props.user.name}</div>
                                 <div className="profile-img-holder">
-                                    <img
-                                        className="profile-img profile-user-img"
-                                        src={this.props.user.profilePic}
-                                    />
+                                    <img className="profile-img profile-user-img" src={this.props.user.profilePic} />
                                 </div>
                             </div>
                             <div className="profile-section-logo">
@@ -104,18 +105,15 @@ class MenuAppBar extends React.Component {
                         !this.props.phonemodechat && (
                             <div
                                 onClick={() => this.props.handleHeaderInChat(true)}
-                                className={`profile-section ${this.props.windowSizeClass}`}
+                                className="profile-section"
                             >
                                 <div className="resized-arrow fa fa-chevron-right" />
                             </div>
                         )}
                 </div>
-                {this.props.searchShow && (
-                    <div
-                        onMouseEnter={this.props.openSearch.bind(this)}
-                        onMouseLeave={this.props.closeSearch.bind(this)}
-                        className="searchBox"
-                    >
+                {
+                    this.props.searchShow &&
+                    <div onMouseEnter={this.props.openSearch.bind(this)} onMouseLeave={this.props.closeSearch.bind(this)} className="searchBox">
                         <div className="search">
                             <input
                                 class="searchInput"
@@ -127,7 +125,7 @@ class MenuAppBar extends React.Component {
                         </div>
                         <div className="line" />
                     </div>
-                )}
+                }
             </div>
         );
     }
@@ -135,11 +133,14 @@ class MenuAppBar extends React.Component {
 
 const mapStateToProps = state => ({
     anchorEl: state.header.anchorEl,
-    windowSizeClass: state.responsive.windowSizeClass,
-    phonemode: state.responsive.phonemode,
-    phonemodechat: state.responsive.phonemodechat,
-    searchShow: state.header.searchShow,
-    user: state.edituser
+    buttonsClass: state.header.buttonsClass,
+    phonemode: state.header.phonemode,
+    phonemodechat: state.header.phonemodechat,
+<<<<<<< HEAD
+    searchShow: state.header.searchShow
+=======
+    user: state.edituser,
+>>>>>>> b8bc55b7628ca77c688da0b494908746e5545082
 });
 
 const mapDispatchToProps = dispatch =>
@@ -147,6 +148,7 @@ const mapDispatchToProps = dispatch =>
         {
             openMenu,
             closeMenu,
+            resize,
             openSearch,
             closeSearch,
             handleHeaderInChat,
