@@ -7,6 +7,7 @@ import EditUserReducer from '../modules/settings/edit-user-reducer'
 import userReducer from '../modules/settings/user-reducer'
 import register from "./register"
 import responsive from './Responsive'
+import login from './login/login-reducer'
 import messages from './Sidebar/message-reducer'
 //import userSettings from '../modules/settings/edit-user-reducer'
 
