@@ -28,7 +28,11 @@ class Register extends Component {
                 {this.props.stage == 2 && <StepTwo />}
                 {this.props.stage == 3 && <StepThree />}
 
-                <Button onClick={() => this.props.changeStage(this.props.stage)} raised className="button-next">
+                <Button
+                    onClick={() => this.props.changeStage(this.props.stage)}
+                    raised
+                    className="button-next"
+                >
                     NEXT
                 </Button>
                 {this.props.stage != 1 && (

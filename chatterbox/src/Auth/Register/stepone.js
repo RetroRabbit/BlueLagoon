@@ -53,16 +53,17 @@ const mapStateToProps = state => ({
     canNext: state.register.canNext,
     error: state.register.error,
 
-    heading:state.register.heading
-  })
-  
-const mapDispatchToProps = dispatch => bindActionCreators({
-    handlePassword:handleStageOnePassword,
-    handleEmail:handleStageOneEmail,
-    handleName:handleStageOneName
-}, dispatch)
+    heading: state.register.heading
+});
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(StepOne);
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            handlePassword: handleStageOnePassword,
+            handleEmail: handleStageOneEmail,
+            handleName: handleStageOneName
+        },
+        dispatch
+    );
+
+export default connect(mapStateToProps, mapDispatchToProps)(StepOne);

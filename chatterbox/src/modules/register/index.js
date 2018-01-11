@@ -1,5 +1,5 @@
-import {history} from "../../store"
-import { push } from "react-router-redux/actions";
+import { history } from '../../store';
+import { push } from 'react-router-redux/actions';
 export const CHANGE_STAGE = 'register/CHANGESTAGE';
 export const STAGE_ONE_EMAIL = 'register/STAGE_ONE_EMAIL';
 export const STAGE_ONE_NAME = 'register/STAGE_ONE_NAME';
@@ -34,9 +34,8 @@ const initialState = {
     ],
     //StepTwo
     hasImage: false,
-    preview: ""
-}
-
+    preview: ''
+};
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -68,14 +67,13 @@ export default (state = initialState, action) => {
                 canNext: canNext
             };
         }
-        case STAGE_ONE_PASSWORD:{
-        let password=action.payload;
-        let email=state.email;
-        let name=state.name;
-        let canNext=state.canNext;
-        if(email.length>0 && password.length>0 && name.length>0)
-            canNext=true;
-            return{
+        case STAGE_ONE_PASSWORD: {
+            let password = action.payload;
+            let email = state.email;
+            let name = state.name;
+            let canNext = state.canNext;
+            if (email.length > 0 && password.length > 0 && name.length > 0) canNext = true;
+            return {
                 ...state,
                 password,
                 canNext
@@ -120,40 +118,38 @@ export default (state = initialState, action) => {
                 canNext
             };
         }
-        
-    case CHANGE_IMG:{
-        let email=state.email;
-        let password=state.password;
-        let canNext=true;
-        let error=false;
-        let image = action.image
-        let preview = image.preview
-        let hasImage = action.hasImage
-        return{
-            ...state,
-            hasImage,
-            canNext,
-            preview
-        }
-    }
-    case STAGE_THREE_EMAIL:{
-        let email=action.payload;
-        let canNext=state.canNext;
-        if(email.length>0)
-            canNext=true;
-        return{
-            ...state,
-            canNext
-        }
-    }
-    default:
-      return state
-  }
-}
 
-export const changeStage = (stage) => {
-    if (stage==3)
-        history.push("/");
+        case CHANGE_IMG: {
+            let email = state.email;
+            let password = state.password;
+            let canNext = true;
+            let error = false;
+            let image = action.image;
+            let preview = image.preview;
+            let hasImage = action.hasImage;
+            return {
+                ...state,
+                hasImage,
+                canNext,
+                preview
+            };
+        }
+        case STAGE_THREE_EMAIL: {
+            let email = action.payload;
+            let canNext = state.canNext;
+            if (email.length > 0) canNext = true;
+            return {
+                ...state,
+                canNext
+            };
+        }
+        default:
+            return state;
+    }
+};
+
+export const changeStage = stage => {
+    if (stage == 3) history.push('/');
     return dispatch => {
         dispatch({
             type: CHANGE_STAGE
@@ -187,37 +183,34 @@ export const handleStageOneName = e => {
     return dispatch => {
         dispatch({
             type: STAGE_ONE_NAME,
-            payload:val
-        })
-    }
-  }
+            payload: val
+        });
+    };
+};
 
-  //StepTwo
-  export const addImageStage = () => {
+//StepTwo
+export const addImageStage = () => {
     var el = document.getElementById('upload-img-input');
     el.click();
-  }
+};
 
-  export const inputChangeStage = (obj) => {
+export const inputChangeStage = obj => {
     return dispatch => {
         dispatch({
             type: CHANGE_IMG,
             image: obj,
             hasImage: true
-        })
-    }
-        
-  }
+        });
+    };
+};
 
-  //StepThree
-  
-  export const handleStageEmail = (e) => {
+//StepThree
+
+export const handleStageEmail = e => {
     return dispatch => {
         dispatch({
-          type: STAGE_THREE_EMAIL,
-          payload:e.target.value
-        })
-    }
-  }
-  
-        
+            type: STAGE_THREE_EMAIL,
+            payload: e.target.value
+        });
+    };
+};

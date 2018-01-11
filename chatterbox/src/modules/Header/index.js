@@ -20,7 +20,7 @@ const initialState = {
     anchorEl: false,
     buttonsClass: btncls,
     phonemode: phnmd,
-    searchShow:false,
+    searchShow: false,
     phonemodechat: true
 };
 
@@ -36,7 +36,7 @@ export default (state = initialState, action) => {
                 ...state,
                 anchorEl: false
             };
-            
+
         case HANDLE_OPEN_SEARCH:
             return {
                 ...state,

@@ -1,16 +1,16 @@
 import React, { Component } from 'react';
 import { TextField } from 'material-ui';
 import { Button } from 'material-ui';
-import { bindActionCreators } from 'redux'
-import { connect } from 'react-redux'
-import {handleStageEmail} from "../../modules/register"
+import { bindActionCreators } from 'redux';
+import { connect } from 'react-redux';
+import { handleStageEmail } from '../../modules/register';
 
 class StepThree extends Component {
     constructor(e) {
         super(e);
         // this.checkCanNext = this.checkCanNext.bind(this);
     }
-    
+
     render() {
         return (
             <div className="stage-three">
@@ -33,14 +33,15 @@ const mapStateToProps = state => ({
     stage: state.register.stage,
     canNext: state.register.canNext,
     error: state.register.error,
-    heading:state.register.heading
-})
-  
-const mapDispatchToProps = dispatch => bindActionCreators({
-    handleEmail:handleStageEmail
-}, dispatch)
+    heading: state.register.heading
+});
 
-export default connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(StepThree);
+const mapDispatchToProps = dispatch =>
+    bindActionCreators(
+        {
+            handleEmail: handleStageEmail
+        },
+        dispatch
+    );
+
+export default connect(mapStateToProps, mapDispatchToProps)(StepThree);
