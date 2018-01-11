@@ -10,7 +10,13 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { openMenu, handleHeaderInChat, closeMenu, openSearch,closeSearch } from '../../modules/Header';
+import {
+    openMenu,
+    handleHeaderInChat,
+    closeMenu,
+    openSearch,
+    closeSearch
+} from '../../modules/Header';
 import { push } from 'react-router-redux';
 import logo from '../../assets/Icon.png';
 
@@ -37,8 +43,16 @@ class MenuAppBar extends React.Component {
                         </div>
                     )}
                 {(!this.props.phonemode || !this.props.phonemodechat) && (
-                    <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.windowSizeClass}`}>
-                        <Button id="new_chatBTN" onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
+                    <div
+                        onMouseLeave={this.props.closeSearch.bind(this)}
+                        className={`buttons-section ${this.props.windowSizeClass}`}
+                    >
+                        <Button
+                            id="new_chatBTN"
+                            onMouseOver={this.props.openSearch.bind(this)}
+                            raised
+                            className="buttons"
+                        >
                             NEW CHAT
                         </Button>
                         <Button raised className="buttons">

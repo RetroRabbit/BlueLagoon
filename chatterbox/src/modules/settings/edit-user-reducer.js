@@ -2,6 +2,7 @@ const initialState = {
     name: 'Adam Lerumo',
     email: 'alerumo@retrorabbit.co.za',
     profilePic: 'http://www.legobatman.com/assets/media/global/header/batwink-loop.gif',
+    password: '1234',
     editName: false,
     editEmail: false,
     editProfilePic: false,

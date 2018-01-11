@@ -11,7 +11,6 @@ if (initWinsize < 600) {
     phnmd = true;
 }
 
-
 const initialState = {
     windowSizeClass: btncls,
     phonemode: phnmd,
@@ -26,11 +25,11 @@ export default (state = initialState, action) => {
             let winsize = window.innerWidth;
             if (winsize < 600) {
                 windowSizeClass = 'phonesize';
-                console.log("PHONEMODE",winsize)
+                console.log('PHONEMODE', winsize);
                 phonemode = true;
             } else {
                 windowSizeClass = 'normal';
-                console.log("NORMMODE",winsize)
+                console.log('NORMMODE', winsize);
                 phonemode = false;
             }
             return {
