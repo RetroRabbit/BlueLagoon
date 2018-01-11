@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Button } from 'material-ui';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom'
 
 import StepOne from './stepone';
 import StepTwo from './steptwo';
@@ -14,8 +15,7 @@ class Register extends Component {
         super(props);
     }
     handleSkip() {
-        this.props.history.push('/');
-        alert('TO-DO: redirect to main page');
+        this.props.history.push('/'); 
     }
     render() {
         return (
@@ -64,4 +64,4 @@ const mapDispatchToProps = dispatch =>
         dispatch
     );
 
-export default connect(mapStateToProps, mapDispatchToProps)(Register);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Register));

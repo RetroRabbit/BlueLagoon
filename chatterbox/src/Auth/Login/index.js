@@ -5,6 +5,7 @@ import TextField from 'material-ui/TextField';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom'
 import { verifyUser } from '../../modules/login/login-actions';
 
 class Login extends Component {
@@ -55,7 +56,7 @@ class Login extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.login.Username
+        user: state.login.user
     };
 }
 
@@ -66,4 +67,4 @@ const mapDispatchToProps = dispatch =>
         },
         dispatch
     );
-export default connect(mapStateToProps, mapDispatchToProps)(Login);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Login));

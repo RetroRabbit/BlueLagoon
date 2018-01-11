@@ -141,7 +141,8 @@
 }
 #new_chatBTN:hover {
 	background-color: #fb6902;
+} 
+.searchBox {
+	margin-left: 0%;  
 }
-#right-button:hover {
-	background-color: #fb6902;
-}
+ 

@@ -48,7 +48,7 @@ export default function(state = initialState, action) {
         case 'UPDATE_USER_NAME':
             return {
                 name: action.payload.name,
-                editName: true,
+                editName: false,
                 email: action.payload.email,
                 profilePic: action.payload.profilePic
             };
@@ -58,7 +58,7 @@ export default function(state = initialState, action) {
                 name: action.payload.name,
                 email: action.payload.email,
                 profilePic: action.payload.profilePic,
-                editEmail: true
+                editEmail: false
             };
 
         default:

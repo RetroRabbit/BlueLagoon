@@ -10,6 +10,7 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { withRouter } from 'react-router-dom'
 import {
     openMenu,
     handleHeaderInChat,
@@ -18,7 +19,7 @@ import {
     closeSearch
 } from '../../modules/Header';
 import { push } from 'react-router-redux';
-import logo from '../../assets/Icon.png';
+import logo from '../../assets/Icon.png'; 
 
 class MenuAppBar extends React.Component {
     gotoSettings() {
@@ -169,4 +170,4 @@ const mapDispatchToProps = dispatch =>
         },
         dispatch
     );
-export default connect(mapStateToProps, mapDispatchToProps)(MenuAppBar);
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(MenuAppBar));
