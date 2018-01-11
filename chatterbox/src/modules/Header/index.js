@@ -8,7 +8,7 @@ const HANDLE_IN_CHAT = 'header/HANDLE_IN_CHAT';
 const initialState = {
     anchorEl: false,
     searchShow: false,
-    phonemodechat:false
+    phonemodechat: false
 };
 
 export default (state = initialState, action) => {
