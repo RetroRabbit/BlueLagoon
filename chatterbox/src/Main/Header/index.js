@@ -10,24 +10,11 @@ import Menu, { MenuItem } from 'material-ui/Menu';
 import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import {
-    openMenu,
-    handleHeaderInChat,
-    closeMenu,
-    resize,
-    openSearch,
-    closeSearch
-} from '../../modules/Header';
+import { openMenu, handleHeaderInChat, closeMenu, openSearch,closeSearch } from '../../modules/Header';
 import { push } from 'react-router-redux';
 import logo from '../../assets/Icon.png';
 
 class MenuAppBar extends React.Component {
-    componentDidMount() {
-        window.addEventListener('resize', () => this.props.resize());
-    }
-    componentDidUnmount() {
-        window.removeEventListener('resize');
-    }
     gotoSettings() {
         this.props.closeMenu();
         this.props.changeSettings();
@@ -50,16 +37,8 @@ class MenuAppBar extends React.Component {
                         </div>
                     )}
                 {(!this.props.phonemode || !this.props.phonemodechat) && (
-                    <div
-                        onMouseLeave={this.props.closeSearch.bind(this)}
-                        className={`buttons-section ${this.props.buttonsClass}`}
-                    >
-                        <Button
-                            id="new_chatBTN"
-                            onMouseOver={this.props.openSearch.bind(this)}
-                            raised
-                            className="buttons"
-                        >
+                    <div  onMouseLeave={this.props.closeSearch.bind(this)} className={`buttons-section ${this.props.windowSizeClass}`}>
+                        <Button id="new_chatBTN" onMouseOver={this.props.openSearch.bind(this)} raised className="buttons">
                             NEW CHAT
                         </Button>
                         <Button raised className="buttons">
@@ -125,7 +104,7 @@ class MenuAppBar extends React.Component {
                         !this.props.phonemodechat && (
                             <div
                                 onClick={() => this.props.handleHeaderInChat(true)}
-                                className="profile-section"
+                                className={`profile-section ${this.props.windowSizeClass}`}
                             >
                                 <div className="resized-arrow fa fa-chevron-right" />
                             </div>
@@ -156,9 +135,9 @@ class MenuAppBar extends React.Component {
 
 const mapStateToProps = state => ({
     anchorEl: state.header.anchorEl,
-    buttonsClass: state.header.buttonsClass,
-    phonemode: state.header.phonemode,
-    phonemodechat: state.header.phonemodechat,
+    windowSizeClass: state.responsive.windowSizeClass,
+    phonemode: state.responsive.phonemode,
+    phonemodechat: state.responsive.phonemodechat,
     searchShow: state.header.searchShow,
     user: state.edituser
 });
@@ -168,7 +147,6 @@ const mapDispatchToProps = dispatch =>
         {
             openMenu,
             closeMenu,
-            resize,
             openSearch,
             closeSearch,
             handleHeaderInChat,
