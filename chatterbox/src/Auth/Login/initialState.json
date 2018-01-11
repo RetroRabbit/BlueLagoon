@@ -1,0 +1,17 @@
+{
+  "userDetails" : [
+    {
+      "username"  : "Adam",
+      "fullName"  : "Adam Lerumo",
+      "email" :"ALerumo@retrorabbit.co.za",
+      "password" :"1234"
+    },
+    {
+      "username"  : "Bluelagoon",
+      "fullName"  : "Blue Lagoon",
+      "email" :"ALerumo@retrorabbit.co.za",
+      "password" :"2468"
+    }
+  ]
+
+}
