@@ -14,14 +14,22 @@
     width: 345px;	
     border: 1px solid #979797;	
     border-radius: 21.5px; 
-    margin-left: 34px;
+    margin:0 auto;
     margin-bottom: 30px;
 }
 
+.userChatLineBox{
+    width: 100%;
+    cursor: pointer;
+}
+.userChatLineBox .userChatDetailsHolder{
+    width: 348px;
+    margin: auto;
+}
 .userChatBox
 {	
     height: 139px;	
-    width: 411px;	
+    width: 100%;	
     background-color: rgb(255, 255, 255); 
     padding-top: 10px; 
 }
@@ -29,23 +37,21 @@
 .userNameBox 
 {	
     height: 43px;	
-    width: 345px;	
+    width: 100%;	
     border-radius: 21.5px;	
-    background-color: #EAEAEA; 
-    margin-left: 34px; 
+    background-color: #EAEAEA;
     margin-top: 20px
 }
 
 .chatTextBox 
 {	
     height: 43px;	
-    width: 348px;	
-    color: #706F6F;	
-    font-family: "MontserratS";	
+    width: 100%;	
+    color: #706F6F;		
     font-size: 14px;	
     line-height: 22px; 
-    margin-left: 34px; 
-    text-overflow: clip
+    text-overflow: clip;
+    cursor: inherit;
 }
 
 .imageStyling 
@@ -82,13 +88,13 @@
 .sidebar2 
 {
     height: 600px;
-    width: 411px;
+    width: 100%;
     background-color: #FFFFFF;
 }
 
 .scrollbar
 {
-    width: 411px;
+    width: 100%;
     background: #F5F5F5;
     overflow-y: scroll;
     overflow-x: hidden;

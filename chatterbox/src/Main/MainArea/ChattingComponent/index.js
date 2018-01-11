@@ -16,8 +16,8 @@ class ChattingComponent extends Component {
 
 function mapState(state) {
     return({
-        chatmode:state.header.phonemodechat,
-        phonemode:state.header.phonemode
+        chatmode:state.responsive.phonemodechat,
+        phonemode:state.responsive.phonemode
     })
     
 }

@@ -3,25 +3,14 @@ const HANDLE_OPEN_MENU = 'header/HANDLE_OPEN_MENU';
 const HANDLE_CLOSE_MENU = 'header/HANDLE_CLOSE_MENU';
 const HANDLE_OPEN_SEARCH = 'header/HANDLE_OPEN_SEARCH';
 const HANDLE_CLOSE_SEARCH = 'header/HANDLE_CLOSE_SEARCH';
-const RESIZE_HEADER = 'header/RESIZE_HEADER';
 const HANDLE_IN_CHAT = 'header/HANDLE_IN_CHAT';
 
-let initWinsize = window.innerWidth;
-let btncls = 'normal';
-let phnmd = false;
-let inChat = window.location.href.indexOf('chat') > 0;
-if (initWinsize < 500) {
-    btncls = 'phonesize';
-    phnmd = true;
-}
 
 
 const initialState = {
     anchorEl: false,
-    buttonsClass: btncls,
-    phonemode: phnmd,
     searchShow:false,
-    phonemodechat: true
+    phonemodechat:false
 };
 
 export default (state = initialState, action) => {
@@ -47,30 +36,6 @@ export default (state = initialState, action) => {
                 ...state,
                 searchShow: false
             };
-        case HANDLE_IN_CHAT: {
-            let phonemodechat = action.payload; //window.location.href.indexOf("chat")>0;
-            return {
-                ...state,
-                phonemodechat: phonemodechat
-            };
-        }
-        case RESIZE_HEADER: {
-            let buttonsClass = state.buttonsClass;
-            let phonemode = state.phonemode;
-            let winsize = window.innerWidth;
-            if (winsize < 500) {
-                buttonsClass = 'phonesize';
-                phonemode = true;
-            } else {
-                buttonsClass = 'normal';
-                phonemode = false;
-            }
-            return {
-                ...state,
-                buttonsClass: buttonsClass,
-                phonemode: phonemode
-            };
-        }
 
         default:
             return state;
@@ -110,14 +75,6 @@ export const closeSearch = () => {
         });
     };
 };
-export const resize = () => {
-    return dispatch => {
-        dispatch({
-            type: RESIZE_HEADER
-        });
-    };
-};
-
 export const handleHeaderInChat = status => {
     return dispatch => {
         dispatch({
