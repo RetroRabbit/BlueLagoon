@@ -18,6 +18,10 @@
 	margin-top: -30px;
 	margin-left: -20px;
 }
+.Login .error-display{ 
+  color: red;
+  text-align: center;
+}
 
 .text-field {
 	margin-top: 100px;

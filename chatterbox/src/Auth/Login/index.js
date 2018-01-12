@@ -6,7 +6,7 @@ import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom'
-import { verifyUser } from '../../modules/login/login-actions';
+import { verifyUser,handleEmail,handlePassword } from '../../modules/login/login-actions';
 
 class Login extends Component {
     register() {
@@ -25,6 +25,7 @@ class Login extends Component {
                     <TextField
                         Email
                         id="Email"
+                        onChange={this.props.handleEmail.bind(this)}
                         label="Email"
                         className="text-field"
                         margin="normal"
@@ -33,11 +34,13 @@ class Login extends Component {
                         Password
                         id="Password"
                         label="Password"
+                        onChange={this.props.handlePassword.bind(this)}
                         className="text-field"
                         margin="normal"
                     />
                 </div>
                 <br />
+                {this.props.error && <div className="error-display">Enter all details</div>}
                 <Button onClick={this.props.verify.bind(this)} raised className="button">
                     LOGIN
                 </Button>
@@ -56,14 +59,17 @@ class Login extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.login.user
+        user: state.login.user,
+        error: state.login.error,
     };
 }
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            verify: verifyUser
+            verify: verifyUser,
+            handleEmail,
+            handlePassword
         },
         dispatch
     );
