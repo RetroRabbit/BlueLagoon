@@ -32,10 +32,12 @@
 	overflow: hidden;
 }
 .ChatArea .messages-container{
+	height: 570px;
 	width: 80%;
 	position: absolute;
 	overflow-y: auto;
 	top: 0;
+	
 	bottom: 230px;
 }
 .ChatArea .messages-container .messages-holder{
@@ -79,3 +81,15 @@
 .ChatArea .messages-container .messages-holder .MessageLine .message-line-clear{
 	clear: both;
 }
+.scrollbar
+{
+	width: 100%;
+    background: white;
+    overflow-y: scroll;
+}
+
+.scrollbar::-webkit-scrollbar
+{
+    display: none;
+}
+

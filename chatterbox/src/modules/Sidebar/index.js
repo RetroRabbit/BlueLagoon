@@ -8,10 +8,14 @@ import { push } from 'react-router-redux';
 import { createFilter } from 'react-search-input';
 import SearchApi from 'redux-search/dist/commonjs/SearchApi';
 import '../../Main/MainArea/ChattingComponent/Sidebar/index.css';
+import axios from 'axios';
+import userchat from '../../Main/MainArea/ChattingComponent/Sidebar/userchat';
 export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED';
 export const SEARCH = 'sidebar/SEARCH';
 export const MESSAGE = 'sidebar/MESSAGE';
+export const GET_MSGS = 'sidebar/GET_MSGS';
 
+const link = '10.0.0.178:63679';
 
 var initialState = {
     currentChat: 1,
@@ -131,9 +135,10 @@ var initialState = {
             img: logo3
         }
     ],
-    Messages: []
-    
+    Messages: [],
+
 };
+var msgs = 1;
 var messageStore =[];
 var messageStore2 = [];
 var messageCapture = [];
@@ -141,16 +146,15 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case CHAT_CLICKED:
             var chatNum = action.payload
-            console.log(messageStore2[state.currentChat])
-            console.log(state.currentChat)
-            console.log(chatNum)
-            const KEYS_TO_FILTERS2 = ['id'];
 
-            //messageStore = messageCapture.filter(createFilter(chatNum, KEYS_TO_FILTERS2));
+            //const KEYS_TO_FILTERS2 = ['id'];
+            const KEYS_TO_FILTER = ['id'];
+            console.log(chatNum);
+            var messageStore = messageCapture.filter(createFilter(chatNum.toString(), KEYS_TO_FILTER.toString()));
             return {
                 ...state,
                 currentChat: chatNum,
-                Messages: messageStore2[chatNum] //messageStore
+                Messages: messageStore
             }
         case SEARCH: {
             var searchString = action.payload;
@@ -170,16 +174,70 @@ export default (state = initialState, action) => {
         }
         case MESSAGE: {
             console.log(state.currentChat)
+            // let data = {
+            //     text:action.payload.message,
+            //     type:action.payload.type,
+            //     time:action.payload.time
+            // }
+            // let obj = {
+            //     method = "POST",
+            //     body: JSON.stringify(data),
+            //     headers: new Headers({
+            //         "Content-Type":"application/json"
+            //     })
+            // }
 
-            messageCapture.push({message: action.payload.message, time: action.payload.time, type: action.payload.type, id: action.payload.id})
-            messageStore2[state.chatNum] = messageCapture;
-            //messageStore = messageCapture.filter(createFilter(state.chatNum, KEYS_TO_FILTERS2));
-            console.log(messageCapture);
+            // fetch("http://localhost:56187/api/Messages",obj)
+            // .then(response=>response.json())
+            // .then(respJSON=>{
+            //     console.log(respJSON)
+            // })
+            // .catch(err=>{
+            //     console.log(err)
+            // })
+
+
+            // var messages1 = [];
+            // axios
+            //     .get('/api/Messages/')
+            //     .then(function(response){
+            //         console.log(response.data[0])
+            //         var chat = response.data[0];
+            //         chat.message = response.data[0].text;
+            //         chat.selected = false;
+            //         messages1.push(chat);
+
+            //         for(let i=1; i<response.data.length; i++)
+            //         {
+            //             let duplicateFound = false;
+            //             for(let j=0;j<messages1.length;j++)
+            //             {
+            //                 if(response.data[i].action.payload.id == messages1[j].action.payload.id)
+            //                 {
+            //                     messages1[j].message = response.data[i].text;
+            //                     messages1[j].selected = false;
+            //                     duplicateFound = true;
+            //                 }
+            //                 if(!duplicateFound)
+            //                 {
+            //                     chat = response.data[i];
+            //                     chat.message = response.data[i].text;
+            //                     chat.selected = false;
+            //                     messages1.push(chat);
+            //                 }
+            //             }
+            //         }
+
+            //     })
+            messageCapture.push({message: action.payload.message, time: action.payload.time, type: action.payload.type, id: msgs.toString()})
+            const KEYS_TO_FILTER = ['id'];
+            var messageStore2 = messageCapture.filter(createFilter(msgs.toString(), KEYS_TO_FILTER.toString()));
+
             return {
                 users: state.users,
                 displayUsers: state.displayUsers,
                 currentChat: state.currentChat,
-                Messages: messageStore2[state.chatNum], //messageStore
+                Messages: messageStore2, //messageStore
             };
             
         }
@@ -191,7 +249,7 @@ export default (state = initialState, action) => {
 };
 
 export const chatClick = id => {
-    //alert('GO TO CHAT: ' + id);
+    msgs = id;
 
     return dispatch => {
         dispatch({
@@ -214,7 +272,7 @@ export var searchGo = event => {
     };
 };
 
-export function messagesCatch(message, time, type, id)
+export function messagesCatch(message, time, type)
 {
     
     return dispatch => {
@@ -223,8 +281,7 @@ export function messagesCatch(message, time, type, id)
                 payload: {
                     message: message,
                     time: time,
-                    type: type,
-                    id: id
+                    type: type
                 }
             });
     }

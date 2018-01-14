@@ -26,10 +26,9 @@ class ChatArea extends Component {
             {
                 this.refs.fruitName.value = "";
                 var currentDate = new Date();
-                var identity = document.getElementById("write").value;
+                //var identity = "1";
                 var currentTime = currentDate.getHours() + ":" + currentDate.getMinutes();
-                console.log(identity);
-                this.props.messagesCatch(message, currentTime, "received", identity);
+                this.props.messagesCatch(message, currentTime, "received");
                 message = "";
             }
            
@@ -46,14 +45,14 @@ class ChatArea extends Component {
             
             <div className="ChatArea">
                 <div className="messages-container">
-                    <div className="messages-holder">
+                    <div className="messages-holder scrollbar">
                     {this.props.Messages?
                         this.props.Messages.map(msg => (
                             <MessageLine
                                 message={msg.message}
                                 type={msg.type}
                                 time={msg.time}
-                                
+                                id={msg.id}
                             />
                         ))
                         :

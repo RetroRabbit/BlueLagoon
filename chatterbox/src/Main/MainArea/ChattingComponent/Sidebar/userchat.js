@@ -8,15 +8,13 @@ import { messagesCatch } from '../../../../modules/Sidebar';
 
 
 class UserChat extends React.Component {
+
     render() {
 
         return (
             <div className="userChatLineBox">
                 <div>
                     <div
-                        id="write"
-                        method="GET"
-                        value = {this.props.id}
                         className="userChatBox"
                         onClick={() => (
                             this.props.chatClick(this.props.id)
