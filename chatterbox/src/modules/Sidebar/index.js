@@ -11,7 +11,8 @@ import '../../Main/MainArea/ChattingComponent/Sidebar/index.css';
 export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED';
 export const SEARCH = 'sidebar/SEARCH';
 export const MESSAGE = 'sidebar/MESSAGE';
-export const CHATS_INIT = 'sidebar/CHATSS_INIT';
+export const GET_MESSAGES = 'sidebar/GET_MESSAGES';
+export const CHATS_INIT = 'sidebar/CHATS_INIT';
 const url_api="http://localhost:54604/api/";
 
 
@@ -195,10 +196,54 @@ export default (state = initialState, action) => {
             messageCapture.push({message: action.payload.message, type: "sent", time: action.payload.time, type: action.payload.type})
             console.log(messageCapture);
             return {
+                ...state,
                 users: state.users,
                 displayUsers: state.displayUsers,
                 currentChat: state.currentChat,
                 Messages: messageCapture,
+                //Messages: state.Messages.find(action.payload.chat_id).messages.push({message: action.payload, type: "sent"})
+            };
+            
+        }
+        case GET_MESSAGES: {
+            let xhttp=new XMLHttpRequest();
+            let messages;
+            let MyResponse;
+            console.log("GETRED")
+            xhttp.onreadystatechange = function() {
+              if (xhttp.readyState == 4 && xhttp.status == 200) {
+                MyResponse=JSON.parse(this.responseText);
+                let user=JSON.parse(getCookie("user"));
+                console.log("MyResponse:",MyResponse)
+                messages=MyResponse.map((item,index)=>{
+                    let type;
+                    if(item.userIdFrom==user.id)
+                        type="sent";
+                    else if(item.userIdTo==user.id)
+                        type="received";
+
+                    let date=new Date(item.dateSent);
+                    let H=""+date.getHours();
+                    let M=""+date.getMinutes();
+                    if(H.length==1)
+                        H="0"+H;
+                    if(M.length==1)
+                        M="0"+M;
+                    let time=H+":"+M;
+                    console.log("date",date)
+                    return{
+                        message: item.text,
+                        type: type,
+                        time                    
+                    }
+                })
+              }
+            };
+            xhttp.open("GET", `${url_api}chat/conversations/${action.payload}/messages`, false);
+            xhttp.send();
+            return {
+                ...state,
+                Messages: messages,
                 //Messages: state.Messages.find(action.payload.chat_id).messages.push({message: action.payload, type: "sent"})
             };
             
@@ -210,8 +255,6 @@ export default (state = initialState, action) => {
 };
 
 export const chatClick = id => {
-    alert('GO TO CHAT: ' + id);
-
     return dispatch => {
         dispatch({
             type: CHAT_CLICKED,
@@ -235,6 +278,16 @@ export var searchGo = event => {
         dispatch({
             type: SEARCH,
             payload: event.target.value
+        });
+    };
+};
+
+export var getMessages = (id) => {
+    console.log("GETMESSAGES:",id)
+    return dispatch => {
+        dispatch({
+            type: GET_MESSAGES,
+            payload: id
         });
     };
 };

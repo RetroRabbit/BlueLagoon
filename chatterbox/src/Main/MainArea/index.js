@@ -10,6 +10,7 @@ class MainArea extends Component {
         return (
             <div className="MainArea">
                 <Route exact path={`${this.props.match.path}`} component={ChattingComponent} />
+                <Route path={`${this.props.match.path}chat/:id`} component={ChattingComponent} />
                 <Route path={`${this.props.match.path}settings`} component={Settings} />
             </div>
         );

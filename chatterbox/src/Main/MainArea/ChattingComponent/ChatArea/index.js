@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { messagesCatch } from '../../../../modules/Sidebar/index';
+import { messagesCatch,getMessages } from '../../../../modules/Sidebar/index';
 import './ChatArea.css';
 import MessageLine from './MessageLine';
 import { connect } from 'react-redux';
@@ -15,6 +15,13 @@ class ChatArea extends Component {
         this.state = {value: ''};
         this.handleKeyPress = this.handleKeyPress.bind(this)
       
+    }
+    componentDidMount(){
+        let url=this.props.url;
+        if(url.indexOf("chat")>0){
+            let id=this.props.params.id;
+            this.props.getMessages(id);
+        }
     }
 
     handleKeyPress(event) {
@@ -93,7 +100,8 @@ const mapStateToProps = state => {
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            messagesCatch: messagesCatch
+            messagesCatch: messagesCatch,
+            getMessages
         },
         dispatch
     );
