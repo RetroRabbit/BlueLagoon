@@ -11,10 +11,12 @@ import '../../Main/MainArea/ChattingComponent/Sidebar/index.css';
 export const CHAT_CLICKED = 'sidebar/CHAT_CLICKED';
 export const SEARCH = 'sidebar/SEARCH';
 export const MESSAGE = 'sidebar/MESSAGE';
+export const CHATS_INIT = 'sidebar/CHATSS_INIT';
+const url_api="http://localhost:54604/api/";
 
 
 var initialState = {
-    currentChat: 1,
+    currentChat: 1,    
     users: [
         {
             id: 1,
@@ -142,6 +144,37 @@ export default (state = initialState, action) => {
                 ...state,
                 currentChat: action.payload
             };
+            
+        case CHATS_INIT:{    
+            let data=JSON.parse(getCookie("user"));
+            let MyResponse;
+            let self=this;
+            let xhttp=new XMLHttpRequest();
+            let users;
+            xhttp.onreadystatechange = function() {
+              if (xhttp.readyState == 4 && xhttp.status == 200) {
+                MyResponse=JSON.parse(this.responseText);
+                users=MyResponse.map((item,index)=>{
+                    return{
+                        id: item.conversation.conversationId,
+                        name: item.user.name,
+                        userId:item.user.id,
+                        msg:item.conversation.lastMessage,
+                        img: item.user.image
+                    }
+                });
+                console.log("users",users);
+              }
+            };
+            xhttp.open("GET", url_api+"chat/conversations/"+data.id, false);
+            // xhttp.setRequestHeader("Content-Type", "application/json");
+            xhttp.send();
+            return {
+                ...state,
+                users,
+                displayUsers:users
+            };
+        }
         case SEARCH: {
             var searchString = action.payload;
             var searchFound = [];
@@ -186,10 +219,16 @@ export const chatClick = id => {
         });
     };
 };
+export const chatsInit = () => {
+
+    return dispatch => {
+        dispatch({
+            type: CHATS_INIT
+        });
+    };
+};
 
 export var searchGo = event => {
-    //alert(event.target.value);
-    //searchString = event.target.value
     console.log('SEARCH FOR:', event.target.value);
 
     return dispatch => {
@@ -201,8 +240,7 @@ export var searchGo = event => {
 };
 
 export function messagesCatch(message, time, type)
-{
-    
+{    
     return dispatch => {
             dispatch({
                 type: MESSAGE,
@@ -213,6 +251,16 @@ export function messagesCatch(message, time, type)
                 }
             });
     }
-
 }
 
+
+function getCookie(cname) {
+    var name = cname + "=";
+    var ca = document.cookie.split(';');
+    for(var i=0; i<ca.length; i++) {
+        var c = ca[i];
+        while (c.charAt(0)==' ') c = c.substring(1);
+        if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+    }
+    return "";
+} 

@@ -6,9 +6,12 @@ import { connect } from 'react-redux';
 import UserChat from './userchat';
 import { SearchApi } from 'redux-search';
 import { searchGo } from '../../../../modules/Sidebar';
-import { searchFound } from '../../../../modules/Sidebar/index';
+import { searchFound,chatsInit } from '../../../../modules/Sidebar/index';
 
 class Sidebar extends React.Component {
+    componentDidMount(){
+        this.props.chatsInit();
+    }
     render() {
         return (
             <div className={`sidebar ${this.props.windowSizeClass}`}>
@@ -50,7 +53,8 @@ const mapStateToProps = state => ({
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            searchGo
+            searchGo,
+            chatsInit
         },
         dispatch
     );
