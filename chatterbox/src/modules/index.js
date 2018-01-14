@@ -7,6 +7,7 @@ import EditUserReducer from '../modules/settings/edit-user-reducer'
 import userReducer from '../modules/settings/user-reducer'
 import register from "./register"
 import responsive from './Responsive'
+import user from './User'
 import messages from './Sidebar/message-reducer'
 //import userSettings from '../modules/settings/edit-user-reducer'
 
@@ -21,5 +22,7 @@ export default combineReducers({
     header: header,
     register: register,
     responsive: responsive,
-    login: login
+    login: login,
+    user: user,
+
 });

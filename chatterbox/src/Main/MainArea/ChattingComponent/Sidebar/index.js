@@ -16,7 +16,7 @@ class Sidebar extends React.Component {
                     <div className="searchBox">
                         <div className="search">
                             <input
-                                class="searchInput"
+                                className="searchInput"
                                 placeholder="Search Chats"
                                 onChange={this.props.searchGo}
                                 onLoad={this.props.searchGo}

@@ -1,4 +1,4 @@
-export const verifyUser = () => {
+export const verifyUser = (e) => {
     /*NB:
      user={
        password:"",
@@ -6,7 +6,8 @@ export const verifyUser = () => {
      }
   */
     return {
-        type: 'VERIFY_USER'
+        type: 'VERIFY_USER',
+        payload:e
     };
 };
 

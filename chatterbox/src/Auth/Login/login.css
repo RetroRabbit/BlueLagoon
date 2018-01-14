@@ -44,12 +44,14 @@
 	color: white;
 	font-weight: 500;
 	font-size: 20px;
+	outline: none;
 }
 .Login .error-display{ 
 	color: red;
 	margin-top: 20px;
 	text-align: center;
 	width: 100%;
+	margin-bottom: -44px;
   }
 .bottom-text {
 	color: #ffffff;
