@@ -1,0 +1,11 @@
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\bin\Debug\netcoreapp2.0\Chatterbox.deps.json
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\bin\Debug\netcoreapp2.0\Chatterbox.runtimeconfig.json
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\bin\Debug\netcoreapp2.0\Chatterbox.runtimeconfig.dev.json
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\bin\Debug\netcoreapp2.0\Chatterbox.dll
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\obj\Debug\netcoreapp2.0\Chatterbox.csprojResolveAssemblyReference.cache
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\obj\Debug\netcoreapp2.0\Chatterbox.csproj.CoreCompileInputs.cache
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\obj\Debug\netcoreapp2.0\Chatterbox.AssemblyInfoInputs.cache
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\obj\Debug\netcoreapp2.0\Chatterbox.AssemblyInfo.cs
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\bin\Debug\netcoreapp2.0\Chatterbox.pdb
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\obj\Debug\netcoreapp2.0\Chatterbox.dll
+C:\Users\Mahlekenyane Tseole\source\repos\Chatterbox\Chatterbox\obj\Debug\netcoreapp2.0\Chatterbox.pdb
