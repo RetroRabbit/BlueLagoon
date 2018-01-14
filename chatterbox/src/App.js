@@ -14,6 +14,11 @@ import { withRouter } from 'react-router-dom'
 class App extends Component {
     constructor(props) {
         super(props);
+        let user=getCookie("user");
+        if(user)
+            this.props.history.push("/")
+        else
+            this.props.history.push("/auth/login")
     }
     componentDidMount() {
         console.log('TO-DO: Check if user online');
@@ -39,3 +44,13 @@ const mapDispatchToProps = dispatch =>
         dispatch
     );
 export default withRouter(connect(null, mapDispatchToProps)(App));
+function getCookie(cname) {
+        var name = cname + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0; i<ca.length; i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1);
+            if (c.indexOf(name) == 0) return c.substring(name.length,c.length);
+        }
+        return "";
+    } 

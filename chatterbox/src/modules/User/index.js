@@ -2,12 +2,15 @@ import { push } from "react-router-redux/actions";
 import { history } from "../../store";
 
 const ENTER_USER="user/ENTER_USER";
-
+let user=getCookie("user");
+if (user) {
+    user=JSON.parse(user)
+}
 let initialState={
-    id:"",
-    name:"",
-    profile:"",
-    email:"",
+    id:user.id||"",
+    name:user.name||"",
+    image:user.image||"",
+    email:user.email||"",
 }
 
 export default function(state = initialState, action) {
