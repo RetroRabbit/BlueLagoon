@@ -6,7 +6,7 @@ import Button from 'material-ui/Button';
 import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { withRouter } from 'react-router-dom'
-import { verifyUser } from '../../modules/login/login-actions';
+import { verifyUser,handleEmail,handlePassword } from '../../modules/login/login-actions';
 
 class Login extends Component {
     register() {
@@ -23,29 +23,31 @@ class Login extends Component {
                 </div>
                 <div className="Fields">
                     <TextField
-                        Email
                         id="Email"
                         label="Email"
+                        onChange={this.props.handleEmail.bind(this)}
                         className="text-field"
                         margin="normal"
                     />
                     <TextField
-                        Password
                         id="Password"
                         label="Password"
+                        onChange={this.props.handlePassword.bind(this)}
                         className="text-field"
                         margin="normal"
+                        type="password"
                     />
                 </div>
                 <br />
                 <Button onClick={this.props.verify.bind(this)} raised className="button">
                     LOGIN
                 </Button>
+                {this.props.error && <div className="error-display">{this.props.errorMessage}</div>}
                 <p className="bottom-text">
                     No account yet? Get setup now &nbsp;{' '}
                     <i
                         onClick={this.register.bind(this)}
-                        class="fa fa-chevron-down"
+                        className="fa fa-chevron-down"
                         aria-hidden="true"
                     />
                 </p>
@@ -56,14 +58,19 @@ class Login extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.login.user
+        error: state.login.error,
+        errorMessage: state.login.errorMessage,
+        email: state.login.email,
+        password: state.login.password
     };
 }
 
 const mapDispatchToProps = dispatch =>
     bindActionCreators(
         {
-            verify: verifyUser
+            verify: verifyUser,
+            handleEmail,
+            handlePassword
         },
         dispatch
     );
