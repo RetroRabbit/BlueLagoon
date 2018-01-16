@@ -80,7 +80,7 @@ class MenuAppBar extends React.Component {
                                 <div className="profile-img-holder">
                                     <img
                                         className="profile-img profile-user-img"
-                                        src={this.props.user.profilePic}
+                                        src={this.props.user.image}
                                     />
                                 </div>
                             </div>
@@ -154,7 +154,7 @@ const mapStateToProps = state => ({
     phonemode: state.responsive.phonemode,
     phonemodechat: state.responsive.phonemodechat,
     searchShow: state.header.searchShow,
-    user: state.edituser
+    user: state.user
 });
 
 const mapDispatchToProps = dispatch =>
